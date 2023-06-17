@@ -39,7 +39,7 @@ struct CollapsedBlock <Content: View>: View {
         .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 9, style: .continuous)
-                .stroke(Color.borderBackground, lineWidth: 1)
+                .stroke(.borderBackground, lineWidth: 1)
         )
         .shadow(color: Color.black.opacity(0.03), radius: 1, y: 1)
         .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 11, style: .continuous))
@@ -85,7 +85,7 @@ struct CollapsedBlock <Content: View>: View {
             .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: 5, style: .continuous)
-                    .stroke(Color.borderBackground, lineWidth: 1)
+                    .stroke(.borderBackground, lineWidth: 1)
             )
     }
 }

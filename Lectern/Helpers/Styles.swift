@@ -14,7 +14,7 @@ extension View {
             .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: 13, style: .continuous)
-                    .stroke(Color.borderBackground, lineWidth: 1)
+                    .stroke(.borderBackground, lineWidth: 1)
             )
             .shadow(color: Color.black.opacity(0.05), radius: 1, y: 1)
             .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.5 : 0.15), radius: 30, y: 10)
@@ -23,11 +23,11 @@ extension View {
 
     func modalStyle() -> some View {
         self
-            .background(Color.elevatedBackground)
+            .background(.elevatedBackground)
             .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: 13, style: .continuous)
-                    .stroke(Color.borderBackground, lineWidth: 1)
+                    .stroke(.borderBackground, lineWidth: 1)
             )
             .shadow(color: Color.black.opacity(0.05), radius: 1, y: 1)
             .padding([.horizontal, .bottom], 11)

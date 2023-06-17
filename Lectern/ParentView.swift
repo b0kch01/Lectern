@@ -58,7 +58,7 @@ struct ParentView: View {
             , alignment: .bottom
         )
         .background(Color.black.ignoresSafeArea())
-        .accentColor(Color.sub)
+        .accentColor(.sub)
         .scrollDismissesKeyboard(.interactively)
         .environment(cm)
         .environment(vm)
