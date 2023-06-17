@@ -37,7 +37,6 @@ struct EditorContent: View {
                                                 }
                                             }
                                             .scaleEffect(vm.showAI ? 1 : 0.9)
-                                            .blur(radius: vm.showAI ? 0 : 5)
 
                                             Group {
                                                 if !vm.showAI {
@@ -47,7 +46,6 @@ struct EditorContent: View {
                                                 }
                                             }
                                             .scaleEffect(!vm.showAI ? 1 : 0.9)
-                                            .blur(radius: !vm.showAI ? 0 : 5)
                                         }
                                     } else {
                                         VStack(alignment: .leading, spacing: 0) {
@@ -67,7 +65,6 @@ struct EditorContent: View {
                         .safeAreaPadding(.bottom, 95)
                     }
                     .disabled(nvm.showNoteSwitcher)
-                    .padding(.top, vm.shipState != nil || cm.focusState != nil || !vm.selected.isEmpty ? -20 : 0)
                     .background(
                         Color.clear
                             .contentShape(Rectangle())
@@ -100,7 +97,6 @@ struct EditorContent: View {
                                 }
                             }
                             .scaleEffect(vm.showAI ? 1 : 0.9)
-                            .blur(radius: vm.showAI ? 0 : 5)
                         }
                     )
                 )
@@ -109,7 +105,7 @@ struct EditorContent: View {
             FluidGradient(
                 blobs: [
                     Color(.systemBackground).opacity(0.15),
-                    Color(.systemBackground).opacity(0.3),
+                    Color(.systemBackground).opacity(0.5),
                     .primary.opacity(vm.showAI ? 0 : 0.3)
                 ],
                 highlights: [

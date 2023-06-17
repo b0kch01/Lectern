@@ -24,7 +24,7 @@ struct MiscControl: View {
                         SymbolButton(symbol: "arrow.uturn.right")
                     }
 
-                    VerticalBar(color: Color(.systemBackground).opacity(0.2), height: 19)
+                    VerticalBar(color: Color(.secondarySystemFill), height: 19)
 
                     Group {
                         SymbolButton(symbol: "doc.on.doc")
@@ -34,7 +34,7 @@ struct MiscControl: View {
                     .opacity(!vm.selected.isEmpty ? 1 : 0.3)
                     .disabled(!vm.selected.isEmpty ? false : true)
 
-                    VerticalBar(color: Color(.systemBackground).opacity(0.2), height: 19)
+                    VerticalBar(color: Color(.secondarySystemFill), height: 19)
 
                     Group {
                         SymbolButton(symbol: "square.and.arrow.up")

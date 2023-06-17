@@ -29,11 +29,14 @@ struct CenterControl: View {
                     }
 
                     Button(action: {
-                        withAnimation(.smooth(duration: 0.2)) { vm.showAI.toggle() }
+                        withAnimation(.defaultSpring) {
+                            vm.showAI.toggle()
+                        }
                     }) {
-                        Text("ℓ")
-                            .font(.system(size: 24).weight(.medium))
-                            .foregroundColor(vm.showAI ? Color.mainColorInvert : .primary.opacity(0.9))
+                        Image("lectern")
+                            .font(.system(size: 21).weight(.medium))
+                            .symbolEffect(.bounce, value: vm.showAI)
+                            .foregroundColor(vm.showAI ? .mainColorInvert : .primary.opacity(0.9))
                             .frame(width: 18, height: 18)
                             .padding(9)
                             .background(vm.showAI ? Color.main : Color.clear)
