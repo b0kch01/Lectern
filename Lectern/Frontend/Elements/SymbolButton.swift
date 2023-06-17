@@ -11,6 +11,8 @@ struct SymbolButton: View {
 
     @Environment(\.horizontalSizeClass) var sizeClass
 
+    @State var tapped = false
+
     var symbol: String
     var color: Color
     var fill: Color
@@ -24,9 +26,13 @@ struct SymbolButton: View {
     }
 
     var body: some View {
-        Button(action: { action?() }) {
+        Button(action: {
+            action?()
+            tapped.toggle()
+        }) {
             Image(systemName: symbol)
                 .font(.system(size: UIConstants.body).weight(.medium))
+                .symbolEffect(.bounce, value: tapped)
                 .frame(width: 18, height: 18)
                 .padding(sizeClass == .compact ? 13 : 15)
                 .background(fill)

@@ -20,9 +20,10 @@ struct BlurtView: View {
     let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        LazyVStack(alignment: .leading, spacing: 30) {
+        LazyVStack(alignment: .leading, spacing: 20) {
             ForEach(textArray, id: \.self) { text in
                 Text(text)
+                    .font(.title3.weight(.semibold))
                     .foregroundColor(.primary.opacity(text == textArray.last ? 1.0 : 0.5))
                     .scrollTransition(axis: .vertical) { content, phase in
                         content
@@ -32,7 +33,7 @@ struct BlurtView: View {
             }
 
             Image(systemName: "waveform")
-                .font(.largeTitle.weight(.semibold))
+                .font(.title2.weight(.semibold))
                 .foregroundColor(.primary)
                 .symbolEffect(.pulse)
                 .symbolEffect(.bounce, value: bounced)
@@ -41,7 +42,6 @@ struct BlurtView: View {
 
             Spacer()
         }
-        .font(.title.weight(.semibold))
         .padding(.top)
         .padding(.trailing, 30)
         .onReceive(timer) { _ in

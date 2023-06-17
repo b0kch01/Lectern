@@ -17,28 +17,10 @@ final class EditorViewModel {
     var isTitleEditing = false
     var showStudy = false
 
-    var showNotes = false
-    var showNotesAnimate = false
-
-    var showTOB = false
-    var TOBisTrailing = false
-
     // Editor Island states
     var shipState: ShipState? = nil
 
-    // Slash Menu
-    var showAssistant = false
-    var showSlash = false
-
-    var isTrailing = true
-    var startFlashcard = false
-
     var selected = Set<String>()
-
-    // Study
-    var blurFlashcard = false
-
-    var showAllNotes = false
 
     var showAI = false
 }

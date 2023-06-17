@@ -93,8 +93,6 @@ struct NavigationBar: View {
                     withAnimation(.defaultSpring) {
                         vm.selected = []
                         vm.shipState = nil
-                        vm.blurFlashcard = false
-                        vm.showStudy = false
                         cm.focusState = nil
                     }
                 }) {

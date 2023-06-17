@@ -130,7 +130,7 @@ struct EditorContent: View {
                 style: .continuous
             )
         )
-        .shadow(color: Color.black.opacity(nvm.showNoteSwitcher ? 0.9 : 0), radius: 30, y: 0)
+        .shadow(color: Color.black.opacity(nvm.showNoteSwitcher ? 1 : 0), radius: 30, y: 0)
     }
 
     private var spacer: some View {
