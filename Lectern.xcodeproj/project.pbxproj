@@ -60,6 +60,8 @@
 		E99CD2922A3E264300C2987C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2912A3E264300C2987C /* ContentView.swift */; };
 		E99CD2942A3E264400C2987C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99CD2932A3E264400C2987C /* Assets.xcassets */; };
 		E99CD2982A3E264400C2987C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99CD2972A3E264400C2987C /* Preview Assets.xcassets */; };
+		E99CD2A12A3E45F100C2987C /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */; };
+		E99CD2A32A3E4AE400C2987C /* LecternTextReveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +120,8 @@
 		E99CD2952A3E264400C2987C /* Lectern.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lectern.entitlements; sourceTree = "<group>"; };
 		E99CD2972A3E264400C2987C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E99CD29E2A3E44C800C2987C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
+		E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecternTextReveal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 		D44A78962A3E278A0031ECF7 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				E99CD29F2A3E45D200C2987C /* Transcription */,
 				D44A78B22A3E2A4B0031ECF7 /* Content */,
 				D44A78B12A3E29640031ECF7 /* View Model */,
 				D44A789D2A3E27E60031ECF7 /* Block */,
@@ -317,6 +322,7 @@
 				E99CD2932A3E264400C2987C /* Assets.xcassets */,
 				E99CD2952A3E264400C2987C /* Lectern.entitlements */,
 				E99CD2962A3E264400C2987C /* Preview Content */,
+				E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */,
 			);
 			path = Lectern;
 			sourceTree = "<group>";
@@ -327,6 +333,14 @@
 				E99CD2972A3E264400C2987C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E99CD29F2A3E45D200C2987C /* Transcription */ = {
+			isa = PBXGroup;
+			children = (
+				E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */,
+			);
+			path = Transcription;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +438,7 @@
 				D44A78D42A3E2BAA0031ECF7 /* Collection.swift in Sources */,
 				D44A78A02A3E27FD0031ECF7 /* Block.swift in Sources */,
 				D44A78C82A3E2B500031ECF7 /* ButtonStyles.swift in Sources */,
+				E99CD2A32A3E4AE400C2987C /* LecternTextReveal.swift in Sources */,
 				D44A78B82A3E2A950031ECF7 /* ContentManagerStyling.swift in Sources */,
 				D44A78C02A3E2B070031ECF7 /* UIApplication.swift in Sources */,
 				D44A78EC2A3E2D6A0031ECF7 /* BlurtView.swift in Sources */,
@@ -448,6 +463,7 @@
 				D44A78B02A3E29050031ECF7 /* RootBlockView.swift in Sources */,
 				D44A78E82A3E2D4C0031ECF7 /* EditorView.swift in Sources */,
 				D44A78A22A3E28120031ECF7 /* BlockStyle.swift in Sources */,
+				E99CD2A12A3E45F100C2987C /* SpeechRecognition.swift in Sources */,
 				D44A78C22A3E2B290031ECF7 /* Animation.swift in Sources */,
 				D44A78EF2A3E2D820031ECF7 /* NavigationBar.swift in Sources */,
 				D44A78D02A3E2B970031ECF7 /* Modal.swift in Sources */,
