@@ -27,7 +27,7 @@ class LightHaptics {
     private init() { }
 
     func play(_ feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle) {
-        UIImpactFeedbackGenerator(style: feedbackStyle).impactOccurred(intensity: 0.6)
+        UIImpactFeedbackGenerator(style: feedbackStyle).impactOccurred(intensity: 0.5)
     }
 
     func notify(_ feedbackType: UINotificationFeedbackGenerator.FeedbackType) {
