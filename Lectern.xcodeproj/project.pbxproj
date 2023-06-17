@@ -56,6 +56,7 @@
 		D44A79052A3E2E820031ECF7 /* AlphaEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A79042A3E2E820031ECF7 /* AlphaEditorView.swift */; };
 		D44A79072A3E2E8C0031ECF7 /* TestBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A79062A3E2E8C0031ECF7 /* TestBlock.swift */; };
 		D4D678E22A3E2F2D00F3B38E /* FluidGradient in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E12A3E2F2D00F3B38E /* FluidGradient */; };
+		D4D678E72A3E5C3600F3B38E /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E62A3E5C3600F3B38E /* WrappingHStack */; };
 		E99CD2902A3E264300C2987C /* LecternApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD28F2A3E264300C2987C /* LecternApp.swift */; };
 		E99CD2922A3E264300C2987C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2912A3E264300C2987C /* ContentView.swift */; };
 		E99CD2942A3E264400C2987C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99CD2932A3E264400C2987C /* Assets.xcassets */; };
@@ -135,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D678E72A3E5C3600F3B38E /* WrappingHStack in Frameworks */,
 				D4D678E22A3E2F2D00F3B38E /* FluidGradient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +372,7 @@
 			name = Lectern;
 			packageProductDependencies = (
 				D4D678E12A3E2F2D00F3B38E /* FluidGradient */,
+				D4D678E62A3E5C3600F3B38E /* WrappingHStack */,
 			);
 			productName = Lectern;
 			productReference = E99CD28C2A3E264300C2987C /* Lectern.app */;
@@ -401,6 +404,7 @@
 			mainGroup = E99CD2832A3E264300C2987C;
 			packageReferences = (
 				D4D678E02A3E2F2D00F3B38E /* XCRemoteSwiftPackageReference "FluidGradient" */,
+				D4D678E52A3E5C3600F3B38E /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = E99CD28D2A3E264300C2987C /* Products */;
 			projectDirPath = "";
@@ -719,6 +723,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		D4D678E52A3E5C3600F3B38E /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.10;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -726,6 +738,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4D678E02A3E2F2D00F3B38E /* XCRemoteSwiftPackageReference "FluidGradient" */;
 			productName = FluidGradient;
+		};
+		D4D678E62A3E5C3600F3B38E /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4D678E52A3E5C3600F3B38E /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

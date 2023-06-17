@@ -6,30 +6,40 @@
 //
 
 import SwiftUI
+import WrappingHStack
 
 struct BlurtView: View {
 
-    let textArray = [
-        "風に乗って流れる 私達の今は",
-        "どんな国 どんな世界へ行けるんだろう",
-        "メロディの産声に 歓喜して感極まって",
-        "明けては暮れてゆく 小さな毎日"
-    ]
+    @State var nvm = NavigationViewModel()
+    @State var sr = SpeechRecognizer()
+
+    @State var mainText = [String]()
 
     @State var bounced = true
     let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
 
     var body: some View {
         LazyVStack(alignment: .leading, spacing: 20) {
-            ForEach(textArray, id: \.self) { text in
-                Text(text)
+            WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 5) { i in
+                LecternTextReveal(word: mainText[i])
                     .font(.title3.weight(.semibold))
-                    .foregroundStyle(.primary.opacity(text == textArray.last ? 1.0 : 0.5))
+                    .foregroundStyle(.primary.opacity(i == mainText.count - 1 ? 1 : 0.5))
+                    .animation(.spring, value: mainText)
+                    .id(i)
                     .scrollTransition(axis: .vertical) { content, phase in
                         content
                             .blur(radius: phase.isIdentity ? 0 : 2)
                             .opacity(phase.isIdentity ? 1 : 0.5)
                     }
+            }
+            .onChange(of: sr.transcript) {
+                mainText = sr.transcript.components(separatedBy: " ")
+            }
+            .transition(.scale)
+            .animation(.spring, value: sr.transcript)
+            .task {
+                sr.resetTranscript()
+                sr.startTranscribing()
             }
 
             Image(systemName: "waveform")

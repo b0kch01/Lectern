@@ -13,8 +13,11 @@ struct LecternTextReveal: View {
 
     var word: String
 
-    var body: some View {
+    init(word: String) {
+        self.word = word + " "
+    }
 
+    var body: some View {
         Text(word)
             .opacity(0)
             .overlay (
@@ -25,7 +28,7 @@ struct LecternTextReveal: View {
                             .padding(.leading, show ? -0.1 : -5)
                             .opacity(show ? 1 : 0)
                             .scaleEffect(show ? 1 : 0.7, anchor: .bottomLeading)
-                            .animation(Animation.spring().delay(Double(i) * 0.015), value: show)
+                            .animation(.spring.delay(Double(i) * 0.015), value: show)
                     }
                 },
 
