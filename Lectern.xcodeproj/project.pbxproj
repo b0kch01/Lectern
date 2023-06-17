@@ -63,6 +63,7 @@
 		E99CD2A12A3E45F100C2987C /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */; };
 		E99CD2A32A3E4AE400C2987C /* LecternTextReveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */; };
 		E99CD2A62A3E514900C2987C /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A52A3E514900C2987C /* Array.swift */; };
+		E99CD2AB2A3E5EAC00C2987C /* ContentManagerStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +125,7 @@
 		E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 		E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecternTextReveal.swift; sourceTree = "<group>"; };
 		E99CD2A52A3E514900C2987C /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentManagerStudy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				D44A78B32A3E2A5F0031ECF7 /* ContentManager.swift */,
 				D44A78B52A3E2A870031ECF7 /* ContentManagerFolding.swift */,
 				D44A78B72A3E2A950031ECF7 /* ContentManagerStyling.swift */,
+				E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				E99CD2902A3E264300C2987C /* LecternApp.swift in Sources */,
 				D44A78E42A3E2D230031ECF7 /* PlaybackControl.swift in Sources */,
 				D44A78B02A3E29050031ECF7 /* RootBlockView.swift in Sources */,
+				E99CD2AB2A3E5EAC00C2987C /* ContentManagerStudy.swift in Sources */,
 				D44A78E82A3E2D4C0031ECF7 /* EditorView.swift in Sources */,
 				D44A78A22A3E28120031ECF7 /* BlockStyle.swift in Sources */,
 				E99CD2A12A3E45F100C2987C /* SpeechRecognition.swift in Sources */,
