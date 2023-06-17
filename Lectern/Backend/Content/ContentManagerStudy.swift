@@ -6,3 +6,12 @@
 //
 
 import SwiftUI
+
+
+extension ContentManager {
+
+    func blurt() {
+        
+    }
+
+}

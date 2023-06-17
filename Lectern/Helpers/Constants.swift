@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+struct URL_K {
+    static let endpoint = "localhost:3000"
+    static let blur = endpoint
+}
+
 struct CardItem: Identifiable, Hashable {
     var id = UUID()
     var title: String

@@ -64,6 +64,7 @@
 		E99CD2A32A3E4AE400C2987C /* LecternTextReveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */; };
 		E99CD2A62A3E514900C2987C /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A52A3E514900C2987C /* Array.swift */; };
 		E99CD2AB2A3E5EAC00C2987C /* ContentManagerStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */; };
+		E99CD2AD2A3E62E800C2987C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AC2A3E62E800C2987C /* URL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecternTextReveal.swift; sourceTree = "<group>"; };
 		E99CD2A52A3E514900C2987C /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentManagerStudy.swift; sourceTree = "<group>"; };
+		E99CD2AC2A3E62E800C2987C /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				D44A78F42A3E2DBF0031ECF7 /* Keyboard.swift */,
 				D44A78FB2A3E2E380031ECF7 /* Styles.swift */,
 				E99CD2A52A3E514900C2987C /* Array.swift */,
+				E99CD2AC2A3E62E800C2987C /* URL.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				D44A78C02A3E2B070031ECF7 /* UIApplication.swift in Sources */,
 				D44A78EC2A3E2D6A0031ECF7 /* BlurtView.swift in Sources */,
 				D44A78DE2A3E2C930031ECF7 /* CenterControl.swift in Sources */,
+				E99CD2AD2A3E62E800C2987C /* URL.swift in Sources */,
 				D44A78AC2A3E28E10031ECF7 /* BlockView.swift in Sources */,
 				D44A78EA2A3E2D590031ECF7 /* EditorContent.swift in Sources */,
 				D44A78F32A3E2DA00031ECF7 /* SafeAreaBlock.swift in Sources */,
