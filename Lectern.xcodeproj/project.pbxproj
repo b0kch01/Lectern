@@ -117,6 +117,7 @@
 		E99CD2932A3E264400C2987C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E99CD2952A3E264400C2987C /* Lectern.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lectern.entitlements; sourceTree = "<group>"; };
 		E99CD2972A3E264400C2987C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E99CD29E2A3E44C800C2987C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +306,7 @@
 		E99CD28E2A3E264300C2987C /* Lectern */ = {
 			isa = PBXGroup;
 			children = (
+				E99CD29E2A3E44C800C2987C /* Info.plist */,
 				D44A78FF2A3E2E600031ECF7 /* Alpha */,
 				D44A78B92A3E2AA60031ECF7 /* Helpers */,
 				D44A78962A3E278A0031ECF7 /* Backend */,
@@ -586,7 +588,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lectern/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Lectern;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe your studying. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can explain your notes out loud for improved retention.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -625,7 +630,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lectern/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Lectern;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe your studying. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can explain your notes out loud for improved retention.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
