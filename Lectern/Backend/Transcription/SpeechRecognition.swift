@@ -67,21 +67,15 @@ class SpeechRecognizer {
     }
 
     @MainActor func startTranscribing() {
-        Task {
-            await transcribe()
-        }
+        transcribe()
     }
 
     @MainActor func resetTranscript() {
-        Task {
-            await reset()
-        }
+        reset()
     }
 
     @MainActor func stopTranscribing() {
-        Task {
-            await reset()
-        }
+        reset()
     }
 
     /**

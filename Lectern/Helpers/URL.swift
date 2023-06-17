@@ -6,3 +6,9 @@
 //
 
 import SwiftUI
+
+extension String {
+    func path(_ other: String) -> String {
+        return self.hasSuffix("/") ? self + other : self + "/" + other
+    }
+}

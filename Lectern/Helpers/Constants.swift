@@ -9,7 +9,8 @@ import SwiftUI
 
 struct URL_K {
     static let endpoint = "localhost:3000"
-    static let blur = endpoint
+    static let blurt = endpoint.path("blurt")
+    static let practice = endpoint.path("practice")
 }
 
 struct CardItem: Identifiable, Hashable {
