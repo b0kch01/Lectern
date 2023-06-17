@@ -62,6 +62,7 @@
 		E99CD2982A3E264400C2987C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99CD2972A3E264400C2987C /* Preview Assets.xcassets */; };
 		E99CD2A12A3E45F100C2987C /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */; };
 		E99CD2A32A3E4AE400C2987C /* LecternTextReveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */; };
+		E99CD2A62A3E514900C2987C /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A52A3E514900C2987C /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,7 @@
 		E99CD29E2A3E44C800C2987C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 		E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecternTextReveal.swift; sourceTree = "<group>"; };
+		E99CD2A52A3E514900C2987C /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				D44A78CF2A3E2B970031ECF7 /* Modal.swift */,
 				D44A78F42A3E2DBF0031ECF7 /* Keyboard.swift */,
 				D44A78FB2A3E2E380031ECF7 /* Styles.swift */,
+				E99CD2A52A3E514900C2987C /* Array.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				D44A789C2A3E27D50031ECF7 /* NavigationViewModel.swift in Sources */,
 				D44A78BB2A3E2ABB0031ECF7 /* Constants.swift in Sources */,
 				D44A78B42A3E2A5F0031ECF7 /* ContentManager.swift in Sources */,
+				E99CD2A62A3E514900C2987C /* Array.swift in Sources */,
 				D44A78FE2A3E2E540031ECF7 /* TextBlockViewModel.swift in Sources */,
 				D44A78AE2A3E28F60031ECF7 /* FoldableBlock.swift in Sources */,
 				D44A78AA2A3E28B40031ECF7 /* TextStyleStandard.swift in Sources */,

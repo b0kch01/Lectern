@@ -11,29 +11,30 @@ struct LecternTextReveal: View {
 
     @State var show = false
 
-
-    let word: String
+    var word: String
 
     var body: some View {
-        VStack {
-            Text(word)
-                .opacity(0)
-                .overlay (
-                    HStack(spacing: 0) {
-                        ForEach(0..<word.count, id:\.self) { i in
-                            Text(String(word[i]))
-                                .padding(.horizontal, -0.1)
-                                .scaleEffect(show ? 1 : 0.5, anchor: .bottomLeading)
-                        }
-                    },
 
-                    alignment: .center
-                )
+        Text(word)
+            .opacity(0)
+            .overlay (
+                HStack(spacing: 0) {
+                    ForEach(0..<word.count, id:\.self) { i in
+                        Text(String(word[i]))
+                            .padding(.horizontal, -0.1)
+                            .padding(.leading, show ? -0.1 : -5)
+                            .opacity(show ? 1 : 0)
+                            .scaleEffect(show ? 1 : 0.7, anchor: .bottomLeading)
+                            .animation(Animation.spring().delay(Double(i) * 0.015), value: show)
+                    }
+                },
 
-            Button("TOGGLE") {
-                try? await Task.sleep(nanoseconds: UInt64(0.5) * 1_000_000_000)
+                alignment: .center
+            )
+            .onAppear {
+                show.toggle()
             }
-        }
+
     }
 }
 

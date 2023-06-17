@@ -16,18 +16,31 @@ struct ContentView: View {
 
     var body: some View {
 //        ParentView()
-        Text("Hello")
+        HStack(spacing: 5) {
+            ForEach(mainText.indices, id:\.self) { i in
+                LecternTextReveal(word: mainText[i])
+                    .animation(.spring)
+                    .id(i)
+            }
+        }
+        .onChange(of: sr.transcript) {
+            mainText = sr.transcript.components(separatedBy: " ")
+        }
                 .transition(.scale)
                 .animation(.spring, value: sr.transcript)
                 .environment(nvm)
                 .task {
-//                    print("STARTIN SCRIPT")
-//                    sr.resetTranscript()
-//                    sr.startTranscribing()
-//
-//                    //try? await Task.sleep(nanoseconds: 5_000_000_000)
-//                    //sr.stopTranscribing()
-//                    //print(sr.transcript)
+                    print("STARTIN SCRIPT")
+                    sr.resetTranscript()
+                    sr.startTranscribing()
+
+                    //try? await Task.sleep(nanoseconds: 5_000_000_000)
+                    //sr.stopTranscribing()
+                    //print(sr.transcript)
                 }
     }
+}
+
+#Preview {
+    ContentView()
 }
