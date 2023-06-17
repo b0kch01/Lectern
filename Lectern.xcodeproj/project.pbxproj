@@ -62,7 +62,7 @@
 		E99CD2942A3E264400C2987C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99CD2932A3E264400C2987C /* Assets.xcassets */; };
 		E99CD2982A3E264400C2987C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99CD2972A3E264400C2987C /* Preview Assets.xcassets */; };
 		E99CD2A12A3E45F100C2987C /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */; };
-		E99CD2A32A3E4AE400C2987C /* LecternTextReveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */; };
+		E99CD2A32A3E4AE400C2987C /* BlurtTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A22A3E4AE400C2987C /* BlurtTextView.swift */; };
 		E99CD2A62A3E514900C2987C /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A52A3E514900C2987C /* Array.swift */; };
 		E99CD2AB2A3E5EAC00C2987C /* ContentManagerStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */; };
 		E99CD2AD2A3E62E800C2987C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AC2A3E62E800C2987C /* URL.swift */; };
@@ -125,7 +125,7 @@
 		E99CD2972A3E264400C2987C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E99CD29E2A3E44C800C2987C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
-		E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecternTextReveal.swift; sourceTree = "<group>"; };
+		E99CD2A22A3E4AE400C2987C /* BlurtTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurtTextView.swift; sourceTree = "<group>"; };
 		E99CD2A52A3E514900C2987C /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentManagerStudy.swift; sourceTree = "<group>"; };
 		E99CD2AC2A3E62E800C2987C /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -256,11 +256,11 @@
 		D44A78DB2A3E2C780031ECF7 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				D4D678E82A3E6BE000F3B38E /* Blurt */,
 				D44A78ED2A3E2D7A0031ECF7 /* Navigation */,
 				D44A78DC2A3E2C860031ECF7 /* Controls */,
 				D44A78E72A3E2D4C0031ECF7 /* EditorView.swift */,
 				D44A78E92A3E2D590031ECF7 /* EditorContent.swift */,
-				D44A78EB2A3E2D6A0031ECF7 /* BlurtView.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -303,6 +303,15 @@
 			path = Alpha;
 			sourceTree = "<group>";
 		};
+		D4D678E82A3E6BE000F3B38E /* Blurt */ = {
+			isa = PBXGroup;
+			children = (
+				D44A78EB2A3E2D6A0031ECF7 /* BlurtView.swift */,
+				E99CD2A22A3E4AE400C2987C /* BlurtTextView.swift */,
+			);
+			path = Blurt;
+			sourceTree = "<group>";
+		};
 		E99CD2832A3E264300C2987C = {
 			isa = PBXGroup;
 			children = (
@@ -333,7 +342,6 @@
 				E99CD2932A3E264400C2987C /* Assets.xcassets */,
 				E99CD2952A3E264400C2987C /* Lectern.entitlements */,
 				E99CD2962A3E264400C2987C /* Preview Content */,
-				E99CD2A22A3E4AE400C2987C /* LecternTextReveal.swift */,
 			);
 			path = Lectern;
 			sourceTree = "<group>";
@@ -452,7 +460,7 @@
 				D44A78D42A3E2BAA0031ECF7 /* Collection.swift in Sources */,
 				D44A78A02A3E27FD0031ECF7 /* Block.swift in Sources */,
 				D44A78C82A3E2B500031ECF7 /* ButtonStyles.swift in Sources */,
-				E99CD2A32A3E4AE400C2987C /* LecternTextReveal.swift in Sources */,
+				E99CD2A32A3E4AE400C2987C /* BlurtTextView.swift in Sources */,
 				D44A78B82A3E2A950031ECF7 /* ContentManagerStyling.swift in Sources */,
 				D44A78C02A3E2B070031ECF7 /* UIApplication.swift in Sources */,
 				D44A78EC2A3E2D6A0031ECF7 /* BlurtView.swift in Sources */,

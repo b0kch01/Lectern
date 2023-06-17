@@ -1,5 +1,5 @@
 //
-//  LecternTextReveal.swift
+//  BlurtTextView.swift
 //  Lectern
 //
 //  Created by Nathan Choi on 6/17/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LecternTextReveal: View {
+struct BlurtTextView: View {
 
     @State var show = false
 
@@ -39,8 +39,4 @@ struct LecternTextReveal: View {
             }
 
     }
-}
-
-#Preview {
-    LecternTextReveal(word: "Anticipation")
 }

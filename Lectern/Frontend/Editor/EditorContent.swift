@@ -94,6 +94,7 @@ struct EditorContent: View {
                                     }
                                     .safeAreaPadding(.top, 120)
                                     .safeAreaPadding(.bottom, 95)
+                                    .scrollPosition(initialAnchor: .bottom)
                                 }
                             }
                             .scaleEffect(vm.showAI ? 1 : 0.9)

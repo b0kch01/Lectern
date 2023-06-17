@@ -7,8 +7,11 @@
 
 import SwiftUI
 import WrappingHStack
+import Speech
 
 struct BlurtView: View {
+
+    @State private var directoryAccessError: Error?
 
     @State var nvm = NavigationViewModel()
     @State var sr = SpeechRecognizer()
@@ -21,26 +24,17 @@ struct BlurtView: View {
     var body: some View {
         LazyVStack(alignment: .leading, spacing: 20) {
             WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 5) { i in
-                LecternTextReveal(word: mainText[i])
+                BlurtTextView(word: mainText[i])
                     .font(.title3.weight(.semibold))
                     .foregroundStyle(.primary.opacity(i == mainText.count - 1 ? 1 : 0.5))
                     .animation(.spring, value: mainText)
                     .id(i)
-                    .scrollTransition(axis: .vertical) { content, phase in
-                        content
-                            .blur(radius: phase.isIdentity ? 0 : 2)
-                            .opacity(phase.isIdentity ? 1 : 0.5)
-                    }
             }
             .onChange(of: sr.transcript) {
                 mainText = sr.transcript.components(separatedBy: " ")
             }
             .transition(.scale)
             .animation(.spring, value: sr.transcript)
-            .task {
-                sr.resetTranscript()
-                sr.startTranscribing()
-            }
 
             Image(systemName: "waveform")
                 .font(.title2.weight(.semibold))
@@ -56,6 +50,12 @@ struct BlurtView: View {
         .padding(.trailing, 30)
         .onReceive(timer) { _ in
             bounced.toggle()
+        }
+        .task {
+            sr.resetTranscript()
+            try? await Task.sleep(nanoseconds: 500_000_000)
+
+            sr.startTranscribing()
         }
     }
 }
