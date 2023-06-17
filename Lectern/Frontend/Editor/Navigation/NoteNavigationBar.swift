@@ -23,7 +23,7 @@ struct NoteSwitcherNavigationBar: View {
                             text: $noteTitle
                         )
                         .font(.system(size: UIConstants.callout).weight(.medium))
-                        .foregroundColor(Color.white.opacity(0.9))
+                        .foregroundStyle(Color.white.opacity(0.9))
                         .multilineTextAlignment(.center)
                         .lineLimit(1)
                         .padding(.horizontal)

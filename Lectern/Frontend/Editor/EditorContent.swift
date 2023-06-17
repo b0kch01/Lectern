@@ -120,7 +120,7 @@ struct EditorContent: View {
             .ignoresSafeArea()
         )
         .overlay(
-            SafeAreaBlock(isTop: true)
+            SafeAreaBlock(isTop: true, minimized: cm.focusState != nil || vm.shipState != nil || vm.selected != [])
             , alignment: .top
         )
         .clipShape(

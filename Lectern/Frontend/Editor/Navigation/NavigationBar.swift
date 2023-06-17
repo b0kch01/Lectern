@@ -70,7 +70,7 @@ struct NavigationBar: View {
             }
             .padding(.vertical)
             .padding(.horizontal, 30)
-            .foregroundColor(.primary.opacity(0.9))
+            .foregroundStyle(.primary.opacity(0.9))
             .opacity(minimized ? 0 : 1)
             .overlay(
                 checkMarkButton

@@ -24,7 +24,7 @@ struct BlurtView: View {
             ForEach(textArray, id: \.self) { text in
                 Text(text)
                     .font(.title3.weight(.semibold))
-                    .foregroundColor(.primary.opacity(text == textArray.last ? 1.0 : 0.5))
+                    .foregroundStyle(.primary.opacity(text == textArray.last ? 1.0 : 0.5))
                     .scrollTransition(axis: .vertical) { content, phase in
                         content
                             .blur(radius: phase.isIdentity ? 0 : 2)
@@ -34,7 +34,7 @@ struct BlurtView: View {
 
             Image(systemName: "waveform")
                 .font(.title2.weight(.semibold))
-                .foregroundColor(.primary)
+                .foregroundStyle(.primary)
                 .symbolEffect(.pulse)
                 .symbolEffect(.bounce, value: bounced)
                 .opacity(0.9)

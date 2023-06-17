@@ -79,7 +79,7 @@ struct CollapsedBlock <Content: View>: View {
     private var texCard: some View {
         Image(systemName: "ellipsis")
             .font(.system(size: UIConstants.callout).weight(.bold))
-            .foregroundColor(Color(.tertiaryLabel))
+            .foregroundStyle(Color(.tertiaryLabel))
             .frame(width: 35, height: 47)
             .background(Color(.tertiarySystemBackground))
             .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))

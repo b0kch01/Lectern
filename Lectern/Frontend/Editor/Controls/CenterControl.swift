@@ -33,10 +33,10 @@ struct CenterControl: View {
                             vm.showAI.toggle()
                         }
                     }) {
-                        Image("lectern")
+                        Image(.lectern)
                             .font(.system(size: 21).weight(.medium))
                             .symbolEffect(.bounce, value: vm.showAI)
-                            .foregroundColor(vm.showAI ? .mainColorInvert : .primary.opacity(0.9))
+                            .foregroundStyle(vm.showAI ? .mainColorInvert : .primary.opacity(0.9))
                             .frame(width: 18, height: 18)
                             .padding(9)
                             .background(vm.showAI ? Color.main : Color.clear)
@@ -62,7 +62,7 @@ struct CenterControl: View {
                     Image(systemName: "ellipsis")
                         .font(.system(size: 18).weight(.medium))
                         .symbolEffect(.bounce, value: vm.shipState == .misc)
-                        .foregroundColor(vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9))
+                        .foregroundStyle(vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9))
                         .frame(width: 18, height: 18)
                         .padding(9)
                         .background(vm.shipState == .misc ? Color.main : Color.clear)
@@ -86,7 +86,7 @@ struct CenterControl: View {
                 PlaybackControl()
                     .opacity(vm.showAI ? 1 : 0)
             )
-            .foregroundColor(.primary.opacity(0.9))
+            .foregroundStyle(.primary.opacity(0.9))
         }
     }
 }
