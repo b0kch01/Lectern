@@ -29,14 +29,17 @@ struct CenterControl: View {
                     }
 
                     Button(action: {
-                        withAnimation(.smooth(duration: 0.2)) { vm.showAI.toggle() }
+                        withAnimation(.defaultSpring) {
+                            vm.showAI.toggle()
+                        }
                     }) {
-                        Text("ℓ")
-                            .font(.system(size: 24).weight(.medium))
-                            .foregroundColor(vm.showAI ? Color.mainColorInvert : .primary.opacity(0.9))
+                        Image(.lectern)
+                            .font(.system(size: 21).weight(.medium))
+                            .symbolEffect(.bounce, value: vm.showAI)
+                            .foregroundStyle(vm.showAI ? .mainColorInvert : .primary.opacity(0.9))
                             .frame(width: 18, height: 18)
                             .padding(9)
-                            .background(vm.showAI ? Color.main : Color.clear)
+                            .background(vm.showAI ? .main : Color.clear)
                             .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
                             .contentShape(Rectangle())
                             .hoverEffect(.highlight)
@@ -59,10 +62,10 @@ struct CenterControl: View {
                     Image(systemName: "ellipsis")
                         .font(.system(size: 18).weight(.medium))
                         .symbolEffect(.bounce, value: vm.shipState == .misc)
-                        .foregroundColor(vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9))
+                        .foregroundStyle(vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9))
                         .frame(width: 18, height: 18)
                         .padding(9)
-                        .background(vm.shipState == .misc ? Color.main : Color.clear)
+                        .background(vm.shipState == .misc ? .main : Color.clear)
                         .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
                         .contentShape(Rectangle())
                         .hoverEffect(.highlight)
@@ -70,7 +73,6 @@ struct CenterControl: View {
                 .opacity(vm.showAI ? 0 : 1)
 
                 Spacer()
-
             }
             .padding(.top, 13)
             .padding(.bottom, 16)
@@ -83,7 +85,7 @@ struct CenterControl: View {
                 PlaybackControl()
                     .opacity(vm.showAI ? 1 : 0)
             )
-            .foregroundColor(.primary.opacity(0.9))
+            .foregroundStyle(.primary.opacity(0.9))
         }
     }
 }

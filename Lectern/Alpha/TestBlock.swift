@@ -58,11 +58,11 @@ struct TestBlock: View {
 
                 HStack(spacing: 10) {
                     Text("ID: \(block.id);")
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     Text("Indent: \(block.indent);")
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                     Text("Height: ~\(Int(lineHeight))pt")
-                        .foregroundColor(.purple)
+                        .foregroundStyle(.purple)
                 }
                 .font(.system(.caption, design: .monospaced))
 

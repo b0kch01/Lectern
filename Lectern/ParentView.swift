@@ -31,7 +31,7 @@ struct ParentView: View {
                 SafeAreaBlock(isTop: false, isDark: true)
             }
             .opacity(nvm.showNoteSwitcher ? 1 : 0)
-            .ignoresSafeArea(.container)
+            .ignoresSafeArea()
         )
         .overlay(
             NavigationBar(

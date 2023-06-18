@@ -7,9 +7,29 @@
 
 import SwiftUI
 import Observation
+import SwiftData
+
+enum StudyStatus: Hashable {
+    case idle
+    case transcribing
+    case transcribingPaused
+    case blurting
+}
 
 @Observable
 class ContentManager {
+
+
+    let sr = SpeechRecognizer()
+    // STUDY STUFF
+
+    var study: [String: StudyFeedback] = [:]
+    var studyState = StudyStatus.idle
+
+    var blurtVM = BlurtViewModel()
+
+
+
     // DO NOT PUBLISH
     var selectState: NSRange? = NSRange(location: 0, length: 0)
 

@@ -56,10 +56,15 @@
 		D44A79052A3E2E820031ECF7 /* AlphaEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A79042A3E2E820031ECF7 /* AlphaEditorView.swift */; };
 		D44A79072A3E2E8C0031ECF7 /* TestBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A79062A3E2E8C0031ECF7 /* TestBlock.swift */; };
 		D4D678E22A3E2F2D00F3B38E /* FluidGradient in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E12A3E2F2D00F3B38E /* FluidGradient */; };
+		D4D678E72A3E5C3600F3B38E /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E62A3E5C3600F3B38E /* WrappingHStack */; };
 		E99CD2902A3E264300C2987C /* LecternApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD28F2A3E264300C2987C /* LecternApp.swift */; };
 		E99CD2922A3E264300C2987C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2912A3E264300C2987C /* ContentView.swift */; };
 		E99CD2942A3E264400C2987C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99CD2932A3E264400C2987C /* Assets.xcassets */; };
 		E99CD2982A3E264400C2987C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99CD2972A3E264400C2987C /* Preview Assets.xcassets */; };
+		E99CD2A12A3E45F100C2987C /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */; };
+		E99CD2A62A3E514900C2987C /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A52A3E514900C2987C /* Array.swift */; };
+		E99CD2AB2A3E5EAC00C2987C /* ContentManagerStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */; };
+		E99CD2AD2A3E62E800C2987C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AC2A3E62E800C2987C /* URL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +122,11 @@
 		E99CD2932A3E264400C2987C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E99CD2952A3E264400C2987C /* Lectern.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lectern.entitlements; sourceTree = "<group>"; };
 		E99CD2972A3E264400C2987C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E99CD29E2A3E44C800C2987C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
+		E99CD2A52A3E514900C2987C /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentManagerStudy.swift; sourceTree = "<group>"; };
+		E99CD2AC2A3E62E800C2987C /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D678E72A3E5C3600F3B38E /* WrappingHStack in Frameworks */,
 				D4D678E22A3E2F2D00F3B38E /* FluidGradient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +145,7 @@
 		D44A78962A3E278A0031ECF7 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				E99CD29F2A3E45D200C2987C /* Transcription */,
 				D44A78B22A3E2A4B0031ECF7 /* Content */,
 				D44A78B12A3E29640031ECF7 /* View Model */,
 				D44A789D2A3E27E60031ECF7 /* Block */,
@@ -188,6 +200,7 @@
 				D44A78B32A3E2A5F0031ECF7 /* ContentManager.swift */,
 				D44A78B52A3E2A870031ECF7 /* ContentManagerFolding.swift */,
 				D44A78B72A3E2A950031ECF7 /* ContentManagerStyling.swift */,
+				E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -210,6 +223,8 @@
 				D44A78CF2A3E2B970031ECF7 /* Modal.swift */,
 				D44A78F42A3E2DBF0031ECF7 /* Keyboard.swift */,
 				D44A78FB2A3E2E380031ECF7 /* Styles.swift */,
+				E99CD2A52A3E514900C2987C /* Array.swift */,
+				E99CD2AC2A3E62E800C2987C /* URL.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -239,11 +254,11 @@
 		D44A78DB2A3E2C780031ECF7 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				D4D678E82A3E6BE000F3B38E /* Blurt */,
 				D44A78ED2A3E2D7A0031ECF7 /* Navigation */,
 				D44A78DC2A3E2C860031ECF7 /* Controls */,
 				D44A78E72A3E2D4C0031ECF7 /* EditorView.swift */,
 				D44A78E92A3E2D590031ECF7 /* EditorContent.swift */,
-				D44A78EB2A3E2D6A0031ECF7 /* BlurtView.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -286,6 +301,14 @@
 			path = Alpha;
 			sourceTree = "<group>";
 		};
+		D4D678E82A3E6BE000F3B38E /* Blurt */ = {
+			isa = PBXGroup;
+			children = (
+				D44A78EB2A3E2D6A0031ECF7 /* BlurtView.swift */,
+			);
+			path = Blurt;
+			sourceTree = "<group>";
+		};
 		E99CD2832A3E264300C2987C = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +328,7 @@
 		E99CD28E2A3E264300C2987C /* Lectern */ = {
 			isa = PBXGroup;
 			children = (
+				E99CD29E2A3E44C800C2987C /* Info.plist */,
 				D44A78FF2A3E2E600031ECF7 /* Alpha */,
 				D44A78B92A3E2AA60031ECF7 /* Helpers */,
 				D44A78962A3E278A0031ECF7 /* Backend */,
@@ -327,6 +351,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E99CD29F2A3E45D200C2987C /* Transcription */ = {
+			isa = PBXGroup;
+			children = (
+				E99CD2A02A3E45F100C2987C /* SpeechRecognition.swift */,
+			);
+			path = Transcription;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -345,6 +377,7 @@
 			name = Lectern;
 			packageProductDependencies = (
 				D4D678E12A3E2F2D00F3B38E /* FluidGradient */,
+				D4D678E62A3E5C3600F3B38E /* WrappingHStack */,
 			);
 			productName = Lectern;
 			productReference = E99CD28C2A3E264300C2987C /* Lectern.app */;
@@ -376,6 +409,7 @@
 			mainGroup = E99CD2832A3E264300C2987C;
 			packageReferences = (
 				D4D678E02A3E2F2D00F3B38E /* XCRemoteSwiftPackageReference "FluidGradient" */,
+				D4D678E52A3E5C3600F3B38E /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = E99CD28D2A3E264300C2987C /* Products */;
 			projectDirPath = "";
@@ -410,6 +444,7 @@
 				D44A789C2A3E27D50031ECF7 /* NavigationViewModel.swift in Sources */,
 				D44A78BB2A3E2ABB0031ECF7 /* Constants.swift in Sources */,
 				D44A78B42A3E2A5F0031ECF7 /* ContentManager.swift in Sources */,
+				E99CD2A62A3E514900C2987C /* Array.swift in Sources */,
 				D44A78FE2A3E2E540031ECF7 /* TextBlockViewModel.swift in Sources */,
 				D44A78AE2A3E28F60031ECF7 /* FoldableBlock.swift in Sources */,
 				D44A78AA2A3E28B40031ECF7 /* TextStyleStandard.swift in Sources */,
@@ -426,6 +461,7 @@
 				D44A78C02A3E2B070031ECF7 /* UIApplication.swift in Sources */,
 				D44A78EC2A3E2D6A0031ECF7 /* BlurtView.swift in Sources */,
 				D44A78DE2A3E2C930031ECF7 /* CenterControl.swift in Sources */,
+				E99CD2AD2A3E62E800C2987C /* URL.swift in Sources */,
 				D44A78AC2A3E28E10031ECF7 /* BlockView.swift in Sources */,
 				D44A78EA2A3E2D590031ECF7 /* EditorContent.swift in Sources */,
 				D44A78F32A3E2DA00031ECF7 /* SafeAreaBlock.swift in Sources */,
@@ -444,8 +480,10 @@
 				E99CD2902A3E264300C2987C /* LecternApp.swift in Sources */,
 				D44A78E42A3E2D230031ECF7 /* PlaybackControl.swift in Sources */,
 				D44A78B02A3E29050031ECF7 /* RootBlockView.swift in Sources */,
+				E99CD2AB2A3E5EAC00C2987C /* ContentManagerStudy.swift in Sources */,
 				D44A78E82A3E2D4C0031ECF7 /* EditorView.swift in Sources */,
 				D44A78A22A3E28120031ECF7 /* BlockStyle.swift in Sources */,
+				E99CD2A12A3E45F100C2987C /* SpeechRecognition.swift in Sources */,
 				D44A78C22A3E2B290031ECF7 /* Animation.swift in Sources */,
 				D44A78EF2A3E2D820031ECF7 /* NavigationBar.swift in Sources */,
 				D44A78D02A3E2B970031ECF7 /* Modal.swift in Sources */,
@@ -582,11 +620,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lectern/Preview Content\"";
-				DEVELOPMENT_TEAM = HNTJS4YZQU;
+				DEVELOPMENT_TEAM = C4DBP4HKWQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lectern/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Lectern;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe your studying. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can explain your notes out loud for improved retention.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -595,8 +636,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -621,11 +662,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lectern/Preview Content\"";
-				DEVELOPMENT_TEAM = HNTJS4YZQU;
+				DEVELOPMENT_TEAM = C4DBP4HKWQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lectern/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Lectern;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe your studying. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can explain your notes out loud for improved retention.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -634,8 +678,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -683,6 +727,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		D4D678E52A3E5C3600F3B38E /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.10;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -690,6 +742,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4D678E02A3E2F2D00F3B38E /* XCRemoteSwiftPackageReference "FluidGradient" */;
 			productName = FluidGradient;
+		};
+		D4D678E62A3E5C3600F3B38E /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4D678E52A3E5C3600F3B38E /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

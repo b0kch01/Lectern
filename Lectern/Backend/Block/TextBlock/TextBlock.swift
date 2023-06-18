@@ -137,7 +137,7 @@ struct TextBlock: View {
     var deletionIndicator: some View {
         CenterStack {
             Image(systemName: "trash.fill")
-                .foregroundColor(swipeSnap ? .red : .primary.opacity(0.5))
+                .foregroundStyle(swipeSnap ? .red : .primary.opacity(0.5))
                 .font(.system(size: UIConstants.title3).weight(.medium))
         }
         .frame(width: max(0, -offsetX - 18), alignment: .trailing)

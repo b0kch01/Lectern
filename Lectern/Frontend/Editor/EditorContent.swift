@@ -37,7 +37,6 @@ struct EditorContent: View {
                                                 }
                                             }
                                             .scaleEffect(vm.showAI ? 1 : 0.9)
-                                            .blur(radius: vm.showAI ? 0 : 5)
 
                                             Group {
                                                 if !vm.showAI {
@@ -47,7 +46,6 @@ struct EditorContent: View {
                                                 }
                                             }
                                             .scaleEffect(!vm.showAI ? 1 : 0.9)
-                                            .blur(radius: !vm.showAI ? 0 : 5)
                                         }
                                     } else {
                                         VStack(alignment: .leading, spacing: 0) {
@@ -66,8 +64,6 @@ struct EditorContent: View {
                         .safeAreaPadding(.top, 120)
                         .safeAreaPadding(.bottom, 95)
                     }
-                    .disabled(nvm.showNoteSwitcher)
-                    .padding(.top, vm.shipState != nil || cm.focusState != nil || !vm.selected.isEmpty ? -20 : 0)
                     .background(
                         Color.clear
                             .contentShape(Rectangle())
@@ -97,25 +93,32 @@ struct EditorContent: View {
                                     }
                                     .safeAreaPadding(.top, 120)
                                     .safeAreaPadding(.bottom, 95)
+                                    .scrollPosition(initialAnchor: .bottom)
                                 }
                             }
                             .scaleEffect(vm.showAI ? 1 : 0.9)
-                            .blur(radius: vm.showAI ? 0 : 5)
                         }
                     )
+                    .disabled(nvm.showNoteSwitcher)
                 )
         }
+        .background(
+            Color(.systemBackground)
+                .ignoresSafeArea()
+                .opacity(nvm.showNoteSwitcher ? 1 : 0)
+                .brightness(colorScheme == .dark ? 0.15 : -0.15)
+        )
         .background(
             FluidGradient(
                 blobs: [
                     Color(.systemBackground).opacity(0.15),
-                    Color(.systemBackground).opacity(0.3),
+                    Color(.systemBackground).opacity(0.5),
                     .primary.opacity(vm.showAI ? 0 : 0.3)
                 ],
                 highlights: [
                     colorScheme == .dark ? .black.opacity(0.9) : .white.opacity(0.5),
-                    Color.yellow.opacity(vm.showAI ? (colorScheme == .dark ? 0.3 : 0.5) : 0),
-                    Color.teal.opacity(vm.showAI ? (colorScheme == .dark ? 0.3 : 0.5) : 0)
+                    Color.yellow.opacity(vm.showAI ? (colorScheme == .dark ? 0.2 : 0.5) : 0),
+                    Color.teal.opacity(vm.showAI ? (colorScheme == .dark ? 0.2 : 0.5) : 0)
                 ],
                 speed: 0.3,
                 blur: 0.9
@@ -124,7 +127,7 @@ struct EditorContent: View {
             .ignoresSafeArea()
         )
         .overlay(
-            SafeAreaBlock(isTop: true)
+            SafeAreaBlock(isTop: true, minimized: cm.focusState != nil || vm.shipState != nil || vm.selected != [])
             , alignment: .top
         )
         .clipShape(
@@ -134,7 +137,7 @@ struct EditorContent: View {
                 style: .continuous
             )
         )
-        .shadow(color: Color.black.opacity(nvm.showNoteSwitcher ? 0.9 : 0), radius: 30, y: 0)
+        .shadow(color: Color.black.opacity(nvm.showNoteSwitcher ? 1 : 0), radius: 30, y: 0)
     }
 
     private var spacer: some View {
@@ -149,6 +152,7 @@ struct EditorContent: View {
                             vm.shipState = nil
                         }
                     }
+                    .disabled(vm.showAI)
             }
         }
     }

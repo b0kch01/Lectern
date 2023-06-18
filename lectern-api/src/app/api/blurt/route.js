@@ -9,12 +9,13 @@ const openai = new OpenAIApi(configuration);
 
 // USER BLURTS AND GPT GIVES FEED BACK 
 export async function GET(request) {
-  if(request){
+  if (request) {
     console.log(request.headers)
 
     var headingValue = request.headers.get("heading");
     var notesValue = request.headers.get("notes");
     var transcriptValue = request.headers.get("transcript");
+
 
     console.log(typeof(request.headers))
     console.log('Heading:', headingValue);
@@ -39,6 +40,7 @@ export async function GET(request) {
       {"role": "user", "content": `${user_prompt}`},
     ]
     });
+
   console.log(completion.data.choices[0].message);
 
   return new Response(`${JSON.stringify(completion.data.choices[0].message)}`);

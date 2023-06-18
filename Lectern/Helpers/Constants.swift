@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+struct URL_K {
+    static let endpoint = "https://lectern-api.vercel.app"
+    static let blurt = endpoint.path("api/blurt")
+    static let practice = endpoint.path("api/practice")
+}
+
 struct CardItem: Identifiable, Hashable {
     var id = UUID()
     var title: String

@@ -43,6 +43,7 @@ export async function GET(request){
             {"role": "user", "content": `user response: ${transcriptValue}`}
         ]
     });
+
     console.log(completion.data.choices[0].message);
 
     return new Response(`${JSON.stringify(completion.data.choices[0].message)}`);
