@@ -89,7 +89,7 @@ struct EditorContent: View {
                                         BlurtView()
                                             .padding(.top)
                                             .padding(.horizontal, 30)
-                                            .padding(.bottom, geometry.size.height/2)
+                                            .padding(.bottom, cm.focusState != nil ? geometry.size.height/2 : 10)
                                     }
                                     .safeAreaPadding(.top, 120)
                                     .safeAreaPadding(.bottom, 95)

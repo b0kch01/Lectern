@@ -35,12 +35,14 @@ class ContentManager {
 
     var focusState: String? = nil
     var contentTree: [String: Block] = [
-        "root": Block(id: "root", type: .rootBlock, children: ["1", "2", "3", "5"]),
-        "1": Block(id: "1", type: .textBlock, text: "Table of contents", textType: .header),
-        "2": Block(id: "2", type: .textBlock, text: "To view and navigate through the different parts of this note, tap on ℓ to bring up the table of contents for quick access.", textType: .body),
-        "3": Block(id: "3", type: .textBlock, children: ["4"], text: "Typing notes", textType: .header),
-        "4": Block(id: "4", type: .textBlock, text: "Tap on any empty space to start typing. Lectern uses a block based editing system so that you can drag to reorder and style entire blocks with a few swipes. Tap on any empty space to start typing. Lectern uses a block based editing system so that you can drag to reorder and style entire blocks with a few swipes. Tap on any empty space to start typing. Lectern uses a block based editing system so that you can drag to reorder and style entire blocks with a few swipes. Tap on any empty space to start typing. Lectern uses a block based editing system so that you can drag to reorder and style entire blocks with a few swipes.", textType: .body),
-        "5": Block(id: "5", type: .textBlock, text: "")
+        "root": Block(id: "root", type: .rootBlock, children: ["1", "2", "3", "4", "5", "6", "7"]),
+        "1": Block(id: "1", type: .textBlock, text: "The “Success Frame”", textType: .header),
+        "2": Block(id: "2", type: .textBlock, text: "Constructed and promoted by hyper-selected Asian immigrant subgroups which can affect other Asian subgroups", textType: .body),
+        "3": Block(id: "3", type: .textBlock, text: "Stereotype about robotic-like thinking came after 1965:", textType: .body),
+        "4": Block(id: "4", type: .textBlock, text: "Institutions make race real and potent in society", textType: .body),
+        "5": Block(id: "5", type: .textBlock, text: "How to make API Calls", textType: .header),
+        "6": Block(id: "6", type: .textBlock, text: "Popular Types: GET, POST, PUT, PATCH, DELETE", textType: .body),
+        "7": Block(id: "7", type: .textBlock, text: "Some api calls allow you to put body content, which is url encoded", textType: .body)
     ]
 
     func ensureGhostBlockExists() {
