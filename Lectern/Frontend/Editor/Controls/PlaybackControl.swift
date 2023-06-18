@@ -42,7 +42,7 @@ struct PlaybackControl: View {
                             }
                         }
 
-                        if cm.blurtVM.mainText.count + cm.blurtVM.savedText.count > 0 {
+                        if cm.blurtVM.mainText.count + cm.blurtVM.savedText.count > 5 {
                             SymbolButton(symbol: "checkmark") {
                                 cm.blurt()
                             }
