@@ -42,10 +42,10 @@ struct PlaybackControl: View {
                             }
                         }
 
-                        VerticalBar(color: Color(.secondarySystemFill), height: 19)
-
-                        SymbolButton(symbol: "checkmark") {
-                            cm.blurt()
+                        if cm.blurtVM.mainText.count + cm.blurtVM.savedText.count > 0 {
+                            SymbolButton(symbol: "checkmark") {
+                                cm.blurt()
+                            }
                         }
                     }
                 } else if cm.study.count == 0 {

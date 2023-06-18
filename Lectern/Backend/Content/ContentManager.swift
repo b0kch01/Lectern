@@ -65,7 +65,6 @@ class ContentManager {
             print("SKIPPED TO", list[i+n])
         }
     }
-
    
 
     func ensureGhostBlockExists() {
