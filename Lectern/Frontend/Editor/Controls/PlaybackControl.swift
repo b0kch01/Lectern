@@ -23,7 +23,7 @@ struct PlaybackControl: View {
             SymbolButton(symbol: "backward.fill")
 
             Group {
-                if pauseTranscribe {
+                if cm.studyState == .transcribingPaused {
                     HStack(spacing: 10) {
                         SymbolButton(symbol: "mic.slash.fill") {
                             withAnimation(.snappy) {
@@ -40,7 +40,7 @@ struct PlaybackControl: View {
                 } else {
                     SymbolButton(symbol: "waveform") {
                         withAnimation(.snappy) {
-                            pauseTranscribe = true
+                            cm.studyState = .transcribingPaused
                         }
                     }
                     .symbolEffect(.pulse)

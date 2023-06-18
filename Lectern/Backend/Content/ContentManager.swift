@@ -15,6 +15,7 @@ class ContentManager {
     enum StudyStatus: Hashable {
         case idle
         case transcribing
+        case transcribingPaused
         case blurting
     }
 
