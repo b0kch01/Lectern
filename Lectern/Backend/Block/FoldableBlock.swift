@@ -39,21 +39,10 @@ struct FoldableBlock<Label, Content>: View where Label: View, Content: View {
             HStack(spacing: 5) {
                 ThreadLine(collapse: $collapse)
                     .padding(.top, 11)
-                    .onTapGesture(perform: toggleCollapse)
                     .blur(radius: cm.studyState == .transcribing && vm.showAI ? 4 : 0)
 
                 VStack(spacing: 3) {
-                    if collapse {
-                        CollapsedBlock {
-                            Text(Dmy.loremS)
-                        }
-                        .onTapGesture(perform: toggleCollapse)
-                    }
-
                     content()
-                        .allowsHitTesting(!collapse)
-                        .opacity(collapse ? 0 : 1)
-                        .frame(maxHeight: collapse ? 0 : nil, alignment: .bottom)
                 }
             }
         }

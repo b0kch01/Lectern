@@ -49,17 +49,8 @@ struct ThreadLine: View {
                 .offset(x: lineSize/2, y: (-lineSize/2) + 2)
             }
         }
-        .padding(.bottom, 12)
-        .padding(.leading, 16)
-        .contentShape(Rectangle())
-        .padding(.leading, -16)
+        .padding(.bottom, 13)
         .padding(.trailing, sizeClass == .compact ? 16 : 24)
-        .contentShape(Rectangle())
-        .onTapGesture {
-            withAnimation(.spring(response: 0.25, dampingFraction: 1)) {
-                collapse.toggle()
-            }
-        }
         .zIndex(-100)
     }
 }
