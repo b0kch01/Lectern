@@ -29,6 +29,7 @@ struct ParentView: View {
                 SafeAreaBlock(isTop: true, isDark: true, minimized: true)
                 Spacer()
                 SafeAreaBlock(isTop: false, isDark: true)
+                    .opacity(nvm.showNoteSwitcher ? 0 : 1)
             }
             .opacity(nvm.showNoteSwitcher ? 1 : 0)
             .ignoresSafeArea()
@@ -52,6 +53,7 @@ struct ParentView: View {
                         .overlay(
                             CenterControl()
                         )
+                        .opacity(nvm.showNoteSwitcher ? 0 : 1)
                     , alignment: .bottom
                 )
             }
