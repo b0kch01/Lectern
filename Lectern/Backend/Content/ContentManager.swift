@@ -19,7 +19,6 @@ enum StudyStatus: Hashable {
 @Observable
 class ContentManager {
 
-
     let sr = SpeechRecognizer()
     // STUDY STUFF
 
@@ -31,21 +30,24 @@ class ContentManager {
 
     var studySelect: String? = nil
 
-
-
     // DO NOT PUBLISH
     var selectState: NSRange? = NSRange(location: 0, length: 0)
 
     var focusState: String? = nil
     var contentTree: [String: Block] = [
-        "root": Block(id: "root", type: .rootBlock, children: ["1", "5"]),
-        "1": Block(id: "1", type: .textBlock, children: ["2", "3", "4"], text: "The “Success Frame”", textType: .header),
-        "2": Block(id: "2", type: .textBlock, text: "Constructed and promoted by hyper-selected Asian immigrant subgroups which can affect other Asian subgroups", textType: .body),
-        "3": Block(id: "3", type: .textBlock, text: "Stereotype about robotic-like thinking came after 1965:", textType: .body),
-        "4": Block(id: "4", type: .textBlock, text: "Institutions make race real and potent in society", textType: .body),
-        "5": Block(id: "5", type: .textBlock, children: ["6", "7"], text: "How to make API Calls", textType: .header),
-        "6": Block(id: "6", type: .textBlock, text: "Popular Types: GET, POST, PUT, PATCH, DELETE", textType: .body),
-        "7": Block(id: "7", type: .textBlock, text: "Some api calls allow you to put body content, which is url encoded", textType: .body)
+        "root": Block(id: "root", type: .rootBlock, children: ["1", "3", "5", "8", "11"]),
+        "1": Block(id: "1", type: .textBlock, children: ["2"], text: "What is Lectern?", textType: .header),
+        "2": Block(id: "2", type: .textBlock, text: "Lectern is an app that streamlines learning by leveraging AI technology in speech recognition, image recognition, and text generation. Incorporating learning techniques like the Feynman technique and active recall, Lectern integrates the techniques with active user vocal participation to foster effective and efficient learning.", textType: .body),
+        "3": Block(id: "3", type: .textBlock, children: ["4"], text: "The Feynman technique", textType: .header),
+        "4": Block(id: "4", type: .textBlock, text: "The Feynman technique is a simple step process of learning, involving the breakdown of complex ideas into simpler and more manageable pieces of information. These steps include studying, teaching, filling the gaps, and simplifying.", textType: .body),
+        "5": Block(id: "5", type: .textBlock, children: ["6", "7"], text: "Why is active recall so powerful?", textType: .header),
+        "6": Block(id: "6", type: .textBlock, text: "The Feynmen technique introduces active recall, a technique that involves actively retrieving information from memory rather than simply reviewing or re-reading material passively.", textType: .body),
+        "7": Block(id: "7", type: .textBlock, text: "Instead of reading the same text repeatedly, active recall forces you to remember what you have already read. Lectern uses this process and provides feeedback on what you might have forgotten.", textType: .body),
+        "8": Block(id: "5", type: .textBlock, children: ["9", "10"], text: "Speech-to-text and Blurting", textType: .header),
+        "9": Block(id: "6", type: .textBlock, text: "With Lectern, we introduced a speech-to-text that effciently and accurately transcribes spoken content to text, allowing for AI processes.", textType: .body),
+        "10": Block(id: "7", type: .textBlock, text: "Speaking is often regarded as a superior way to memorize content. With Blurting, you become a teacher, teaching the AI what you know. In turn, the AI will respond with what you may be lacking.", textType: .body),
+        "11": Block(id: "5", type: .textBlock, children: ["12"], text: "Integration with AI", textType: .header),
+        "12": Block(id: "6", type: .textBlock, text: "Along with OpenAI's sophisticated GPT models, Lectern also utilizes Apple's CoreML to accelerate AI process. With Optical Character Recognition (OCR), Lectern is able to recognize scribbles, allowing you to jot down notes with an Apple Pencil instead of a keyboard.", textType: .body)
     ]
 
     func skip(n: Int) {

@@ -137,7 +137,7 @@ struct EditorContent: View {
                 speed: 0.3,
                 blur: 0.7
             )
-            .background(Color.white.opacity(colorScheme == .dark ? 0.2 : 0.9))
+            .background(Color.white.opacity(colorScheme == .dark ? 0.2 : 0.8))
             .ignoresSafeArea()
             .animation(.smooth(duration: 0.7), value: vm.showAI)
         )
