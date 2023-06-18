@@ -97,7 +97,7 @@ struct BlurtView: View {
             HStack(spacing: 10) {
                 Image(systemName: "exclamationmark.triangle.fill")
                     .font(.body.weight(.semibold))
-                    .foregroundStyle(.mainColorInvert)
+                    .foregroundStyle(.main)
                     .frame(width: 21, height: 21)
 
                 VerticalBar(color: Color(.secondarySystemFill), height: 19)
@@ -105,7 +105,7 @@ struct BlurtView: View {
                 Text("39")
                     .font(.callout.weight(.medium))
                     .font(.system(size: UIConstants.callout, design: .rounded).weight(.medium))
-                    .foregroundStyle(.mainColorInvert)
+                    .foregroundStyle(.main)
                     .frame(width: 21, height: 21)
             }
             .padding(.horizontal, 2)

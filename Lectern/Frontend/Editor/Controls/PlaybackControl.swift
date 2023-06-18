@@ -17,14 +17,14 @@ struct PlaybackControl: View {
     let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 10) {
             Spacer()
 
             SymbolButton(symbol: "backward.fill")
 
             Group {
                 if cm.studyState == .transcribingPaused {
-                    HStack(spacing: 10) {
+                    HStack(spacing: 7) {
                         SymbolButton(symbol: "mic.slash.fill") {
                             withAnimation(.snappy) {
                                 cm.sr.startTranscribing()
