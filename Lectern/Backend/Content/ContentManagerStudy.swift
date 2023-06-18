@@ -17,10 +17,14 @@ struct StudyFeedback: Codable {
     let feedback: String
 }
 
-struct StudyQuestion: Codable {
+@Observable
+class StudyQuestion: Codable {
     let id: String
     let understanding: Int
     let question: String
+    let comments: String
+
+    var answer: String
 }
 
 
@@ -68,7 +72,7 @@ extension ContentManager {
         }
     }
 
-    private func parsePractice(_ content: String) {
+    private func parsePractice(_ content: String) -> [String: StudyQuestion] {
         
     }
 

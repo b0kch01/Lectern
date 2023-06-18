@@ -18,11 +18,16 @@ struct PracticeView: View {
     var body: some View {
         ForEach(questions, id:\.self) { question in
             if let question = cm.questions[question] {
-                VStack {
-                    Text("Understading: " + String(question.understanding))
-                    Text("Question: " + question.question)
-                    Text("")
+                Button(action: {
+                    cm.studyState = .practicing
+                }) {
+                    VStack {
+                        Text("Understading: " + String(question.understanding))
+                        Text("Question: " + question.question)
+                    }
+                    
                 }
+
             }
         }
     }

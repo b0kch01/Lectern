@@ -14,6 +14,7 @@ enum StudyStatus: Hashable {
     case transcribing
     case transcribingPaused
     case blurting
+    case practicing
 }
 
 @Observable
