@@ -12,6 +12,13 @@ struct GPTResponse: Codable {
     let content: String
 }
 
+struct StudyFeedback: Codable {
+    let id: String
+    let feedback: String
+}
+
+
+
 extension ContentManager {
 
     func blurt() {
@@ -21,12 +28,21 @@ extension ContentManager {
         Task {
             do {
                 let (data, _) = try await URLSession.shared.data(for: req)
-                let json = try JSONDecoder().decode(GPTResponse.self, from: data)
-                
-                print(json)
+                let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
+
+                parseBlurt(gptResponse.content)
             } catch {
                 logger.error("\(error)")
             }
         }
+    }
+
+    private func parseBlurt(_ content: String) -> [StudyFeedback] {
+        var lines = content.components(separatedBy: "\n")
+            lines = Array(lines[1..<lines.count-1])
+
+        print(lines)
+
+        return []
     }
 }

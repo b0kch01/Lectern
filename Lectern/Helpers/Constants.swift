@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct URL_K {
-    static let endpoint = "http://192.168.5.135:3000"
+    static let endpoint = "https://lectern-api.vercel.app"
     static let blurt = endpoint.path("api/blurt")
     static let practice = endpoint.path("api/practice")
 }
