@@ -38,7 +38,7 @@ struct PlaybackControl: View {
                             cm.blurt()
                         }
                     }
-                } else if cm.getNotes() == "" {
+                } else if cm.study.count == 0 {
                     SymbolButton(symbol: "waveform") {
                         withAnimation(.snappy) {
                             cm.blurtVM.savedText += cm.blurtVM.mainText
