@@ -85,7 +85,7 @@ extension ContentManager {
             }
 
             let chatHistory = "[" + questions
-                .map { "{\"role\": \"\($0.role)\", \"\($0.content)\"}" }
+                .map { "{\"role\": \"\($0.role)\", content:\"\($0.content)\"}" }
                 .joined(separator: ",") + "]"
 
 
@@ -108,6 +108,8 @@ extension ContentManager {
     private func parsePractice(_ content: Data) {
         logger.notice("Parsing practice: \(content)")
         guard let obj = try? JSONDecoder().decode(StudyQuestion.self, from: content) else { return }
+        blurtVM.savedText = []
+        blurtVM.mainText = []
         questions.append(obj)
     }
 

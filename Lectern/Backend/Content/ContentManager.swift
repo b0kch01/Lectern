@@ -39,6 +39,7 @@ class ContentManager {
     var blurtPracticeVM = BlurtViewModel()
 
     var studySelect: String? = nil
+    var practiceSelect: String? = nil
 
     // DO NOT PUBLISH
     var selectState: NSRange? = NSRange(location: 0, length: 0)

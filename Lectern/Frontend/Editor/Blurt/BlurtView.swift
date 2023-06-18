@@ -177,7 +177,7 @@ struct BlurtView: View {
                 }
 
 //                Divider()
-//
+
 //                PracticeView()
 //                    .onAppear {
 //                        print("Initializing practice!")

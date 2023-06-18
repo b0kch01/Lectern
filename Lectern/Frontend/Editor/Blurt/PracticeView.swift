@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WrappingHStack
+import FluidGradient
 
 struct PracticeView: View {
 
@@ -23,15 +24,53 @@ struct PracticeView: View {
         ForEach(cm.questions) { question in
             if question.role == "assistant" {
                 Button(action: {
+                    cm.practiceSelect = question.content
                     cm.sr.startTranscribing()
                     cm.studyState = .practicing
                 }) {
-                    Text(question.content)
-                        .foregroundColor(.red)
+                    HStack(spacing: 0) {
+                        Spacer()
+
+                        Text(question.content)
+                            .font(.title3.weight(.semibold))
+                            .lineSpacing(7)
+                            .foregroundStyle(Color.gray)
+                            .multilineTextAlignment(.trailing)
+                            .overlay {
+                                FluidGradient(
+                                    blobs: [
+                                        Color(.systemBackground).opacity(0.3),
+                                        Color(.systemBackground).opacity(0.9)
+                                    ],
+                                    highlights: [
+                                        .white.opacity(0.5),
+                                        Color.yellow.opacity(0.7),
+                                        Color.cyan.opacity(0.7)
+                                    ],
+                                    speed: 0.7,
+                                    blur: 0.9
+                                )
+                                .mask(
+                                    Text(question.content)
+                                        .font(.title3.weight(.semibold))
+                                        .lineSpacing(7)
+                                        .multilineTextAlignment(.trailing)
+                                )
+                            }
+                            .padding(11)
+                            .scaleEffect(cm.practiceSelect == question.content ? 0.95 : 1)
+                            .background(
+                                RoundedRectangle(cornerRadius: 13)
+                                    .fill(Color(.quaternarySystemFill).opacity(cm.practiceSelect == question.content ? 1 : 0))
+                            )
+                            .padding(.leading, 60)
+                    }
                 }
             } else {
                 Text(question.content)
-                    .foregroundStyle(.blue)
+                    .font(.title3.weight(.semibold))
+                    .lineSpacing(7)
+                    .foregroundStyle(.main)
             }
         }
 
