@@ -86,7 +86,10 @@ struct BlurtView: View {
             }
             .onChange(of: cm.sr.transcript) {
                 withAnimation(.spring) { isBlurting = true }
-                blurtVM.mainText = cm.sr.transcript.components(separatedBy: " ")
+
+                if cm.studyState != .practicing {
+                    blurtVM.mainText = cm.sr.transcript.components(separatedBy: " ")
+                }
             }
             .animation(.spring, value: cm.sr.transcript)
 
@@ -169,12 +172,16 @@ struct BlurtView: View {
                             )
                         }
                 }
+
+                Divider()
+
+                PracticeView()
+                    .onAppear {
+                        print("Initializing practice!")
+                        cm.practice()
+                    }
             }
-            Divider()
 
-            Text("Extra studying questions:")
-
-            PracticeView()
         }
         .padding(.top)
         .padding(.trailing, sizeClass == .regular ? 30 : 0)
@@ -183,7 +190,7 @@ struct BlurtView: View {
         }
         .onAppear {
             cm.studySelect = headerBlockId
-            cm.blurtVM = blurtVM
+            cm.blurtViewVM = blurtVM
             cm.studyState = .transcribingPaused
         }
     }

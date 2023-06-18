@@ -20,8 +20,8 @@ export async function GET(request) {
 
 
   const notesValueFormatted = notesValue.split("\n").map((line) => `{{${line}}}`);
-
   const user_prompt = `NOTES: {{Heading: ${headingValue}}}${notesValueFormatted}\n\nTRANSCRIPT: ${transcriptValue}`;
+
   const completion = await openai.createChatCompletion({
     model: "gpt-4",
     messages: [
@@ -37,5 +37,6 @@ export async function GET(request) {
     ]
   });
 
+  console.log("We are good")
   return new Response(`${JSON.stringify(completion.data.choices[0].message)}`);
 }

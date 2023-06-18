@@ -31,20 +31,29 @@ struct PlaybackControl: View {
             }
 
             Group {
-                if cm.studyState == .blurting {
+                if cm.studyState == .blurting || cm.studyState == .practicing {
                     ProgressView()
-                } else if cm.studyState == .transcribingPaused {
+                } else if cm.studyState == .transcribingPaused || cm.studyState == .practicingPaused {
                     HStack(spacing: 10) {
                         SymbolButton(symbol: "mic.slash.fill", color: .red) {
                             withAnimation(.snappy) {
                                 cm.sr.startTranscribing()
-                                cm.studyState = .transcribing
+                                if cm.studyState == .practicingPaused {
+                                    cm.studyState = .practicing
+                                } else {
+                                    cm.studyState = .transcribing
+                                }
                             }
                         }
 
                         if cm.blurtVM.mainText.count + cm.blurtVM.savedText.count > 5 {
                             SymbolButton(symbol: "checkmark") {
-                                cm.blurt()
+                                cm.sr.stopTranscribing()
+                                if cm.studyState == .practicing || cm.studyState == .practicingPaused {
+                                    cm.practice()
+                                } else {
+                                    cm.blurt()
+                                }
                             }
                         }
                     }
@@ -56,7 +65,12 @@ struct PlaybackControl: View {
                                 cm.blurtVM.mainText = []
                                 cm.sr.stopTranscribing()
                                 cm.sr.transcript = ""
-                                cm.studyState = .transcribingPaused
+
+                                if cm.studyState == .practicing {
+                                    cm.studyState = .practicingPaused
+                                } else {
+                                    cm.studyState = .transcribingPaused
+                                }
                             }
                         }
                         .symbolEffect(.pulse)
@@ -64,7 +78,12 @@ struct PlaybackControl: View {
 
                         if cm.blurtVM.mainText.count + cm.blurtVM.savedText.count > 5 {
                             SymbolButton(symbol: "checkmark") {
-                                cm.blurt()
+                                cm.sr.stopTranscribing()
+                                if cm.studyState == .practicing || cm.studyState == .practicingPaused {
+                                    cm.practice()
+                                } else {
+                                    cm.blurt()
+                                }
                             }
                         }
                     }
@@ -76,7 +95,12 @@ struct PlaybackControl: View {
                             cm.study = [:]
                             cm.sr.resetTranscript()
                             cm.sr.startTranscribing()
-                            cm.studyState = .transcribing
+
+                            if cm.studyState == .practicingPaused {
+                                cm.studyState = .practicing
+                            } else {
+                                cm.studyState = .transcribing
+                            }
                         }
                     }
                 }
@@ -90,6 +114,8 @@ struct PlaybackControl: View {
                 cm.sr.transcript = ""
                 cm.studyState = .transcribingPaused
                 cm.skip(n: 1)
+
+                cm.practice()
             }
 
             Spacer()

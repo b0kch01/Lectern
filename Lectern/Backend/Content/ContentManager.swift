@@ -15,6 +15,7 @@ enum StudyStatus: Hashable {
     case transcribingPaused
     case blurting
     case practicing
+    case practicingPaused
 }
 
 @Observable
@@ -23,11 +24,19 @@ class ContentManager {
     let sr = SpeechRecognizer()
     // STUDY STUFF
 
-    var questions: [String: StudyQuestion] = [:]
+    var questions: [StudyQuestion] = []
     var study: [String: StudyFeedback] = [:]
     var studyState = StudyStatus.idle
 
-    var blurtVM = BlurtViewModel()
+    var blurtVM: BlurtViewModel {
+        if studyState == .practicing || studyState == .practicingPaused {
+            return blurtPracticeVM
+        } else {
+            return blurtViewVM
+        }
+    }
+    var blurtViewVM = BlurtViewModel()
+    var blurtPracticeVM = BlurtViewModel()
 
     var studySelect: String? = nil
 

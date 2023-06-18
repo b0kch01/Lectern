@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Observation
 
 struct GPTResponse: Codable {
     let role: String
@@ -17,14 +18,17 @@ struct StudyFeedback: Codable {
     let feedback: String
 }
 
-@Observable
-class StudyQuestion: Codable {
-    let id: String
-    let understanding: Int
-    let question: String
-    let comments: String
 
-    var answer: String
+class StudyQuestion: Identifiable, Codable {
+    let id: String = UUID().uuidString
+    
+    var role: String = ""
+    var content: String = ""
+
+    init(role: String, content: String) {
+        self.content = content
+        self.role = role
+    }
 }
 
 
@@ -33,7 +37,7 @@ extension ContentManager {
 
     func practice() {
         withAnimation(.snappy) {
-            studyState = .blurting
+            studyState = .practicing
         }
 
         if contentTree["root"]?.children?.contains(studySelect ?? "") != true {
@@ -47,13 +51,45 @@ extension ContentManager {
         Task {
             var req = URLRequest(url: url)
 
+//            NOTES
+//            {{Heading: Mexican Immigrant's Intergenerational Mobility}}
+//            {{ZZ3: Mexicans/Mexican Americans drastically changed in graduate numbers.}}
+//            {{ACF: Chinese have the highest educational outcomes but have virtually no intergenerational gains.}}
+//            END NOTES
+//
+//            TRANSCRIPT
+//            More Mexican immigrants are now graduating compared to before.
+//            END TRANSCRIPT
+//
+//            FEEDBACK
+//            ZZ3: Include the specific detail that the number of graduates among Mexicans/Mexican Americans has drastically changed.
+//            ACF: Don't forget to mention the comparison with Chinese immigrants, specifically noting that although they
+//                 have the highest educational outcomes, their intergenerational mobility hasn't improved significantly.
+//            END FEEDBACK
+
+
+            var context = "NOTES\n" + getNotes()
+                .components(separatedBy: "\n").map({ "{{\($0)}}" })
+                .joined(separator: "\n") + "\nEND NOTES\n\n"
+
+            context += "TRANSCRIPT\n" + blurtVM.savedText.joined(separator: " ") + "\nEND TRANSCRIPT\n\n"
+
             let list: [String] = Array(study.values.map { "\($0.id): \($0.feedback)" })
             let feedback = "FEEDBACK\n\(list.joined(separator: "\n"))\nEND FEEDBACK"
+            context += feedback
 
-            req.setValue(contentTree[studySelect!]!.text,           forHTTPHeaderField: "heading")
-            req.setValue(blurtVM.savedText.joined(separator: " "),  forHTTPHeaderField: "transcript")
-            req.setValue(getNotes().replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "notes")
-            req.setValue(feedback.replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "previous_feedback")
+            req.setValue(context.replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "context")
+
+            if questions.last?.role == "assistant" {
+                questions.append(StudyQuestion(role: "user", content: blurtVM.savedText.joined(separator: " ")))
+            }
+
+            let chatHistory = "[" + questions
+                .map { "{\"role\": \"\($0.role)\", \"\($0.content)\"}" }
+                .joined(separator: ",") + "]"
+
+
+            req.setValue(chatHistory.replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "chatHistory")
 
             do {
                 let (data, _) = try await URLSession.shared.data(for: req)
@@ -62,7 +98,7 @@ extension ContentManager {
                 let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
 
                 DispatchQueue.main.async { [weak self] in
-                    //self?.study = self?.parsePractice(gptResponse.content) ?? [:]
+                    self?.parsePractice(gptResponse.content)
                     self?.studyState = .idle
                 }
             } catch {
@@ -72,8 +108,11 @@ extension ContentManager {
         }
     }
 
-    private func parsePractice(_ content: String) -> [String: StudyQuestion] {
-        
+    private func parsePractice(_ content: String) {
+        logger.notice("Parsing practice: \(content)")
+        guard let jsonData = content.data(using: .utf8) else { return }
+        guard let obj = try? JSONDecoder().decode(StudyQuestion.self, from: jsonData) else { return }
+        questions.append(obj)
     }
 
     func getNotes() -> String {
@@ -135,7 +174,7 @@ extension ContentManager {
             lines = Array(lines[1..<lines.count-1])
         }
 
-        return lines.reduce(into: [String: StudyFeedback]()) {
+        let output = lines.reduce(into: [String: StudyFeedback]()) {
             let parts = $1.split(separator: ": ", maxSplits: 1)
             if parts.count == 2 {
                 let id = String(parts[0])
@@ -143,6 +182,14 @@ extension ContentManager {
                 
                 $0[id] = StudyFeedback(id: id, feedback: feedback)
             }
+        }
+
+        if output.count == 0 {
+            var dict = [String: StudyFeedback]()
+            dict[studySelect ?? "..."] = StudyFeedback(id: studySelect ?? "...", feedback: content)
+            return dict
+        } else {
+            return output
         }
     }
 }
