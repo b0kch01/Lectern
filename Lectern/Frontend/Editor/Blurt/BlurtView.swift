@@ -25,7 +25,7 @@ struct BlurtView: View {
 
     var body: some View {
         LazyVStack(alignment: .leading, spacing: 20) {
-            WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 5) { i in
+            WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 7) { i in
                 Text(mainText[i] + " ")
                     .font(.title3.weight(.semibold))
                     .foregroundStyle(.primary.opacity(i == mainText.count - 1 ? 1 : 0.5))
@@ -48,7 +48,7 @@ struct BlurtView: View {
                 Group {
                     if pauseTranscribe {
                         Image(systemName: "mic.slash.fill")
-                            .font(.title3.weight(.semibold))
+                            .font(.body.weight(.semibold))
                             .foregroundStyle(.primary.opacity(0.9))
                     } else {
                         Image(systemName: "waveform")
@@ -59,7 +59,7 @@ struct BlurtView: View {
                     }
                 }
                 .frame(width: 21, height: 21)
-                .padding(9)
+                .padding(7)
                 .background(pauseTranscribe ? Color(.tertiarySystemFill) : .main)
                 .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
                 .contentShape(Rectangle())

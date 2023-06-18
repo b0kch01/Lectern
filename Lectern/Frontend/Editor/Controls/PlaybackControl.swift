@@ -8,14 +8,42 @@
 import SwiftUI
 
 struct PlaybackControl: View {
+
+    @State var bounced = true
+    @State var pauseTranscribe = false
+
+    let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
+
     var body: some View {
         HStack(spacing: 16) {
             Spacer()
 
             SymbolButton(symbol: "backward.fill")
+
+            Group {
+                if pauseTranscribe {
+                    SymbolButton(symbol: "mic.slash.fill") {
+                        withAnimation(.snappy) {
+                            pauseTranscribe = false
+                        }
+                    }
+                } else {
+                    SymbolButton(symbol: "waveform") {
+                        withAnimation(.snappy) {
+                            pauseTranscribe = true
+                        }
+                    }
+                    .symbolEffect(.pulse)
+                    .symbolEffect(.bounce, value: bounced)
+                }
+            }
+
             SymbolButton(symbol: "forward.fill")
 
             Spacer()
+        }
+        .onReceive(timer) { _ in
+            bounced.toggle()
         }
     }
 }

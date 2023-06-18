@@ -118,6 +118,7 @@ class SpeechRecognizer {
 
         let request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
+        request.requiresOnDeviceRecognition = false
         request.taskHint = .dictation
 
         let audioSession = AVAudioSession.sharedInstance()
