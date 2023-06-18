@@ -31,10 +31,10 @@ struct SymbolButton: View {
             tapped.toggle()
         }) {
             Image(systemName: symbol)
-                .font(.system(size: UIConstants.body + (symbol == "waveform" ? 3 : 0)).weight(.medium))
+                .font(.system(size: 19 + (symbol == "waveform" ? 3 : 0)).weight(.medium))
                 .foregroundStyle(color)
                 .symbolEffect(.bounce, value: tapped)
-                .frame(width: 18, height: 18)
+                .frame(width: 19, height: 19)
                 .padding(sizeClass == .compact ? 13 : 15)
                 .background(fill)
                 .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))

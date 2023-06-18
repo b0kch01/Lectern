@@ -139,10 +139,10 @@ struct BlurtView: View {
             }
 
             if feedback.count != 0 {
-                VStack(spacing: 0) {
+                VStack(spacing: 20) {
                     Bar(color: Color(.secondarySystemFill))
 
-                    Text("Tap \(Image(systemName: "arrow.counterclockwise")) to try again, or ap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
+                    Text("Tap \(Image(systemName: "arrow.counterclockwise")) to try again, or tap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
                         .font(.title3.weight(.semibold))
                         .lineSpacing(7)
                         .foregroundStyle(Color.gray)
@@ -162,7 +162,7 @@ struct BlurtView: View {
                                 blur: 0.9
                             )
                             .mask(
-                                Text("Tap \(Image(systemName: "arrow.counterclockwise")) to try again, or ap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
+                                Text("Tap \(Image(systemName: "arrow.counterclockwise")) to try again, or tap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
                                     .font(.title3.weight(.semibold))
                                     .lineSpacing(7)
                                     .multilineTextAlignment(.trailing)

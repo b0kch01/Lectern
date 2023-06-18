@@ -40,7 +40,7 @@ struct CenterControl: View {
                         }
                     }) {
                         Image(.lectern)
-                            .font(.system(size: 21).weight(.medium))
+                            .font(.system(size: 23).weight(.medium))
                             .symbolEffect(.bounce, value: vm.showAI)
                             .foregroundStyle(vm.showAI ? .mainColorInvert : .primary.opacity(0.9))
                             .frame(width: 18, height: 18)
@@ -66,7 +66,7 @@ struct CenterControl: View {
                     }
                 }) {
                     Image(systemName: "ellipsis")
-                        .font(.system(size: 18).weight(.medium))
+                        .font(.system(size: 19).weight(.medium))
                         .symbolEffect(.bounce, value: vm.shipState == .misc)
                         .foregroundStyle(vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9))
                         .frame(width: 18, height: 18)
