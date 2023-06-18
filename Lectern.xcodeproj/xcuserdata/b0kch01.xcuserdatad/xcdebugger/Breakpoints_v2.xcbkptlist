@@ -18,6 +18,53 @@
             endingLineNumber = "26"
             landmarkName = "blurt()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "20D6E7A4-3BB8-4C33-8FCF-75DD39B5351E - 278c5985e9dd0458"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Lectern.ContentManager.blurt() -&gt; ()"
+                  moduleName = "Lectern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManagerStudy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "432">
+               </Location>
+               <Location
+                  uuid = "20D6E7A4-3BB8-4C33-8FCF-75DD39B5351E - 278c5985e9dd0458"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Lectern.ContentManager.blurt() -&gt; ()"
+                  moduleName = "Lectern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManagerStudy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  uuid = "20D6E7A4-3BB8-4C33-8FCF-75DD39B5351E - 278c5985e9dd0458"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Lectern.ContentManager.blurt() -&gt; ()"
+                  moduleName = "Lectern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManagerStudy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "412">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

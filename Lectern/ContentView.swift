@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
-import WrappingHStack
+import OSLog
+
+let logger = Logger()
 
 struct ContentView: View {
 

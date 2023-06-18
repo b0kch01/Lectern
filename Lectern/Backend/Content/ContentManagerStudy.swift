@@ -19,11 +19,14 @@ extension ContentManager {
         let req = URLRequest(url: url)
 
         Task {
-            let _, data = try? await URLSession().data(for: req)
-
-            guard let json = JSONDecoder().decode(GPTResponse.self, from: data) else { return }
-
-            logger.info(json)
+            do {
+                let (data, _) = try await URLSession.shared.data(for: req)
+                let json = try JSONDecoder().decode(GPTResponse.self, from: data)
+                
+                print(json)
+            } catch {
+                logger.error("\(error)")
+            }
         }
     }
 }

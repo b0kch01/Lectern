@@ -72,6 +72,10 @@ struct CenterControl: View {
                 }
                 .opacity(vm.showAI ? 0 : 1)
 
+                Button("Thing", action: {
+                    cm.blurt()
+                })
+
                 Spacer()
 
             }

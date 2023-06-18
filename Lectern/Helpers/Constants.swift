@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct URL_K {
-    static let endpoint = "localhost:3000"
-    static let blurt = endpoint.path("blurt")
-    static let practice = endpoint.path("practice")
+    static let endpoint = "http://192.168.5.135:3000"
+    static let blurt = endpoint.path("api/blurt")
+    static let practice = endpoint.path("api/practice")
 }
 
 struct CardItem: Identifiable, Hashable {
