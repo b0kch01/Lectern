@@ -27,7 +27,8 @@ struct PlaybackControl: View {
                     HStack(spacing: 10) {
                         SymbolButton(symbol: "mic.slash.fill") {
                             withAnimation(.snappy) {
-                                cm.studyState = .blurting
+                                cm.sr.startTranscribing()
+                                cm.studyState = .transcribing
                             }
                         }
 
@@ -40,6 +41,10 @@ struct PlaybackControl: View {
                 } else {
                     SymbolButton(symbol: "waveform") {
                         withAnimation(.snappy) {
+                            cm.blurtVM.savedText += cm.blurtVM.mainText
+                            cm.blurtVM.mainText = []
+                            cm.sr.stopTranscribing()
+                            cm.sr.transcript = ""
                             cm.studyState = .transcribingPaused
                         }
                     }

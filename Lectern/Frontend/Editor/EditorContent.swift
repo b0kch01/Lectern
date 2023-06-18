@@ -152,6 +152,7 @@ struct EditorContent: View {
                             vm.shipState = nil
                         }
                     }
+                    .disabled(vm.showAI)
             }
         }
     }
