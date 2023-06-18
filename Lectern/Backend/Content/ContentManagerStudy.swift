@@ -93,12 +93,9 @@ extension ContentManager {
 
             do {
                 let (data, _) = try await URLSession.shared.data(for: req)
-                print(String(data: data, encoding: .utf8))
-
-                let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
 
                 DispatchQueue.main.async { [weak self] in
-                    self?.parsePractice(gptResponse.content)
+                    self?.parsePractice(data)
                     self?.studyState = .idle
                 }
             } catch {
@@ -108,10 +105,9 @@ extension ContentManager {
         }
     }
 
-    private func parsePractice(_ content: String) {
+    private func parsePractice(_ content: Data) {
         logger.notice("Parsing practice: \(content)")
-        guard let jsonData = content.data(using: .utf8) else { return }
-        guard let obj = try? JSONDecoder().decode(StudyQuestion.self, from: jsonData) else { return }
+        guard let obj = try? JSONDecoder().decode(StudyQuestion.self, from: content) else { return }
         questions.append(obj)
     }
 
@@ -150,7 +146,7 @@ extension ContentManager {
 
             do {
                 let (data, _) = try await URLSession.shared.data(for: req)
-                print(String(data: data, encoding: .utf8))
+                print(String(data: data, encoding: .utf8)!)
 
                 let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
 

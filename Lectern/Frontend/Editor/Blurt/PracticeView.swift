@@ -22,8 +22,13 @@ struct PracticeView: View {
     var body: some View {
         ForEach(cm.questions) { question in
             if question.role == "assistant" {
-                Text(question.content)
-                    .foregroundColor(.red)
+                Button(action: {
+                    cm.sr.startTranscribing()
+                    cm.studyState = .practicing
+                }) {
+                    Text(question.content)
+                        .foregroundColor(.red)
+                }
             } else {
                 Text(question.content)
                     .foregroundStyle(.blue)

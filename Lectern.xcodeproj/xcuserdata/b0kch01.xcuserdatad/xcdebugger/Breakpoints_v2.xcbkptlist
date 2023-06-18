@@ -8,14 +8,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "20D6E7A4-3BB8-4C33-8FCF-75DD39B5351E"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "blurt()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "parseBlurt(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -56,14 +56,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4E373AEB-9D1E-44DE-82B7-D4A6B1273FAD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "blurt()"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "blurt()"
             landmarkType = "7">
             <Locations>
@@ -112,6 +112,182 @@
                   startingLineNumber = "51"
                   endingLineNumber = "51"
                   offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "934CCF8C-E063-44E0-A006-388544D65AB1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "blurt()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB932DAB-D31A-4A03-9BAB-122E3BCB30E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "parseBlurt(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AB932DAB-D31A-4A03-9BAB-122E3BCB30E7 - f027c2adaaf3f48c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lectern.ContentManager.parseBlurt(Swift.String) -&gt; Swift.Dictionary&lt;Swift.String, Lectern.StudyFeedback&gt;"
+                  moduleName = "Lectern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManagerStudy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "1060">
+               </Location>
+               <Location
+                  uuid = "AB932DAB-D31A-4A03-9BAB-122E3BCB30E7 - f027c2adaaf3f48c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lectern.ContentManager.parseBlurt(Swift.String) -&gt; Swift.Dictionary&lt;Swift.String, Lectern.StudyFeedback&gt;"
+                  moduleName = "Lectern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManagerStudy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "1036">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A37CCCD-5533-4C64-AED0-14B3F84EA285"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "parseBlurt(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E516034F-0E60-452D-9F12-B5E02004EF55"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "parseBlurt(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E516034F-0E60-452D-9F12-B5E02004EF55 - f027c2adaaf3f700"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lectern.ContentManager.parseBlurt(Swift.String) -&gt; Swift.Dictionary&lt;Swift.String, Lectern.StudyFeedback&gt;"
+                  moduleName = "Lectern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManagerStudy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "188"
+                  endingLineNumber = "188"
+                  offsetFromSymbolStart = "1512">
+               </Location>
+               <Location
+                  uuid = "E516034F-0E60-452D-9F12-B5E02004EF55 - f027c2adaaf3f700"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lectern.ContentManager.parseBlurt(Swift.String) -&gt; Swift.Dictionary&lt;Swift.String, Lectern.StudyFeedback&gt;"
+                  moduleName = "Lectern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManagerStudy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "188"
+                  endingLineNumber = "188"
+                  offsetFromSymbolStart = "1488">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F28A5ACD-8CD3-4A23-BA66-6A138A62C42E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lectern/Backend/Content/ContentManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "skip(n:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F28A5ACD-8CD3-4A23-BA66-6A138A62C42E - 8755e010634a8ac0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lectern.ContentManager.skip(n: Swift.Int) -&gt; ()"
+                  moduleName = "Lectern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "1004">
+               </Location>
+               <Location
+                  uuid = "F28A5ACD-8CD3-4A23-BA66-6A138A62C42E - 8755e010634a8ac0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lectern.ContentManager.skip(n: Swift.Int) -&gt; ()"
+                  moduleName = "Lectern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "1204">
                </Location>
             </Locations>
          </BreakpointContent>

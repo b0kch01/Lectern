@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct URL_K {
-    static let endpoint = "http://192.168.5.136:3000"
+    static let endpoint = "http://localhost:3000"
     static let blurt = endpoint.path("api/blurt")
     static let practice = endpoint.path("api/practice")
 }

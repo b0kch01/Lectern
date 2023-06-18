@@ -31,7 +31,7 @@ struct PlaybackControl: View {
             }
 
             Group {
-                if cm.studyState == .blurting || cm.studyState == .practicing {
+                if cm.studyState == .blurting {
                     ProgressView()
                 } else if cm.studyState == .transcribingPaused || cm.studyState == .practicingPaused {
                     HStack(spacing: 10) {
@@ -48,6 +48,8 @@ struct PlaybackControl: View {
 
                         if cm.blurtVM.mainText.count + cm.blurtVM.savedText.count > 5 {
                             SymbolButton(symbol: "checkmark") {
+                                cm.blurtVM.savedText += cm.blurtVM.mainText
+                                cm.blurtVM.mainText = []
                                 cm.sr.stopTranscribing()
                                 if cm.studyState == .practicing || cm.studyState == .practicingPaused {
                                     cm.practice()
@@ -57,7 +59,7 @@ struct PlaybackControl: View {
                             }
                         }
                     }
-                } else if cm.study.count == 0 {
+                } else if cm.study.count == 0 || cm.studyState == .practicing {
                     HStack(spacing: 10) {
                         SymbolButton(symbol: "waveform") {
                             withAnimation(.snappy) {
@@ -78,6 +80,8 @@ struct PlaybackControl: View {
 
                         if cm.blurtVM.mainText.count + cm.blurtVM.savedText.count > 5 {
                             SymbolButton(symbol: "checkmark") {
+                                cm.blurtVM.savedText += cm.blurtVM.mainText
+                                cm.blurtVM.mainText = []
                                 cm.sr.stopTranscribing()
                                 if cm.studyState == .practicing || cm.studyState == .practicingPaused {
                                     cm.practice()
@@ -114,8 +118,7 @@ struct PlaybackControl: View {
                 cm.sr.transcript = ""
                 cm.studyState = .transcribingPaused
                 cm.skip(n: 1)
-
-                cm.practice()
+                print("SKIPPING MULTIPLE TIMES")
             }
 
             Spacer()
