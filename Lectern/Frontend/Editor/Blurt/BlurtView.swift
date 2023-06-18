@@ -56,6 +56,26 @@ struct BlurtView: View {
             }
             .animation(.spring, value: sr.transcript)
 
+            HStack(spacing: 10) {
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(.mainColorInvert)
+                    .frame(width: 21, height: 21)
+
+                VerticalBar(color: Color(.secondarySystemFill), height: 19)
+
+                Text("39")
+                    .font(.callout.weight(.medium))
+                    .font(.system(size: UIConstants.callout, design: .rounded).weight(.medium))
+                    .foregroundStyle(.mainColorInvert)
+                    .frame(width: 21, height: 21)
+            }
+            .padding(.horizontal, 2)
+            .padding(7)
+            .background(.yellow)
+            .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+            .contentShape(Rectangle())
+
             Button(action: {
                 withAnimation(.snappy) {
                     pauseTranscribe.toggle()
@@ -91,6 +111,7 @@ struct BlurtView: View {
                             .frame(width: 21, height: 21)
                     }
                 }
+                .padding(.horizontal, pauseTranscribe ? 2 : 0)
                 .padding(7)
                 .background(pauseTranscribe ? Color(.tertiarySystemFill) : .main)
                 .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
@@ -109,7 +130,11 @@ struct BlurtView: View {
                 .contentShape(Rectangle())
                 .hoverEffect(.highlight)
                 .padding(.top, 10)
-            
+
+            Capsule()
+                .frame(height: 5)
+                .padding(.top, 10)
+
             Spacer()
         }
         .padding(.top)
