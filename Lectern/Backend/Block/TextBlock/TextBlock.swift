@@ -65,6 +65,7 @@ struct TextBlock: View {
         .overlay(deletionIndicator, alignment: .trailing)
         .offset(y: -5)
         .blur(radius: cm.studyState == .transcribing && vm.showAI && !studySelected ? 5 : 0)
+        .disabled(vm.showAI)
     }
 
     var selectionOverlay: some View {
