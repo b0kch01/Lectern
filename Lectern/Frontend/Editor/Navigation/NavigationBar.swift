@@ -24,15 +24,17 @@ struct NavigationBar: View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
                 Button(action: {
-                    withAnimation(.linear(duration: 0), completionCriteria: .logicallyComplete) {
-                        nvm.roundCorners = true
-                    } completion: {
-                        LightHaptics.shared.play(.soft)
-
-                        withAnimation(.smooth(duration: 0.3)) {
-                            nvm.showNoteSwitcher = true
-                            vm.selected = []
-                            vm.shipState = nil
+                    if !nvm.roundCorners {
+                        withAnimation(.linear(duration: 0), completionCriteria: .logicallyComplete) {
+                            nvm.roundCorners = true
+                        } completion: {
+                            LightHaptics.shared.play(.soft)
+                            
+                            withAnimation(.smooth(duration: 0.3)) {
+                                nvm.showNoteSwitcher = true
+                                vm.selected = []
+                                vm.shipState = nil
+                            }
                         }
                     }
                 }) {

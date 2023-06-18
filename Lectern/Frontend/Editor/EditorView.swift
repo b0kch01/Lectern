@@ -28,12 +28,14 @@ struct EditorView: View {
                 .scaleEffect(nvm.showNoteSwitcher ? 0.7 : 1)
                 .offset(y: offsetY)
                 .onTapGesture {
-                    withAnimation(.smooth(duration: 0.3), completionCriteria: .logicallyComplete) {
-                        nvm.showNoteSwitcher = false
-                        vm.shipState = nil
-                    } completion: {
-                        withAnimation {
-                            nvm.roundCorners = false
+                    if nvm.showNoteSwitcher {
+                        withAnimation(.smooth(duration: 0.3), completionCriteria: .logicallyComplete) {
+                            nvm.showNoteSwitcher = false
+                            vm.shipState = nil
+                        } completion: {
+                            withAnimation {
+                                nvm.roundCorners = false
+                            }
                         }
                     }
                 }
