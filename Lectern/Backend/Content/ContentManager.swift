@@ -9,21 +9,21 @@ import SwiftUI
 import Observation
 import SwiftData
 
+enum StudyStatus: Hashable {
+    case idle
+    case transcribing
+    case transcribingPaused
+    case blurting
+}
+
 @Observable
 class ContentManager {
-
-    enum StudyStatus: Hashable {
-        case idle
-        case transcribing
-        case transcribingPaused
-        case blurting
-    }
 
     // STUDY STUFF
 
     var study: [String: StudyFeedback] = [:]
 
-    var studyStatus = StudyStatus.idle
+    var studyState = StudyStatus.idle
 
 
     // DO NOT PUBLISH

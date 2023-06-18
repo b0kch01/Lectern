@@ -16,6 +16,7 @@ struct BlurtView: View {
     @State var nvm = NavigationViewModel()
     @State var sr = SpeechRecognizer()
 
+    @State var savedText = [String]()
     @State var mainText = [String]()
     @State var bounced = true
     @State var pauseTranscribe = false
@@ -23,37 +24,47 @@ struct BlurtView: View {
 
     let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
 
+    var allText: [String] {
+        savedText + mainText
+    }
+
     var body: some View {
         LazyVStack(alignment: .leading, spacing: 20) {
-            Text("Test text placeholder")
-                .font(.title3.weight(.semibold))
-            Text("Test text placeholder")
-                .font(.title3.weight(.semibold))
-            Text("Test text placeholder")
-                .font(.title3.weight(.semibold))
-            Text("Test text placeholder")
-                .font(.title3.weight(.semibold))
-            Text("Test text placeholder")
-                .font(.title3.weight(.semibold))
-            
-//            WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 7) { i in
-//                Text(mainText[i] + " ")
-//                    .font(.title3.weight(.semibold))
-//                    .foregroundStyle(.primary.opacity(i == mainText.count - 1 ? 1 : 0.5))
-//                    .animation(.spring, value: mainText)
-//                    .id(i)
-//                    .onAppear {
-//                        show.toggle()
-//                    }
-//            }
-//            .onChange(of: sr.transcript) {
-//                mainText = sr.transcript.components(separatedBy: " ")
-//            }
-//            .animation(.spring, value: sr.transcript)
+//            Text("Test text placeholder")
+//                .font(.title3.weight(.semibold))
+//            Text("Test text placeholder")
+//                .font(.title3.weight(.semibold))
+//            Text("Test text placeholder")
+//                .font(.title3.weight(.semibold))
+//            Text("Test text placeholder")
+//                .font(.title3.weight(.semibold))
+//            Text("Test text placeholder")
+//                .font(.title3.weight(.semibold))
+//            
+            WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 7) { i in
+                Text(mainText[i] + " ")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(.primary.opacity(i == mainText.count - 1 ? 1 : 0.5))
+                    .animation(.spring, value: mainText)
+                    .id(i)
+                    .onAppear {
+                        show.toggle()
+                    }
+            }
+            .onChange(of: sr.transcript) {
+                mainText = sr.transcript.components(separatedBy: " ")
+            }
+            .animation(.spring, value: sr.transcript)
 
             Button(action: {
                 withAnimation(.snappy) {
                     pauseTranscribe.toggle()
+                }
+
+                if pauseTranscribe {
+                    sr.stopTranscribing()
+                } else {
+                    sr.startTranscribing()
                 }
             }) {
                 Group {

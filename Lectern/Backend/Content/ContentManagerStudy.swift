@@ -22,7 +22,7 @@ struct StudyFeedback: Codable {
 extension ContentManager {
 
     func blurt() {
-        if studyStatus == .blurting { return }
+        if studyState == .blurting { return }
 
         let url = URL(string: URL_K.blurt)!
         let req = URLRequest(url: url)
