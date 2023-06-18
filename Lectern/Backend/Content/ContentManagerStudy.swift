@@ -17,8 +17,6 @@ struct StudyFeedback: Codable {
     let feedback: String
 }
 
-
-
 extension ContentManager {
 
     func practice() -> String {

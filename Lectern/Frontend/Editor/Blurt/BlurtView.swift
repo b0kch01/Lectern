@@ -66,8 +66,8 @@ struct BlurtView: View {
                             ],
                             highlights: [
                                 .white.opacity(0.5),
-                                Color.yellow.opacity(0.5),
-                                Color.cyan.opacity(0.5)
+                                Color.yellow.opacity(0.7),
+                                Color.cyan.opacity(0.7)
                             ],
                             speed: 0.7,
                             blur: 0.9
@@ -144,17 +144,38 @@ struct BlurtView: View {
                 }
             }
 
-            Divider()
+            if feedback.count != 0 {
+                VStack(spacing: 0) {
+                    Bar(color: Color(.secondarySystemFill))
 
-            Text("Extra studying questions:")
-
-            ForEach(questions, id:\.self) {
-                Button(action: {  }) {
-                    Text("")
+                    Text("Tap \(Image(systemName: "arrow.counterclockwise")) to try again, or ap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
+                        .font(.title3.weight(.semibold))
+                        .lineSpacing(7)
+                        .foregroundStyle(Color.gray)
+                        .multilineTextAlignment(.trailing)
+                        .overlay {
+                            FluidGradient(
+                                blobs: [
+                                    Color(.systemBackground).opacity(0.3),
+                                    Color(.systemBackground).opacity(0.9)
+                                ],
+                                highlights: [
+                                    .white.opacity(0.5),
+                                    Color.yellow.opacity(0.7),
+                                    Color.cyan.opacity(0.7)
+                                ],
+                                speed: 0.7,
+                                blur: 0.9
+                            )
+                            .mask(
+                                Text("Tap \(Image(systemName: "arrow.counterclockwise")) to try again, or ap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
+                                    .font(.title3.weight(.semibold))
+                                    .lineSpacing(7)
+                                    .multilineTextAlignment(.trailing)
+                            )
+                        }
                 }
             }
-
-
         }
         .padding(.top)
         .padding(.trailing, 30)
