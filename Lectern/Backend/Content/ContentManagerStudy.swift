@@ -23,21 +23,38 @@ extension ContentManager {
 
     func blurt() {
         if studyState == .blurting { return }
+        studyState = .blurting
 
         let url = URL(string: URL_K.blurt)!
-        let req = URLRequest(url: url)
+
 
         Task {
+            var req = URLRequest(url: url)
+
+            let notes = contentTree[studySelect!]!
+                .children?
+                .filter { contentTree[$0] != nil && contentTree[$0]!.text != nil }
+                .map { $0 + ": " + contentTree[$0]!.text! }
+                .joined(separator: "\n") ?? ""
+
+            req.setValue(contentTree[studySelect!]!.text,           forHTTPHeaderField: "heading")
+            req.setValue(blurtVM.savedText.joined(separator: " "),  forHTTPHeaderField: "transcript")
+            req.setValue(notes.replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "notes")
+
             do {
-                let (data, _) = try await URLSession.shared.data(for: req)
+                let (data, res) = try await URLSession.shared.data(for: req)
+
+                let x = String(data: data, encoding: .utf8)
+
                 let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
 
                 DispatchQueue.main.async { [weak self] in
                     self?.study = self?.parseBlurt(gptResponse.content) ?? [:]
-                    print(self?.study)
+                    self?.studyState = .idle
                 }
             } catch {
                 logger.error("\(error)")
+                studyState = .idle
             }
         }
     }

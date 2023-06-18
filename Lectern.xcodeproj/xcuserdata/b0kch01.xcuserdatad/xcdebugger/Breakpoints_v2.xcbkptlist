@@ -14,8 +14,8 @@
             filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "blurt()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "parseBlurt(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -55,47 +55,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C608044D-DD88-443E-A4C4-A0FF3D7F4997"
+            uuid = "4E373AEB-9D1E-44DE-82B7-D4A6B1273FAD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "blurt()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9D168B0-1450-4192-9AA0-162E32962B53"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lectern/Backend/Content/ContentManagerStudy.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "blurt()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C608044D-DD88-443E-A4C4-A0FF3D7F4997 - 34b2ba460b829317"
+                  uuid = "D9D168B0-1450-4192-9AA0-162E32962B53 - 278c5985e9dd0121"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in Lectern.ContentManager.blurt() -&gt; ()"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Lectern.ContentManager.blurt() -&gt; ()"
                   moduleName = "Lectern"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManagerStudy.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "524">
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "600">
                </Location>
                <Location
-                  uuid = "C608044D-DD88-443E-A4C4-A0FF3D7F4997 - 34b2ba460b829317"
+                  uuid = "D9D168B0-1450-4192-9AA0-162E32962B53 - dece88a2f3df905"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in Lectern.ContentManager.blurt() -&gt; ()"
+                  symbolName = "closure #3 @Swift.MainActor @Sendable () -&gt; () in closure #1 @Sendable () async -&gt; () in Lectern.ContentManager.blurt() -&gt; ()"
                   moduleName = "Lectern"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/b0kch01/Documents/Code/Lectern/Lectern/Backend/Content/ContentManagerStudy.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "608">
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>

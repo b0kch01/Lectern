@@ -28,6 +28,8 @@ class ContentManager {
 
     var blurtVM = BlurtViewModel()
 
+    var studySelect: String? = nil
+
 
 
     // DO NOT PUBLISH

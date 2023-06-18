@@ -40,7 +40,7 @@ struct BlurtView: View {
 
 
     var body: some View {
-        LazyVStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: 20) {
 
             WrappingHStack(allText.indices, id:\.self, spacing: .constant(0), lineSpacing: 7) { i in
                 Text(allText[i] + " ")
@@ -72,8 +72,7 @@ struct BlurtView: View {
             ForEach(Array(cm.study.keys).sorted(), id:\.self) { key in
                 if let feedback = cm.study[key]?.feedback {
                     Button(action: {
-
-
+                        cm.studySelect = key
                     }) {
                         HStack(spacing: 0) {
                             Spacer()
@@ -83,9 +82,11 @@ struct BlurtView: View {
                                 .multilineTextAlignment(.trailing)
                                 .id(key)
                                 .padding(15)
+                                .scaleEffect(cm.studySelect == key ? 0.95 : 1)
                                 .background(
                                     RoundedRectangle(cornerRadius: 15)
-                                        .fill(Color.white.opacity(0.1))
+                                        .fill(.white)
+                                        .opacity(cm.studySelect == key ? 0.3 : 0)
                                 )
                                 .padding(.leading, 50)
                         }
@@ -175,7 +176,7 @@ struct BlurtView: View {
             bounced.toggle()
         }
         .task {
-            print("STARTING RECORDING")
+            cm.studySelect = headerBlockId
             cm.blurtVM = blurtVM
             cm.sr.startTranscribing()
         }

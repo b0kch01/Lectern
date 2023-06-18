@@ -28,6 +28,9 @@ struct TextBlock: View {
     var selected: Bool {
         vm.selected.contains(block.id)
     }
+    var studySelected: Bool {
+        cm.studySelect == block.id
+    }
 
     init(
         _ block: Block,
@@ -51,6 +54,7 @@ struct TextBlock: View {
         )
         .contentShape(Rectangle())
         .padding(.vertical, 1)
+        .overlay(studySelectionOverlay)
         .overlay(selectionOverlay)
         .offset(x: offsetX)
         .simultaneousGesture(tapGesture)
@@ -60,6 +64,7 @@ struct TextBlock: View {
         }
         .overlay(deletionIndicator, alignment: .trailing)
         .offset(y: -5)
+        .blur(radius: cm.studyState == .transcribing && !studySelected ? 15 : 0)
     }
 
     var selectionOverlay: some View {
@@ -68,6 +73,14 @@ struct TextBlock: View {
             .padding(.horizontal, -10)
             .padding(.top, (block.textType == .body || block.textType == .header) ? 5 : 0)
             .allowsHitTesting(selected)
+    }
+
+    var studySelectionOverlay: some View {
+        Color.red.opacity(studySelected ? 0.25 : 0)
+            .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
+            .padding(.horizontal, -10)
+            .padding(.top, (block.textType == .body || block.textType == .header) ? 5 : 0)
+            .allowsHitTesting(studySelected)
     }
 
     var tapGesture: some Gesture {
