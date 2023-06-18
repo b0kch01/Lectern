@@ -23,7 +23,7 @@ struct ParentView: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        .ignoresSafeArea()
+        .ignoresSafeArea(.container)
         .overlay(
             VStack {
                 SafeAreaBlock(isTop: true, isDark: true, minimized: true)
@@ -57,7 +57,7 @@ struct ParentView: View {
             }
             , alignment: .bottom
         )
-        .background(Color.black.ignoresSafeArea())
+        .background(Color.black.ignoresSafeArea().opacity(nvm.roundCorners ? 1 : 0))
         .accentColor(.sub)
         .scrollDismissesKeyboard(.interactively)
         .environment(cm)

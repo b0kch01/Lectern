@@ -28,9 +28,13 @@ struct EditorView: View {
                 .scaleEffect(nvm.showNoteSwitcher ? 0.7 : 1)
                 .offset(y: offsetY)
                 .onTapGesture {
-                    withAnimation(.smooth(duration: 0.3)) {
+                    withAnimation(.smooth(duration: 0.3), completionCriteria: .logicallyComplete) {
                         nvm.showNoteSwitcher = false
                         vm.shipState = nil
+                    } completion: {
+                        withAnimation {
+                            nvm.roundCorners = false
+                        }
                     }
                 }
                 .simultaneousGesture(nvm.showNoteSwitcher ? drag : nil)
@@ -44,9 +48,6 @@ struct EditorView: View {
                 }
         }
         .simultaneousGesture(nvm.showNoteSwitcher ? nil : fakeDrag)
-        .onChange(of: nvm.showNoteSwitcher) {
-            LightHaptics.shared.play(.soft)
-        }
     }
 
 

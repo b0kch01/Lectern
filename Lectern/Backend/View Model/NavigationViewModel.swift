@@ -12,4 +12,5 @@ import Observation
 class NavigationViewModel: ObservableObject {
 
     public var showNoteSwitcher = false
+    public var roundCorners = false
 }

@@ -55,7 +55,7 @@ struct EditorContent: View {
                                 }
                                 .padding(.top)
                                 .padding(.horizontal, 30)
-                                .padding(.bottom, geometry.size.height/2)
+                                .padding(.bottom, 30)
                                 .frame(width: sizeClass == .compact ? nil : geometry.size.width/1.6)
 
                                 spacer
@@ -89,7 +89,7 @@ struct EditorContent: View {
                                         BlurtView(headerBlockId: "1")
                                             .padding(.top)
                                             .padding(.horizontal, 30)
-                                            .padding(.bottom, cm.focusState != nil ? geometry.size.height/2 : 10)
+                                            .padding(.bottom, 30)
                                     }
                                     .safeAreaPadding(.top, 120)
                                     .safeAreaPadding(.bottom, 95)
@@ -132,12 +132,12 @@ struct EditorContent: View {
         )
         .clipShape(
             RoundedRectangle(
-                cornerRadius: UIConstants.screenIsRounded ?
-                UIConstants.screenRadius : (nvm.showNoteSwitcher ? UIConstants.screenRadius : 0),
+                cornerRadius:
+                    nvm.roundCorners ? (UIConstants.screenIsRounded ? UIConstants.screenRadius : UIConstants.screenRadius) : 0,
                 style: .continuous
             )
         )
-        .shadow(color: Color.black.opacity(nvm.showNoteSwitcher ? 1 : 0), radius: 30, y: 0)
+        .shadow(color: Color.black.opacity(nvm.roundCorners ? (nvm.showNoteSwitcher ? 1 : 0) : 0), radius: 30, y: 0)
     }
 
     private var spacer: some View {
