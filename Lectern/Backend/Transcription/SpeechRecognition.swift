@@ -18,6 +18,7 @@ import Observation
 
 @Observable
 class SpeechRecognizer {
+
     enum RecognizerError: Error {
         case nilRecognizer
         case notAuthorizedToRecognize
@@ -46,7 +47,7 @@ class SpeechRecognizer {
      requests access to the speech recognizer and the microphone.
      */
     init() {
-        recognizer = SFSpeechRecognizer()
+        recognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US")) // set locale to English
         guard recognizer != nil else {
             transcribe(RecognizerError.nilRecognizer)
             return
@@ -117,6 +118,7 @@ class SpeechRecognizer {
 
         let request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
+        request.taskHint = .dictation
 
         let audioSession = AVAudioSession.sharedInstance()
         try audioSession.setCategory(.playAndRecord, mode: .measurement, options: .duckOthers)
@@ -124,7 +126,7 @@ class SpeechRecognizer {
         let inputNode = audioEngine.inputNode
 
         let recordingFormat = inputNode.outputFormat(forBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+        inputNode.installTap(onBus: 0, bufferSize: 64, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             request.append(buffer)
         }
         audioEngine.prepare()

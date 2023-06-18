@@ -64,7 +64,6 @@ struct EditorContent: View {
                         .safeAreaPadding(.top, 120)
                         .safeAreaPadding(.bottom, 95)
                     }
-                    .disabled(nvm.showNoteSwitcher)
                     .background(
                         Color.clear
                             .contentShape(Rectangle())
@@ -100,13 +99,14 @@ struct EditorContent: View {
                             .scaleEffect(vm.showAI ? 1 : 0.9)
                         }
                     )
+                    .disabled(nvm.showNoteSwitcher)
                 )
         }
         .background(
             Color(.systemBackground)
                 .ignoresSafeArea()
                 .opacity(nvm.showNoteSwitcher ? 1 : 0)
-                .brightness(colorScheme == .dark ? 0.15 : -0.1)
+                .brightness(colorScheme == .dark ? 0.15 : -0.15)
         )
         .background(
             FluidGradient(
