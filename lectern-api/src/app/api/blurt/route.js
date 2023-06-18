@@ -23,7 +23,7 @@ export async function GET(request) {
   const user_prompt = `NOTES: {{Heading: ${headingValue}}}${notesValueFormatted}\n\nTRANSCRIPT: ${transcriptValue}`;
 
   const completion = await openai.createChatCompletion({
-    model: "gpt-4",
+    model: "gpt-3.5-turbo-16k",
     messages: [
       { "role": "system", "content": "You are an assistant that is UC Berkeley hackathon friendly. No bad words. A student is trying to memorize and learn from his notes. Point out areas where there needs more elaboration. If the transcript matches the contents of the notes, just reply with the following:\n\nFEEDBACK\nEND FEEDBACK. Be sure to be concise and only use information from the notes.Your ultimate goal is to help students prepare for their exams.Remember to follow the given format. Make sure you stay true to the format in the following example:" },
       { "role": "user", "content": "\nNOTES: {{Heading:  AI Prompt Engineering}}{{1: Good AI Prompt Engineering is a way to make the AI better respond to your requests better.}}{{2: The most popular product is with ChatGPT}}{{3: ChatGPT is used by students worldwide to build products, expand their understanding, and finish their homework}}\n\nTRANSCRIPT: chat gpt is a product that can take advantage of prompt generation. Students use chat gpt for homework answers and helping them learn new things. \n" },
