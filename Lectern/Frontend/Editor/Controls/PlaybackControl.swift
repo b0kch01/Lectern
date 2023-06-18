@@ -22,7 +22,7 @@ struct PlaybackControl: View {
 
             SymbolButton(symbol: "backward.fill") {
                 cm.blurtVM.savedText = []
-                cm.blurtVM.mainText = ["Unmute to start blurting..."]
+                cm.blurtVM.mainText = [""]
                 cm.study = [:]
                 cm.sr.stopTranscribing()
                 cm.sr.transcript = ""
@@ -84,7 +84,7 @@ struct PlaybackControl: View {
 
             SymbolButton(symbol: "forward.fill") {
                 cm.blurtVM.savedText = []
-                cm.blurtVM.mainText = ["Unmute to start blurting..."]
+                cm.blurtVM.mainText = [""]
                 cm.study = [:]
                 cm.sr.stopTranscribing()
                 cm.sr.transcript = ""

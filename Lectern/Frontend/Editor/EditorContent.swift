@@ -111,17 +111,16 @@ struct EditorContent: View {
         .background(
             FluidGradient(
                 blobs: [
-                    Color(.systemBackground).opacity(0.15),
-                    Color(.systemBackground).opacity(0.5),
-                    .primary.opacity(vm.showAI ? 0 : 0.3)
+                    Color(.systemBackground).opacity(0.1),
+                    .primary.opacity(vm.showAI ? 0 : (colorScheme == .dark ? 0.1 : 0.25))
                 ],
                 highlights: [
-                    colorScheme == .dark ? .black.opacity(0.9) : .white.opacity(0.5),
-                    Color.yellow.opacity(vm.showAI ? (colorScheme == .dark ? 0.2 : 0.5) : 0),
-                    Color.pink.opacity(vm.showAI ? (colorScheme == .dark ? 0.2 : 0.3) : 0)
+                    colorScheme == .dark ? .black.opacity(0.15) : .white.opacity(0.15),
+                    Color.yellow.opacity(vm.showAI ? (colorScheme == .dark ? 0.1 : 0.2) : 0),
+                    Color.cyan.opacity(vm.showAI ? (colorScheme == .dark ? 0.1 : 0.2) : 0)
                 ],
                 speed: 0.3,
-                blur: 0.9
+                blur: 0.7
             )
             .background(Color.white.opacity(colorScheme == .dark ? 0.2 : 0.9))
             .ignoresSafeArea()

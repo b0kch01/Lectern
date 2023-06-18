@@ -68,7 +68,7 @@ struct TextBlock: View {
     }
 
     var selectionOverlay: some View {
-        Color.yellow.opacity(selected ? 0.25 : 0)
+        Color.cyan.opacity(selected ? 0.25 : 0)
             .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
             .padding(.horizontal, -10)
             .padding(.top, (block.textType == .body || block.textType == .header) ? 5 : 0)
