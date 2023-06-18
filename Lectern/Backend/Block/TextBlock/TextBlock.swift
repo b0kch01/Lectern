@@ -76,7 +76,7 @@ struct TextBlock: View {
     }
 
     var studySelectionOverlay: some View {
-        Color.red.opacity(studySelected ? 0.25 : 0)
+        Color.yellow.opacity(studySelected ? 0.25 : 0)
             .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
             .padding(.horizontal, -10)
             .padding(.top, (block.textType == .body || block.textType == .header) ? 5 : 0)

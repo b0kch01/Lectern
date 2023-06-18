@@ -95,9 +95,8 @@ struct BlurtView: View {
                                 .padding(15)
                                 .scaleEffect(cm.studySelect == key ? 0.95 : 1)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.white)
-                                        .opacity(cm.studySelect == key ? 0.3 : 0)
+                                    RoundedRectangle(cornerRadius: 13)
+                                        .fill(Color(.quaternarySystemFill).opacity(cm.studySelect == key ? 1 : 0))
                                 )
                                 .padding(.leading, 50)
                         }

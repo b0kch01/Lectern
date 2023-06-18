@@ -118,7 +118,7 @@ struct EditorContent: View {
                 highlights: [
                     colorScheme == .dark ? .black.opacity(0.9) : .white.opacity(0.5),
                     Color.yellow.opacity(vm.showAI ? (colorScheme == .dark ? 0.2 : 0.5) : 0),
-                    Color.pink.opacity(vm.showAI ? (colorScheme == .dark ? 0.2 : 0.5) : 0)
+                    Color.pink.opacity(vm.showAI ? (colorScheme == .dark ? 0.2 : 0.3) : 0)
                 ],
                 speed: 0.3,
                 blur: 0.9
