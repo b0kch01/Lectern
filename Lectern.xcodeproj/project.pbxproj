@@ -65,6 +65,7 @@
 		E99CD2A62A3E514900C2987C /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2A52A3E514900C2987C /* Array.swift */; };
 		E99CD2AB2A3E5EAC00C2987C /* ContentManagerStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */; };
 		E99CD2AD2A3E62E800C2987C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AC2A3E62E800C2987C /* URL.swift */; };
+		E99CD2AF2A3F60D300C2987C /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2AE2A3F60D300C2987C /* PracticeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +128,7 @@
 		E99CD2A52A3E514900C2987C /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E99CD2AA2A3E5EAC00C2987C /* ContentManagerStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentManagerStudy.swift; sourceTree = "<group>"; };
 		E99CD2AC2A3E62E800C2987C /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		E99CD2AE2A3F60D300C2987C /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				D44A78EB2A3E2D6A0031ECF7 /* BlurtView.swift */,
+				E99CD2AE2A3F60D300C2987C /* PracticeView.swift */,
 			);
 			path = Blurt;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				D44A78D42A3E2BAA0031ECF7 /* Collection.swift in Sources */,
 				D44A78A02A3E27FD0031ECF7 /* Block.swift in Sources */,
 				D44A78C82A3E2B500031ECF7 /* ButtonStyles.swift in Sources */,
+				E99CD2AF2A3F60D300C2987C /* PracticeView.swift in Sources */,
 				D44A78B82A3E2A950031ECF7 /* ContentManagerStyling.swift in Sources */,
 				D44A78C02A3E2B070031ECF7 /* UIApplication.swift in Sources */,
 				D44A78EC2A3E2D6A0031ECF7 /* BlurtView.swift in Sources */,

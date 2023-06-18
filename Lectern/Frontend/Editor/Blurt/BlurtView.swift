@@ -43,12 +43,6 @@ struct BlurtView: View {
             .sorted()
     }
 
-    var questions: [String] {
-        Array(cm.study.keys)
-            .filter { $0.hasPrefix("q__") }
-            .sorted()
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
 
@@ -94,7 +88,6 @@ struct BlurtView: View {
                 blurtVM.mainText = cm.sr.transcript.components(separatedBy: " ")
             }
             .animation(.spring, value: cm.sr.transcript)
-
 
             ForEach(feedback, id:\.self) { key in
                 if let feedback = cm.study[key]?.feedback {
@@ -176,6 +169,11 @@ struct BlurtView: View {
                         }
                 }
             }
+            Divider()
+
+            Text("Extra studying questions:")
+
+            PracticeView()
         }
         .padding(.top)
         .padding(.trailing, 30)

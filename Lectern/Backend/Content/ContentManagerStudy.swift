@@ -17,9 +17,17 @@ struct StudyFeedback: Codable {
     let feedback: String
 }
 
+struct StudyQuestion: Codable {
+    let id: String
+    let understanding: Int
+    let question: String
+}
+
+
+
 extension ContentManager {
 
-    func practice() -> String {
+    func practice() {
         withAnimation(.snappy) {
             studyState = .blurting
         }
@@ -50,7 +58,7 @@ extension ContentManager {
                 let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
 
                 DispatchQueue.main.async { [weak self] in
-                    self?.study = self?.parsePractice(gptResponse.content) ?? [:]
+                    //self?.study = self?.parsePractice(gptResponse.content) ?? [:]
                     self?.studyState = .idle
                 }
             } catch {

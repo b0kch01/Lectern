@@ -23,6 +23,7 @@ class ContentManager {
     let sr = SpeechRecognizer()
     // STUDY STUFF
 
+    var questions: [String: StudyQuestion] = [:]
     var study: [String: StudyFeedback] = [:]
     var studyState = StudyStatus.idle
 
