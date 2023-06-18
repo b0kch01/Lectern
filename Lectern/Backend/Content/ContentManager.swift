@@ -12,9 +12,17 @@ import SwiftData
 @Observable
 class ContentManager {
 
+    enum StudyStatus: Hashable {
+        case idle
+        case transcribing
+        case blurting
+    }
+
     // STUDY STUFF
 
     var study: [String: StudyFeedback] = [:]
+
+    var studyStatus = StudyStatus.idle
 
 
     // DO NOT PUBLISH

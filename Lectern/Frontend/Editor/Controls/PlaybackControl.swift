@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PlaybackControl: View {
 
+    @Environment(ContentManager.self) var cm
+
     @State var bounced = true
     @State var pauseTranscribe = false
 
@@ -31,7 +33,9 @@ struct PlaybackControl: View {
 
                         VerticalBar(color: Color(.secondarySystemFill), height: 19)
 
-                        SymbolButton(symbol: "checkmark") { }
+                        SymbolButton(symbol: "checkmark") {
+                            cm.blurt()
+                        }
                     }
                 } else {
                     SymbolButton(symbol: "waveform") {
