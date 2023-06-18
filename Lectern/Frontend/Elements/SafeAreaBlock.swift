@@ -28,7 +28,7 @@ struct SafeAreaBlock: View {
             .padding(.horizontal, -200)
             .blur(radius: 20)
             .contrast(isDark ? 1.3 : (colorScheme == .dark ? 1.1 : 1))
-            .brightness(isDark ? 0.9 : 0)
+            .brightness(isDark ? -0.9 : 0)
             .offset(y: isTop ? -height/(minimized ? (isDark ? (sizeClass == .compact ? 1.5 : 1.1) : 2) : (sizeClass == .compact ? 4 : 3)) : (isDark ? height/4 : height/2.5))
     }
 }

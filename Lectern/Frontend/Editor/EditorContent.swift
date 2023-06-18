@@ -124,6 +124,7 @@ struct EditorContent: View {
             )
             .background(Color.white.opacity(colorScheme == .dark ? 0.2 : 0.9))
             .ignoresSafeArea()
+            .animation(.smooth(duration: 0.7), value: vm.showAI)
         )
         .overlay(
             SafeAreaBlock(isTop: true, minimized: cm.focusState != nil || vm.shipState != nil || vm.selected != [])
