@@ -22,10 +22,16 @@ struct PlaybackControl: View {
 
             Group {
                 if pauseTranscribe {
-                    SymbolButton(symbol: "mic.slash.fill") {
-                        withAnimation(.snappy) {
-                            pauseTranscribe = false
+                    HStack(spacing: 10) {
+                        SymbolButton(symbol: "mic.slash.fill") {
+                            withAnimation(.snappy) {
+                                pauseTranscribe = false
+                            }
                         }
+
+                        VerticalBar(color: Color(.secondarySystemFill), height: 19)
+
+                        SymbolButton(symbol: "checkmark") { }
                     }
                 } else {
                     SymbolButton(symbol: "waveform") {

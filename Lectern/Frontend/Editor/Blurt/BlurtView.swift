@@ -25,20 +25,31 @@ struct BlurtView: View {
 
     var body: some View {
         LazyVStack(alignment: .leading, spacing: 20) {
-            WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 7) { i in
-                Text(mainText[i] + " ")
-                    .font(.title3.weight(.semibold))
-                    .foregroundStyle(.primary.opacity(i == mainText.count - 1 ? 1 : 0.5))
-                    .animation(.spring, value: mainText)
-                    .id(i)
-                    .onAppear {
-                        show.toggle()
-                    }
-            }
-            .onChange(of: sr.transcript) {
-                mainText = sr.transcript.components(separatedBy: " ")
-            }
-            .animation(.spring, value: sr.transcript)
+            Text("Test text placeholder")
+                .font(.title3.weight(.semibold))
+            Text("Test text placeholder")
+                .font(.title3.weight(.semibold))
+            Text("Test text placeholder")
+                .font(.title3.weight(.semibold))
+            Text("Test text placeholder")
+                .font(.title3.weight(.semibold))
+            Text("Test text placeholder")
+                .font(.title3.weight(.semibold))
+            
+//            WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 7) { i in
+//                Text(mainText[i] + " ")
+//                    .font(.title3.weight(.semibold))
+//                    .foregroundStyle(.primary.opacity(i == mainText.count - 1 ? 1 : 0.5))
+//                    .animation(.spring, value: mainText)
+//                    .id(i)
+//                    .onAppear {
+//                        show.toggle()
+//                    }
+//            }
+//            .onChange(of: sr.transcript) {
+//                mainText = sr.transcript.components(separatedBy: " ")
+//            }
+//            .animation(.spring, value: sr.transcript)
 
             Button(action: {
                 withAnimation(.snappy) {
@@ -47,18 +58,28 @@ struct BlurtView: View {
             }) {
                 Group {
                     if pauseTranscribe {
-                        Image(systemName: "mic.slash.fill")
-                            .font(.body.weight(.semibold))
-                            .foregroundStyle(.primary.opacity(0.9))
+                        HStack(spacing: 10) {
+                            Image(systemName: "mic.slash.fill")
+                                .font(.body.weight(.semibold))
+                                .foregroundStyle(.primary.opacity(0.9))
+                                .frame(width: 21, height: 21)
+
+                            VerticalBar(color: Color(.secondarySystemFill), height: 19)
+
+                            Image(systemName: "checkmark")
+                                .font(.callout.weight(.medium))
+                                .foregroundStyle(.primary.opacity(0.9))
+                                .frame(width: 21, height: 21)
+                        }
                     } else {
                         Image(systemName: "waveform")
                             .font(.title3.weight(.semibold))
                             .foregroundStyle(.mainColorInvert)
                             .symbolEffect(.pulse)
                             .symbolEffect(.bounce, value: bounced)
+                            .frame(width: 21, height: 21)
                     }
                 }
-                .frame(width: 21, height: 21)
                 .padding(7)
                 .background(pauseTranscribe ? Color(.tertiarySystemFill) : .main)
                 .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
@@ -67,6 +88,17 @@ struct BlurtView: View {
             }
             .padding(.top, 10)
 
+            Image(systemName: "arrow.counterclockwise")
+                .font(.body.weight(.semibold))
+                .foregroundStyle(.mainColorInvert)
+                .frame(width: 21, height: 21)
+                .padding(7)
+                .background(pauseTranscribe ? Color(.tertiarySystemFill) : .main)
+                .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+                .contentShape(Rectangle())
+                .hoverEffect(.highlight)
+                .padding(.top, 10)
+            
             Spacer()
         }
         .padding(.top)
