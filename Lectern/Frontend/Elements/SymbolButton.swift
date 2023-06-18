@@ -32,6 +32,7 @@ struct SymbolButton: View {
         }) {
             Image(systemName: symbol)
                 .font(.system(size: UIConstants.body + (symbol == "waveform" ? 3 : 0)).weight(.medium))
+                .foregroundStyle(color)
                 .symbolEffect(.bounce, value: tapped)
                 .frame(width: 18, height: 18)
                 .padding(sizeClass == .compact ? 13 : 15)
