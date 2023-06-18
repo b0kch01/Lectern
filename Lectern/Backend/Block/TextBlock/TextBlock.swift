@@ -58,13 +58,13 @@ struct TextBlock: View {
         .overlay(selectionOverlay)
         .offset(x: offsetX)
         .simultaneousGesture(tapGesture)
-        .highPriorityGesture(dragGesture)
+        //.highPriorityGesture(dragGesture)
         .onChange(of: swipeSnap) {
             LightHaptics.shared.play(.soft)
         }
         .overlay(deletionIndicator, alignment: .trailing)
         .offset(y: -5)
-        .blur(radius: cm.studyState == .transcribing && !studySelected ? 15 : 0)
+        .blur(radius: cm.studyState == .transcribing && !vm.showAI && !studySelected ? 15 : 0)
     }
 
     var selectionOverlay: some View {

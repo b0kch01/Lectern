@@ -32,6 +32,12 @@ struct CenterControl: View {
                         withAnimation(.defaultSpring) {
                             vm.showAI.toggle()
                         }
+
+                        if vm.showAI {
+
+                        } else {
+                            cm.studySelect = nil
+                        }
                     }) {
                         Image(.lectern)
                             .font(.system(size: 21).weight(.medium))

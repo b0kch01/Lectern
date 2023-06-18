@@ -47,6 +47,10 @@ class ContentManager {
         "7": Block(id: "7", type: .textBlock, text: "Some api calls allow you to put body content, which is url encoded", textType: .body)
     ]
 
+    func forwardStudySelect() {
+        return
+    }
+
     func ensureGhostBlockExists() {
         if let ghostId = contentTree["root"]?.children?.last,
            let ghostBlockText = contentTree[ghostId]?.text,

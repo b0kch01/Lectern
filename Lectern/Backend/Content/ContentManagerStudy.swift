@@ -21,6 +21,18 @@ struct StudyFeedback: Codable {
 
 extension ContentManager {
 
+    func getNotes() -> String {
+        guard let studySelect else { return "" }
+
+        let notes = contentTree[studySelect]!
+            .children?
+            .filter { contentTree[$0] != nil && contentTree[$0]!.text != nil }
+            .map { $0 + ": " + contentTree[$0]!.text! }
+            .joined(separator: "\n") ?? ""
+
+        return notes
+    }
+
     func blurt() {
         if studyState == .blurting { return }
         studyState = .blurting
@@ -31,15 +43,9 @@ extension ContentManager {
         Task {
             var req = URLRequest(url: url)
 
-            let notes = contentTree[studySelect!]!
-                .children?
-                .filter { contentTree[$0] != nil && contentTree[$0]!.text != nil }
-                .map { $0 + ": " + contentTree[$0]!.text! }
-                .joined(separator: "\n") ?? ""
-
             req.setValue(contentTree[studySelect!]!.text,           forHTTPHeaderField: "heading")
             req.setValue(blurtVM.savedText.joined(separator: " "),  forHTTPHeaderField: "transcript")
-            req.setValue(notes.replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "notes")
+            req.setValue(getNotes().replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "notes")
 
             do {
                 let (data, res) = try await URLSession.shared.data(for: req)

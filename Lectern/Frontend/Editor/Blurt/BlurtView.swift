@@ -14,7 +14,7 @@ import Speech
 @Observable
 class BlurtViewModel {
     var savedText = [String]()
-    var mainText = ["Start blurting..."]
+    var mainText = ["Unmute to start blurting..."]
 
     var selectedBlock = ""
 }
@@ -55,16 +55,7 @@ struct BlurtView: View {
             .animation(.spring, value: cm.sr.transcript)
 
 
-//            Image(systemName: "arrow.counterclockwise")
-//                .font(.body.weight(.semibold))
-//                .foregroundStyle(.mainColorInvert)
-//                .frame(width: 21, height: 21)
-//                .padding(7)
-//                .background(cm.studyState == .transcribingPaused ? Color(.tertiarySystemFill) : .main)
-//                .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-//                .contentShape(Rectangle())
-//                .hoverEffect(.highlight)
-//                .padding(.top, 10)
+
 
             Spacer().frame(height: 0)
 
@@ -94,80 +85,80 @@ struct BlurtView: View {
                 }
             }
 
-            HStack(spacing: 10) {
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .font(.body.weight(.semibold))
-                    .foregroundStyle(.main)
-                    .frame(width: 21, height: 21)
+//            HStack(spacing: 10) {
+//                Image(systemName: "exclamationmark.triangle.fill")
+//                    .font(.body.weight(.semibold))
+//                    .foregroundStyle(.mainColorInvert)
+//                    .frame(width: 21, height: 21)
+//
+//                VerticalBar(color: Color(.secondarySystemFill), height: 19)
+//
+//                Text("39")
+//                    .font(.callout.weight(.medium))
+//                    .font(.system(size: UIConstants.callout, design: .rounded).weight(.medium))
+//                    .foregroundStyle(.mainColorInvert)
+//                    .frame(width: 21, height: 21)
+//            }
+//            .padding(.horizontal, 2)
+//            .padding(7)
+//            .background(.yellow)
+//            .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+//            .contentShape(Rectangle())
 
-                VerticalBar(color: Color(.secondarySystemFill), height: 19)
-
-                Text("39")
-                    .font(.callout.weight(.medium))
-                    .font(.system(size: UIConstants.callout, design: .rounded).weight(.medium))
-                    .foregroundStyle(.main)
-                    .frame(width: 21, height: 21)
-            }
-            .padding(.horizontal, 2)
-            .padding(7)
-            .background(.yellow)
-            .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-            .contentShape(Rectangle())
-
-            HStack(spacing: 10) {
-                if cm.studyState == .transcribingPaused {
-                    Button(action: {
-                        withAnimation(.snappy) {
-                            cm.sr.startTranscribing()
-                            cm.studyState = .transcribing
-                        }
-                    }) {
-                        Image(systemName: "mic.slash.fill")
-                            .font(.body.weight(.semibold))
-                            .foregroundStyle(.primary.opacity(0.9))
-                            .frame(width: 21, height: 21)
-                            .contentShape(Rectangle())
-                    }
-
-                    VerticalBar(color: Color(.secondarySystemFill), height: 19)
-
-                    if cm.studyState == .blurting {
-                        ProgressView()
-                    } else {
-                        Button(action: {
-                            cm.blurt()
-                        }) {
-                            Image(systemName: "checkmark")
-                                .font(.callout.weight(.medium))
-                                .foregroundStyle(.primary.opacity(0.9))
-                                .frame(width: 21, height: 21)
-                                .contentShape(Rectangle())
-                        }
-                    }
-                } else {
-                    Image(systemName: "waveform")
-                        .font(.title3.weight(.semibold))
-                        .foregroundStyle(.mainColorInvert)
-                        .symbolEffect(.pulse)
-                        .symbolEffect(.bounce, value: bounced)
-                        .frame(width: 21, height: 21)
-                        .onTapGesture {
-                            withAnimation(.snappy) {
-                                cm.studyState = .transcribingPaused
-                                blurtVM.savedText += blurtVM.mainText
-                                cm.sr.stopTranscribing()
-                            }
-                        }
-
-                }
-            }
-            .padding(.horizontal, cm.studyState == .transcribingPaused ? 2 : 0)
-            .padding(7)
-            .background(cm.studyState == .transcribingPaused ? Color(.tertiarySystemFill) : .main)
-            .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-            .contentShape(Rectangle())
-            .hoverEffect(.highlight)
-            .padding(.top, 10)
+//            HStack(spacing: 10) {
+//                if cm.studyState == .transcribingPaused {
+//                    Button(action: {
+//                        withAnimation(.snappy) {
+//                            cm.sr.startTranscribing()
+//                            cm.studyState = .transcribing
+//                        }
+//                    }) {
+//                        Image(systemName: "mic.slash.fill")
+//                            .font(.body.weight(.semibold))
+//                            .foregroundStyle(.primary.opacity(0.9))
+//                            .frame(width: 21, height: 21)
+//                            .contentShape(Rectangle())
+//                    }
+//
+//                    VerticalBar(color: Color(.secondarySystemFill), height: 19)
+//
+//                    if cm.studyState == .blurting {
+//                        ProgressView()
+//                    } else {
+//                        Button(action: {
+//                            cm.blurt()
+//                        }) {
+//                            Image(systemName: "checkmark")
+//                                .font(.callout.weight(.medium))
+//                                .foregroundStyle(.primary.opacity(0.9))
+//                                .frame(width: 21, height: 21)
+//                                .contentShape(Rectangle())
+//                        }
+//                    }
+//                } else {
+//                    Image(systemName: "waveform")
+//                        .font(.title3.weight(.semibold))
+//                        .foregroundStyle(.mainColorInvert)
+//                        .symbolEffect(.pulse)
+//                        .symbolEffect(.bounce, value: bounced)
+//                        .frame(width: 21, height: 21)
+//                        .onTapGesture {
+//                            withAnimation(.snappy) {
+//                                cm.studyState = .transcribingPaused
+//                                blurtVM.savedText += blurtVM.mainText
+//                                cm.sr.stopTranscribing()
+//                            }
+//                        }
+//
+//                }
+//            }
+//            .padding(.horizontal, cm.studyState == .transcribingPaused ? 2 : 0)
+//            .padding(7)
+//            .background(cm.studyState == .transcribingPaused ? Color(.tertiarySystemFill) : .main)
+//            .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+//            .contentShape(Rectangle())
+//            .hoverEffect(.highlight)
+//            .padding(.top, 10)
 
         }
         .padding(.top)
@@ -175,10 +166,10 @@ struct BlurtView: View {
         .onReceive(timer) { _ in
             bounced.toggle()
         }
-        .task {
+        .onAppear {
             cm.studySelect = headerBlockId
             cm.blurtVM = blurtVM
-            cm.sr.startTranscribing()
+            cm.studyState = .transcribingPaused
         }
     }
 }

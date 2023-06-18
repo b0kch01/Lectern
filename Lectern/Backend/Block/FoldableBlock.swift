@@ -9,6 +9,9 @@ import SwiftUI
 
 struct FoldableBlock<Label, Content>: View where Label: View, Content: View {
 
+    @Environment(ContentManager.self) var cm
+    @Environment(EditorViewModel.self) var vm
+
     @State var collapse = false
 
     var content: () -> Content
@@ -37,6 +40,7 @@ struct FoldableBlock<Label, Content>: View where Label: View, Content: View {
                 ThreadLine(collapse: $collapse)
                     .padding(.top, 11)
                     .onTapGesture(perform: toggleCollapse)
+                    .blur(radius: cm.studyState == .transcribing && vm.showAI ? 15 : 0)
 
                 VStack(spacing: 3) {
                     if collapse {
