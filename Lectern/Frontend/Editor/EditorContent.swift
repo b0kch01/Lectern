@@ -106,7 +106,7 @@ struct EditorContent: View {
             Color(.systemBackground)
                 .ignoresSafeArea()
                 .opacity(nvm.showNoteSwitcher ? 1 : 0)
-                .brightness(colorScheme == .dark ? -0.1 : 0.1)
+                .brightness(colorScheme == .dark ? 0.15 : -0.1)
         )
         .background(
             FluidGradient(
