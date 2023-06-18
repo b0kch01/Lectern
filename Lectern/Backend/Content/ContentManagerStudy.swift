@@ -21,6 +21,51 @@ struct StudyFeedback: Codable {
 
 extension ContentManager {
 
+    func practice() -> String {
+        withAnimation(.snappy) {
+            studyState = .blurting
+        }
+
+        if contentTree["root"]?.children?.contains(studySelect ?? "") != true {
+            withAnimation(.snappy) {
+                studySelect = contentTree["root"]?.children?.first(where: { contentTree[$0]?.children?.contains(studySelect ?? "") == true })
+            }
+        }
+
+        let url = URL(string: URL_K.practice)!
+
+        Task {
+            var req = URLRequest(url: url)
+
+            let list: [String] = Array(study.values.map { "\($0.id): \($0.feedback)" })
+            let feedback = "FEEDBACK\n\(list.joined(separator: "\n"))\nEND FEEDBACK"
+
+            req.setValue(contentTree[studySelect!]!.text,           forHTTPHeaderField: "heading")
+            req.setValue(blurtVM.savedText.joined(separator: " "),  forHTTPHeaderField: "transcript")
+            req.setValue(getNotes().replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "notes")
+            req.setValue(feedback.replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "previous_feedback")
+
+            do {
+                let (data, _) = try await URLSession.shared.data(for: req)
+                print(String(data: data, encoding: .utf8))
+
+                let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
+
+                DispatchQueue.main.async { [weak self] in
+                    self?.study = self?.parsePractice(gptResponse.content) ?? [:]
+                    self?.studyState = .idle
+                }
+            } catch {
+                print(error)
+                studyState = .idle
+            }
+        }
+    }
+
+    private func parsePractice(_ content: String) {
+        
+    }
+
     func getNotes() -> String {
         guard let studySelect else { return "" }
 
@@ -54,14 +99,9 @@ extension ContentManager {
             req.setValue(blurtVM.savedText.joined(separator: " "),  forHTTPHeaderField: "transcript")
             req.setValue(getNotes().replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "notes")
 
-            print(req.allHTTPHeaderFields)
-
             do {
-                let (data, res) = try await URLSession.shared.data(for: req)
-
-                let x = String(data: data, encoding: .utf8)
-
-                print(x)
+                let (data, _) = try await URLSession.shared.data(for: req)
+                print(String(data: data, encoding: .utf8))
 
                 let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
 

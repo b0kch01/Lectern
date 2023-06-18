@@ -37,6 +37,17 @@ struct BlurtView: View {
         blurtVM.savedText + blurtVM.mainText
     }
 
+    var feedback: [String] {
+        Array(cm.study.keys)
+            .filter { !$0.hasPrefix("q__") }
+            .sorted()
+    }
+
+    var questions: [String] {
+        Array(cm.study.keys)
+            .filter { $0.hasPrefix("q__") }
+            .sorted()
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -85,7 +96,7 @@ struct BlurtView: View {
             .animation(.spring, value: cm.sr.transcript)
 
 
-            ForEach(Array(cm.study.keys).sorted(), id:\.self) { key in
+            ForEach(feedback, id:\.self) { key in
                 if let feedback = cm.study[key]?.feedback {
                     Button(action: {
                         cm.studySelect = key
@@ -132,6 +143,18 @@ struct BlurtView: View {
                     }
                 }
             }
+
+            Divider()
+
+            Text("Extra studying questions:")
+
+            ForEach(questions, id:\.self) {
+                Button(action: {  }) {
+                    Text("")
+                }
+            }
+
+
         }
         .padding(.top)
         .padding(.trailing, 30)
