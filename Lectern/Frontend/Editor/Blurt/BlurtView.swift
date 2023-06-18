@@ -9,23 +9,29 @@ import SwiftUI
 import WrappingHStack
 import Speech
 
-struct BlurtView: View {
 
-    @State private var directoryAccessError: Error?
-
-    @State var nvm = NavigationViewModel()
-    @State var sr = SpeechRecognizer()
-
+@Observable
+class BlurtViewModel {
     @State var savedText = [String]()
     @State var mainText = [String]()
-    @State var bounced = true
-    @State var pauseTranscribe = false
-    @State var show = false
+}
 
+struct BlurtView: View {
+
+    @Environment(ContentManager.self) var cm
+
+    var blurtVM = BlurtViewModel()
+
+
+
+    // Symbol Animation
+    @State var bounced = true
     let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
 
+
+
     var allText: [String] {
-        savedText + mainText
+        blurtVM.savedText + blurtVM.mainText
     }
 
     var body: some View {
@@ -41,20 +47,17 @@ struct BlurtView: View {
 //            Text("Test text placeholder")
 //                .font(.title3.weight(.semibold))
 //            
-            WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 7) { i in
-                Text(mainText[i] + " ")
+            WrappingHStack(allText.indices, id:\.self, spacing: .constant(0), lineSpacing: 7) { i in
+                Text(allText[i] + " ")
                     .font(.title3.weight(.semibold))
-                    .foregroundStyle(.primary.opacity(i == mainText.count - 1 ? 1 : 0.5))
-                    .animation(.spring, value: mainText)
+                    .foregroundStyle(.primary.opacity(i == allText.count - 1 ? 1 : 0.5))
+                    .animation(.spring, value: allText)
                     .id(i)
-                    .onAppear {
-                        show.toggle()
-                    }
             }
-            .onChange(of: sr.transcript) {
-                mainText = sr.transcript.components(separatedBy: " ")
+            .onChange(of: cm.sr.transcript) {
+                mainText = cm.sr.transcript.components(separatedBy: " ")
             }
-            .animation(.spring, value: sr.transcript)
+            .animation(.spring, value: cm.sr.transcript)
 
             HStack(spacing: 10) {
                 Image(systemName: "exclamationmark.triangle.fill")
@@ -82,9 +85,9 @@ struct BlurtView: View {
                 }
 
                 if pauseTranscribe {
-                    sr.stopTranscribing()
+                    cm.sr.stopTranscribing()
                 } else {
-                    sr.startTranscribing()
+                    cm.sr.startTranscribing()
                 }
             }) {
                 Group {
@@ -143,10 +146,9 @@ struct BlurtView: View {
             bounced.toggle()
         }
         .task {
-            sr.resetTranscript()
-            try? await Task.sleep(nanoseconds: 500_000_000)
-
-            sr.startTranscribing()
+            cm.blurtVM = blurtVM
+            cm.sr.resetTranscript()
+            cm.sr.startTranscribing()
         }
     }
 }

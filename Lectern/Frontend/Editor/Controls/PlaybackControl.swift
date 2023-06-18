@@ -27,7 +27,7 @@ struct PlaybackControl: View {
                     HStack(spacing: 10) {
                         SymbolButton(symbol: "mic.slash.fill") {
                             withAnimation(.snappy) {
-                                pauseTranscribe = false
+                                cm.studyState = .blurting
                             }
                         }
 

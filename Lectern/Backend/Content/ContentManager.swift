@@ -19,11 +19,15 @@ enum StudyStatus: Hashable {
 @Observable
 class ContentManager {
 
+
+    let sr = SpeechRecognizer()
     // STUDY STUFF
 
     var study: [String: StudyFeedback] = [:]
-
     var studyState = StudyStatus.idle
+
+    var blurtVM = BlurtViewModel()
+
 
 
     // DO NOT PUBLISH
