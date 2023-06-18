@@ -53,8 +53,7 @@ struct BlurtView: View {
                 blurtVM.mainText = cm.sr.transcript.components(separatedBy: " ")
             }
             .animation(.spring, value: cm.sr.transcript)
-            
-            Spacer().frame(height: 0)
+
 
             ForEach(Array(cm.study.keys).sorted(), id:\.self) { key in
                 if let feedback = cm.study[key]?.feedback {
@@ -103,6 +102,17 @@ struct BlurtView: View {
                     }
                 }
             }
+
+            Spacer().frame(height: 0)
+
+            Divider()
+
+            Text("Do you want to be tested?")
+            Button("I want to be tested!", action: {
+                print("TEST")
+            })
+
+
 
 //            HStack(spacing: 10) {
 //                Image(systemName: "exclamationmark.triangle.fill")
@@ -178,6 +188,8 @@ struct BlurtView: View {
 //            .contentShape(Rectangle())
 //            .hoverEffect(.highlight)
 //            .padding(.top, 10)
+
+            
 
         }
         .padding(.top)

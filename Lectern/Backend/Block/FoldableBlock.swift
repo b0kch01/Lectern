@@ -40,7 +40,7 @@ struct FoldableBlock<Label, Content>: View where Label: View, Content: View {
                 ThreadLine(collapse: $collapse)
                     .padding(.top, 11)
                     .onTapGesture(perform: toggleCollapse)
-                    .blur(radius: cm.studyState == .transcribing && vm.showAI ? 15 : 0)
+                    .blur(radius: cm.studyState == .transcribing && vm.showAI ? 5 : 0)
 
                 VStack(spacing: 3) {
                     if collapse {
