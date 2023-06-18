@@ -17,32 +17,55 @@ struct BlurtView: View {
     @State var sr = SpeechRecognizer()
 
     @State var mainText = [String]()
-
     @State var bounced = true
+    @State var pauseTranscribe = false
+    @State var show = false
+
     let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
 
     var body: some View {
         LazyVStack(alignment: .leading, spacing: 20) {
             WrappingHStack(mainText.indices, id:\.self, spacing: .constant(0), lineSpacing: 5) { i in
-                BlurtTextView(word: mainText[i])
+                Text(mainText[i] + " ")
                     .font(.title3.weight(.semibold))
                     .foregroundStyle(.primary.opacity(i == mainText.count - 1 ? 1 : 0.5))
                     .animation(.spring, value: mainText)
                     .id(i)
+                    .onAppear {
+                        show.toggle()
+                    }
             }
             .onChange(of: sr.transcript) {
                 mainText = sr.transcript.components(separatedBy: " ")
             }
-            .transition(.scale)
             .animation(.spring, value: sr.transcript)
 
-            Image(systemName: "waveform")
-                .font(.title2.weight(.semibold))
-                .foregroundStyle(.primary)
-                .symbolEffect(.pulse)
-                .symbolEffect(.bounce, value: bounced)
-                .opacity(0.9)
-                .padding(.top, 10)
+            Button(action: {
+                withAnimation(.snappy) {
+                    pauseTranscribe.toggle()
+                }
+            }) {
+                Group {
+                    if pauseTranscribe {
+                        Image(systemName: "mic.slash.fill")
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.primary.opacity(0.9))
+                    } else {
+                        Image(systemName: "waveform")
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.mainColorInvert)
+                            .symbolEffect(.pulse)
+                            .symbolEffect(.bounce, value: bounced)
+                    }
+                }
+                .frame(width: 21, height: 21)
+                .padding(9)
+                .background(pauseTranscribe ? Color(.tertiarySystemFill) : .main)
+                .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+                .contentShape(Rectangle())
+                .hoverEffect(.highlight)
+            }
+            .padding(.top, 10)
 
             Spacer()
         }

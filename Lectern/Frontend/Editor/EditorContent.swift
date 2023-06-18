@@ -103,6 +103,12 @@ struct EditorContent: View {
                 )
         }
         .background(
+            Color(.systemBackground)
+                .ignoresSafeArea()
+                .opacity(nvm.showNoteSwitcher ? 1 : 0)
+                .brightness(colorScheme == .dark ? -0.1 : 0.1)
+        )
+        .background(
             FluidGradient(
                 blobs: [
                     Color(.systemBackground).opacity(0.15),
@@ -111,8 +117,8 @@ struct EditorContent: View {
                 ],
                 highlights: [
                     colorScheme == .dark ? .black.opacity(0.9) : .white.opacity(0.5),
-                    Color.yellow.opacity(vm.showAI ? (colorScheme == .dark ? 0.3 : 0.5) : 0),
-                    Color.teal.opacity(vm.showAI ? (colorScheme == .dark ? 0.3 : 0.5) : 0)
+                    Color.yellow.opacity(vm.showAI ? (colorScheme == .dark ? 0.2 : 0.5) : 0),
+                    Color.teal.opacity(vm.showAI ? (colorScheme == .dark ? 0.2 : 0.5) : 0)
                 ],
                 speed: 0.3,
                 blur: 0.9
