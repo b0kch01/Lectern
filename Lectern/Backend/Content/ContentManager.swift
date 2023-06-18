@@ -7,9 +7,16 @@
 
 import SwiftUI
 import Observation
+import SwiftData
 
 @Observable
 class ContentManager {
+
+    // STUDY STUFF
+
+    var study: [String: StudyFeedback] = [:]
+
+
     // DO NOT PUBLISH
     var selectState: NSRange? = NSRange(location: 0, length: 0)
 

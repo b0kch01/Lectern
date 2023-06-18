@@ -30,19 +30,26 @@ extension ContentManager {
                 let (data, _) = try await URLSession.shared.data(for: req)
                 let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
 
-                parseBlurt(gptResponse.content)
+                DispatchQueue.main.async { [weak self] in
+                    self?.study = self?.parseBlurt(gptResponse.content) ?? [:]
+                    print(self?.study)
+                }
             } catch {
                 logger.error("\(error)")
             }
         }
     }
 
-    private func parseBlurt(_ content: String) -> [StudyFeedback] {
+    private func parseBlurt(_ content: String) -> [String: StudyFeedback] {
         var lines = content.components(separatedBy: "\n")
             lines = Array(lines[1..<lines.count-1])
 
-        print(lines)
+        return lines.reduce(into: [String: StudyFeedback]()) {
+            let parts = $1.split(separator: ": ", maxSplits: 1)
+            let id = String(parts[0])
+            let feedback = String(parts[1])
 
-        return []
+            $0[id] = StudyFeedback(id: id, feedback: feedback)
+        }
     }
 }
