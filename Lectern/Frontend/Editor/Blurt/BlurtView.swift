@@ -9,7 +9,7 @@ import SwiftUI
 import Observation
 import WrappingHStack
 import Speech
-
+import FluidGradient
 
 @Observable
 class BlurtViewModel {
@@ -53,13 +53,9 @@ struct BlurtView: View {
                 blurtVM.mainText = cm.sr.transcript.components(separatedBy: " ")
             }
             .animation(.spring, value: cm.sr.transcript)
-
-
-
-
+            
             Spacer().frame(height: 0)
 
-            
             ForEach(Array(cm.study.keys).sorted(), id:\.self) { key in
                 if let feedback = cm.study[key]?.feedback {
                     Button(action: {
@@ -67,11 +63,35 @@ struct BlurtView: View {
                     }) {
                         HStack(spacing: 0) {
                             Spacer()
+                                .frame(width: 40)
+
                             Text(feedback)
                                 .font(.title3.weight(.semibold))
                                 .animation(.spring, value: allText)
                                 .multilineTextAlignment(.trailing)
                                 .id(key)
+                                .overlay {
+                                    FluidGradient(
+                                        blobs: [
+                                            Color(.systemBackground).opacity(0.3),
+                                            Color(.systemBackground).opacity(0.9)
+                                        ],
+                                        highlights: [
+                                            .white.opacity(0.5),
+                                            Color.yellow.opacity(0.5),
+                                            Color.pink.opacity(0.5)
+                                        ],
+                                        speed: 0.7,
+                                        blur: 0.9
+                                    )
+                                    .mask(
+                                        Text(feedback)
+                                            .font(.title3.weight(.semibold))
+                                            .animation(.spring, value: allText)
+                                            .multilineTextAlignment(.trailing)
+                                            .id(key)
+                                    )
+                                }
                                 .padding(15)
                                 .scaleEffect(cm.studySelect == key ? 0.95 : 1)
                                 .background(
@@ -170,6 +190,34 @@ struct BlurtView: View {
             cm.studySelect = headerBlockId
             cm.blurtVM = blurtVM
             cm.studyState = .transcribingPaused
+        }
+    }
+}
+
+extension Text {
+    public func foregroundLinearGradient(
+        colors: [Color],
+        startPoint: UnitPoint,
+        endPoint: UnitPoint) -> some View
+    {
+        self.overlay {
+            FluidGradient(
+                blobs: [
+                    Color(.systemBackground).opacity(0.15),
+                    Color(.systemBackground).opacity(0.5)
+                ],
+                highlights: [
+                    .white.opacity(0.5),
+                    Color.yellow.opacity(0.5),
+                    Color.teal.opacity(0.5)
+                ],
+                speed: 0.3,
+                blur: 0.9
+            )
+            .mask(
+                self
+
+            )
         }
     }
 }

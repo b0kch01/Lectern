@@ -87,10 +87,10 @@ struct CenterControl: View {
                 MiscControl()
                     .opacity(vm.shipState == .misc ? 1 : 0)
             )
-            .overlay(
-                PlaybackControl()
-                    .opacity(vm.showAI ? 1 : 0)
-            )
+//            .overlay(
+//                PlaybackControl()
+//                    .opacity(vm.showAI ? 1 : 0)
+//            )
             .foregroundStyle(.primary.opacity(0.9))
         }
     }
