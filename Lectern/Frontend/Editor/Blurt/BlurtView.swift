@@ -171,6 +171,9 @@ struct BlurtView: View {
                                     .multilineTextAlignment(.trailing)
                             )
                         }
+                        .onTapGesture {
+                            cm.practice()
+                        }
                 }
 
 //                Divider()

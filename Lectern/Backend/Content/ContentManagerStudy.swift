@@ -164,7 +164,7 @@ extension ContentManager {
     private func parseBlurt(_ content: String) -> [String: StudyFeedback] {
         var lines = content.components(separatedBy: "\n")
 
-        if lines.count <= 3 {
+        if lines.count < 3 {
             return [:]
         } else {
             lines = Array(lines[1..<lines.count-1])
@@ -182,7 +182,7 @@ extension ContentManager {
 
         if output.count == 0 {
             var dict = [String: StudyFeedback]()
-            dict[studySelect ?? "..."] = StudyFeedback(id: studySelect ?? "...", feedback: content)
+            dict[studySelect ?? "..."] = StudyFeedback(id: studySelect ?? "...", feedback: lines.first ?? "Try again.")
             return dict
         } else {
             return output
