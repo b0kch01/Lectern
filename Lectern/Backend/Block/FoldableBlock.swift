@@ -39,7 +39,7 @@ struct FoldableBlock<Label, Content>: View where Label: View, Content: View {
             HStack(spacing: 5) {
                 ThreadLine(collapse: $collapse)
                     .padding(.top, 11)
-                    .blur(radius: cm.studyState == .transcribing && vm.showAI ? 4 : 0)
+                    .blur(radius: cm.studyState == .transcribing && vm.showAI ? 5 : 0)
 
                 VStack(spacing: 3) {
                     content()

@@ -38,13 +38,13 @@ struct PracticeView: View {
                 .animation(.spring, value: allText)
                 .id(i)
         }
-            .onChange(of: cm.sr.transcript) {
-                blurtVM.mainText = cm.sr.transcript.components(separatedBy: " ")
-            }
-            .onAppear {
-                cm.blurtPracticeVM = blurtVM
-                cm.sr.stopTranscribing()
-                cm.studyState = .practicingPaused
-            }
+        .onChange(of: cm.sr.transcript) {
+            blurtVM.mainText = cm.sr.transcript.components(separatedBy: " ")
+        }
+        .onAppear {
+            cm.blurtPracticeVM = blurtVM
+            cm.sr.stopTranscribing()
+            cm.studyState = .practicingPaused
+        }
     }
 }
