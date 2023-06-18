@@ -35,10 +35,17 @@ extension ContentManager {
 
     func blurt() {
         if studyState == .blurting { return }
-        studyState = .blurting
+        withAnimation(.snappy) {
+            studyState = .blurting
+        }
+
+        if contentTree["root"]?.children?.contains(studySelect ?? "") != true {
+            withAnimation(.snappy) {
+                studySelect = contentTree["root"]?.children?.first(where: { contentTree[$0]?.children?.contains(studySelect ?? "") == true })
+            }
+        }
 
         let url = URL(string: URL_K.blurt)!
-
 
         Task {
             var req = URLRequest(url: url)
@@ -47,10 +54,14 @@ extension ContentManager {
             req.setValue(blurtVM.savedText.joined(separator: " "),  forHTTPHeaderField: "transcript")
             req.setValue(getNotes().replacingOccurrences(of: "\n", with: "\\n"), forHTTPHeaderField: "notes")
 
+            print(req.allHTTPHeaderFields)
+
             do {
                 let (data, res) = try await URLSession.shared.data(for: req)
 
                 let x = String(data: data, encoding: .utf8)
+
+                print(x)
 
                 let gptResponse = try JSONDecoder().decode(GPTResponse.self, from: data)
 
@@ -59,7 +70,7 @@ extension ContentManager {
                     self?.studyState = .idle
                 }
             } catch {
-                logger.error("\(error)")
+                print(error)
                 studyState = .idle
             }
         }
@@ -67,14 +78,21 @@ extension ContentManager {
 
     private func parseBlurt(_ content: String) -> [String: StudyFeedback] {
         var lines = content.components(separatedBy: "\n")
+
+        if lines.count <= 3 {
+            return [:]
+        } else {
             lines = Array(lines[1..<lines.count-1])
+        }
 
         return lines.reduce(into: [String: StudyFeedback]()) {
             let parts = $1.split(separator: ": ", maxSplits: 1)
-            let id = String(parts[0])
-            let feedback = String(parts[1])
-
-            $0[id] = StudyFeedback(id: id, feedback: feedback)
+            if parts.count == 2 {
+                let id = String(parts[0])
+                let feedback = String(parts[1])
+                
+                $0[id] = StudyFeedback(id: id, feedback: feedback)
+            }
         }
     }
 }

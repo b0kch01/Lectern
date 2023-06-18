@@ -20,10 +20,20 @@ struct PlaybackControl: View {
         HStack(spacing: 10) {
             Spacer()
 
-            SymbolButton(symbol: "backward.fill")
+            SymbolButton(symbol: "backward.fill") {
+                cm.blurtVM.savedText = []
+                cm.blurtVM.mainText = ["Unmute to start blurting..."]
+                cm.study = [:]
+                cm.sr.stopTranscribing()
+                cm.sr.transcript = ""
+                cm.studyState = .transcribingPaused
+                cm.skip(n: -1)
+            }
 
             Group {
-                if cm.studyState == .transcribingPaused {
+                if cm.studyState == .blurting {
+                    ProgressView()
+                } else if cm.studyState == .transcribingPaused {
                     HStack(spacing: 7) {
                         SymbolButton(symbol: "mic.slash.fill") {
                             withAnimation(.snappy) {
@@ -55,6 +65,7 @@ struct PlaybackControl: View {
                         withAnimation(.snappy) {
                             cm.blurtVM.savedText = []
                             cm.blurtVM.mainText = []
+                            cm.study = [:]
                             cm.sr.resetTranscript()
                             cm.sr.startTranscribing()
                             cm.studyState = .transcribing
@@ -74,10 +85,12 @@ struct PlaybackControl: View {
 
             SymbolButton(symbol: "forward.fill") {
                 cm.blurtVM.savedText = []
-                cm.blurtVM.mainText = []
+                cm.blurtVM.mainText = ["Unmute to start blurting..."]
+                cm.study = [:]
                 cm.sr.stopTranscribing()
                 cm.sr.transcript = ""
                 cm.studyState = .transcribingPaused
+                cm.skip(n: 1)
             }
 
             Spacer()

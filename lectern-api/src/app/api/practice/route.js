@@ -1,5 +1,3 @@
-import { messages } from "../../../../public/local";
-
 const { Configuration, OpenAIApi } = require("openai");
 require('dotenv').config();
 

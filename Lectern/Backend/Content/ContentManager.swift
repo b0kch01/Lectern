@@ -47,6 +47,25 @@ class ContentManager {
         "7": Block(id: "7", type: .textBlock, text: "Some api calls allow you to put body content, which is url encoded", textType: .body)
     ]
 
+    func skip(n: Int) {
+        if contentTree["root"]?.children?.contains(studySelect ?? "") != true {
+            withAnimation(.snappy) {
+                studySelect = contentTree["root"]?.children?.first(where: { contentTree[$0]?.children?.contains(studySelect ?? "") == true })
+            }
+        }
+
+        guard let list = contentTree["root"]?.children else { return }
+
+        for i in list.indices where list[i] == studySelect {
+            if i + n < 0 || i + n >= list.count {
+                return
+            }
+
+            studySelect = list[i + n]
+            print("SKIPPED TO", list[i+n])
+        }
+    }
+
    
 
     func ensureGhostBlockExists() {
