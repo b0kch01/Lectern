@@ -21,6 +21,8 @@ class BlurtViewModel {
 
 struct BlurtView: View {
 
+    @Environment(\.horizontalSizeClass) var sizeClass
+
     @Environment(ContentManager.self) var cm
 
     @State var blurtVM = BlurtViewModel()
@@ -45,7 +47,6 @@ struct BlurtView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-
             if !isBlurting {
                 Text("To start blurting, tap here to start typing or tap \(Image(systemName: "mic.slash.fill")) to start dictating.\n\nTap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
                     .font(.title3.weight(.semibold))
@@ -176,7 +177,7 @@ struct BlurtView: View {
             PracticeView()
         }
         .padding(.top)
-        .padding(.trailing, 30)
+        .padding(.trailing, sizeClass == .regular ? 30 : 0)
         .onReceive(timer) { _ in
             bounced.toggle()
         }
@@ -184,34 +185,6 @@ struct BlurtView: View {
             cm.studySelect = headerBlockId
             cm.blurtVM = blurtVM
             cm.studyState = .transcribingPaused
-        }
-    }
-}
-
-extension Text {
-    public func foregroundLinearGradient(
-        colors: [Color],
-        startPoint: UnitPoint,
-        endPoint: UnitPoint) -> some View
-    {
-        self.overlay {
-            FluidGradient(
-                blobs: [
-                    Color(.systemBackground).opacity(0.15),
-                    Color(.systemBackground).opacity(0.5)
-                ],
-                highlights: [
-                    .white.opacity(0.5),
-                    Color.yellow.opacity(0.5),
-                    Color.cyan.opacity(0.5)
-                ],
-                speed: 0.3,
-                blur: 0.9
-            )
-            .mask(
-                self
-
-            )
         }
     }
 }
