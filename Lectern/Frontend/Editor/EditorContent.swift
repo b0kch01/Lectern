@@ -33,7 +33,7 @@ struct EditorContent: View {
                                         Group {
                                             Group {
                                                 if vm.showAI {
-                                                    BlurtView()
+                                                    BlurtView(headerBlockId: "1")
                                                 }
                                             }
                                             .scaleEffect(vm.showAI ? 1 : 0.9)
@@ -86,7 +86,7 @@ struct EditorContent: View {
                             Group {
                                 if vm.showAI && sizeClass == .regular {
                                     ScrollView(showsIndicators: nvm.showNoteSwitcher ? false : true) {
-                                        BlurtView()
+                                        BlurtView(headerBlockId: "1")
                                             .padding(.top)
                                             .padding(.horizontal, 30)
                                             .padding(.bottom, cm.focusState != nil ? geometry.size.height/2 : 10)

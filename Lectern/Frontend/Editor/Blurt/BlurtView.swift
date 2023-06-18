@@ -15,6 +15,8 @@ import Speech
 class BlurtViewModel {
     var savedText = [String]()
     var mainText = ["Start blurting..."]
+
+    var selectedBlock = ""
 }
 
 struct BlurtView: View {
@@ -24,16 +26,17 @@ struct BlurtView: View {
     @State var blurtVM = BlurtViewModel()
 
 
+    var headerBlockId: String
+
+
     // Symbol Animation
     @State var bounced = true
     let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
 
 
-
     var allText: [String] {
         blurtVM.savedText + blurtVM.mainText
     }
-
 
 
     var body: some View {
@@ -68,14 +71,22 @@ struct BlurtView: View {
             
             ForEach(Array(cm.study.keys).sorted(), id:\.self) { key in
                 if let feedback = cm.study[key]?.feedback {
-                    Button(action: {}) {
-                        HStack {
+                    Button(action: {
+
+
+                    }) {
+                        HStack(spacing: 0) {
                             Spacer()
                             Text(feedback)
                                 .font(.title3.weight(.semibold))
                                 .animation(.spring, value: allText)
                                 .multilineTextAlignment(.trailing)
                                 .id(key)
+                                .padding(15)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(Color.white.opacity(0.1))
+                                )
                                 .padding(.leading, 50)
                         }
                     }
