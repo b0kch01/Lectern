@@ -57,6 +57,7 @@
 		D44A79072A3E2E8C0031ECF7 /* TestBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A79062A3E2E8C0031ECF7 /* TestBlock.swift */; };
 		D4D678E22A3E2F2D00F3B38E /* FluidGradient in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E12A3E2F2D00F3B38E /* FluidGradient */; };
 		D4D678E72A3E5C3600F3B38E /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E62A3E5C3600F3B38E /* WrappingHStack */; };
+		D4F0D94D2A423A65000C8D91 /* STIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F0D94C2A423A65000C8D91 /* STIView.swift */; };
 		E99CD2902A3E264300C2987C /* LecternApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD28F2A3E264300C2987C /* LecternApp.swift */; };
 		E99CD2922A3E264300C2987C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2912A3E264300C2987C /* ContentView.swift */; };
 		E99CD2942A3E264400C2987C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99CD2932A3E264400C2987C /* Assets.xcassets */; };
@@ -117,6 +118,7 @@
 		D44A79022A3E2E770031ECF7 /* AlphaBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaBlock.swift; sourceTree = "<group>"; };
 		D44A79042A3E2E820031ECF7 /* AlphaEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaEditorView.swift; sourceTree = "<group>"; };
 		D44A79062A3E2E8C0031ECF7 /* TestBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBlock.swift; sourceTree = "<group>"; };
+		D4F0D94C2A423A65000C8D91 /* STIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STIView.swift; sourceTree = "<group>"; };
 		E99CD28C2A3E264300C2987C /* Lectern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lectern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99CD28F2A3E264300C2987C /* LecternApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecternApp.swift; sourceTree = "<group>"; };
 		E99CD2912A3E264300C2987C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				E99CD28F2A3E264300C2987C /* LecternApp.swift */,
 				E99CD2912A3E264300C2987C /* ContentView.swift */,
 				D44A78902A3E275A0031ECF7 /* ParentView.swift */,
+				D4F0D94C2A423A65000C8D91 /* STIView.swift */,
 				E99CD2932A3E264400C2987C /* Assets.xcassets */,
 				E99CD2952A3E264400C2987C /* Lectern.entitlements */,
 				E99CD2962A3E264400C2987C /* Preview Content */,
@@ -443,6 +446,7 @@
 				D44A79012A3E2E680031ECF7 /* AlphaContentManager.swift in Sources */,
 				D44A78C62A3E2B3D0031ECF7 /* Blur.swift in Sources */,
 				D44A78F72A3E2DF10031ECF7 /* CollapsedBlock.swift in Sources */,
+				D4F0D94D2A423A65000C8D91 /* STIView.swift in Sources */,
 				D44A78D82A3E2BDA0031ECF7 /* RoundedButton.swift in Sources */,
 				D44A789C2A3E27D50031ECF7 /* NavigationViewModel.swift in Sources */,
 				D44A78BB2A3E2ABB0031ECF7 /* Constants.swift in Sources */,
