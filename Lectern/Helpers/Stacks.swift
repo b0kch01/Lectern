@@ -49,6 +49,23 @@ struct LeadingHStack <Content: View>: View {
     }
 }
 
+struct TrailingHStack <Content: View>: View {
+
+    let content: Content
+
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+
+    var body: some View {
+        HStack(spacing: 0) {
+            Spacer()
+
+            content
+        }
+    }
+}
+
 struct CenterVStack <Content: View>: View {
 
     let content: Content
