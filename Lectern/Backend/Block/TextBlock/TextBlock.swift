@@ -58,7 +58,7 @@ struct TextBlock: View {
         .overlay(selectionOverlay)
         .offset(x: offsetX)
         .simultaneousGesture(tapGesture)
-        //.highPriorityGesture(dragGesture)
+        .highPriorityGesture(dragGesture)
         .onChange(of: swipeSnap) {
             LightHaptics.shared.play(.soft)
         }

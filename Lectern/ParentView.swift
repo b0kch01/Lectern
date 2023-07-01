@@ -26,10 +26,8 @@ struct ParentView: View {
         .ignoresSafeArea(.container)
         .overlay(
             VStack {
-                SafeAreaBlock(isTop: true, isDark: true, minimized: true)
+                NoteSafeAreaBlock()
                 Spacer()
-                SafeAreaBlock(isTop: false, isDark: true)
-                    .opacity(nvm.showNoteSwitcher ? 0 : 1)
             }
             .opacity(nvm.showNoteSwitcher ? 1 : 0)
             .ignoresSafeArea()
@@ -47,7 +45,7 @@ struct ParentView: View {
         .overlay(
             GeometryReader { geometry in
                 Color.clear.overlay(
-                    SafeAreaBlock(isTop: false)
+                    SafeAreaBlockBottom()
                         .frame(width: sizeClass == .compact ? geometry.size.width : geometry.size.width/1.6)
                         .opacity(nvm.showNoteSwitcher ? 0 : 1)
                         .overlay(

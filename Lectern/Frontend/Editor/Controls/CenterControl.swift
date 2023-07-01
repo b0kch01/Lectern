@@ -20,7 +20,7 @@ struct CenterControl: View {
             Spacer()
 
             Bar(color: Color(.secondarySystemFill))
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 24)
 
             HStack(spacing: 7) {
                 if vm.shipState == nil {
@@ -40,10 +40,10 @@ struct CenterControl: View {
                         }
                     }) {
                         Image(.lectern)
-                            .font(.system(size: 23).weight(.medium))
+                            .font(.system(size: 21).weight(.medium))
                             .symbolEffect(.bounce, value: vm.showAI)
                             .foregroundStyle(vm.showAI ? .mainColorInvert : .primary.opacity(0.9))
-                            .frame(width: 18, height: 18)
+                            .frame(width: 21, height: 21)
                             .padding(9)
                             .background(vm.showAI ? .main : Color.clear)
                             .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
@@ -54,7 +54,11 @@ struct CenterControl: View {
                     Spacer()
                 }
 
-                Button(action: {
+                SymbolButton(
+                    symbol: "ellipsis",
+                    foreground: vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9),
+                    background: vm.shipState == .misc ? .main : Color.clear
+                ) {
                     withAnimation(.defaultSpring) {
                         vm.showAI = false
 
@@ -64,25 +68,12 @@ struct CenterControl: View {
                             vm.shipState = nil
                         }
                     }
-                }) {
-                    Image(systemName: "ellipsis")
-                        .font(.system(size: 19).weight(.medium))
-                        .symbolEffect(.bounce, value: vm.shipState == .misc)
-                        .foregroundStyle(vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9))
-                        .frame(width: 18, height: 18)
-                        .padding(9)
-                        .background(vm.shipState == .misc ? .main : Color.clear)
-                        .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-                        .contentShape(Rectangle())
-                        .hoverEffect(.highlight)
                 }
                 .opacity(vm.showAI ? 0 : 1)
 
                 Spacer()
             }
-            .padding(.top, 13)
-            .padding(.bottom, 16)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 24)
             .overlay(
                 MiscControl()
                     .opacity(vm.shipState == .misc ? 1 : 0)
@@ -92,6 +83,8 @@ struct CenterControl: View {
                     .opacity(vm.showAI ? 1 : 0)
             )
             .foregroundStyle(.primary.opacity(0.9))
+            .padding(.top, 9)
+            .padding(.bottom, 16)
         }
     }
 }

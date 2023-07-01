@@ -257,7 +257,7 @@ struct STIView: View {
             }
             .foregroundStyle(.white)
             .padding(.top, 120)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 24)
             .padding()
         }
         .background(

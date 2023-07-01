@@ -75,7 +75,7 @@ struct NavigationBar: View {
 //                }
             }
             .padding(.vertical)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 24)
             .foregroundStyle(.primary.opacity(0.9))
             .opacity(minimized ? 0 : 1)
             .overlay(

@@ -32,31 +32,24 @@ struct EditorContent: View {
                                     RootBlockView()
                                 }
                                 .padding(.top)
-                                .padding(.horizontal, 30)
-                                .padding(.bottom, 30)
+                                .padding(.horizontal, 24)
+                                .padding(.bottom, 24)
                                 .frame(width: sizeClass == .compact ? nil : geometry.size.width/1.6)
 
                                 spacer
                             }
                         }
                         .safeAreaPadding(.top, 120)
-                        .safeAreaPadding(.bottom, 95)
+                        .safeAreaPadding(.bottom, 110)
                         .safeAreaPadding(.bottom, sizeClass == .compact ? (vm.showAI ? Screen.width : 0) : 0)
+                        .mask(LinearGradient(gradient: Gradient(stops: [
+                            .init(color: .black.opacity(nvm.showNoteSwitcher ? 1 : 0.1), location: 0.07),
+                            .init(color: .black, location: 0.12),
+                            .init(color: .black, location: 0.85),
+                            .init(color: .black.opacity(nvm.showNoteSwitcher ? 1 : 0.1), location: 0.9)
+                        ]), startPoint: .top, endPoint: .bottom))
                     }
-                    .background(
-                        Color.clear
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                if cm.focusState == nil {
-                                    if let lastRoot = cm.contentTree["root"]?.children?.last {
-                                        cm.focusBlock(targetId: lastRoot)
-                                    }
-                                    vm.shipState = nil
-                                } else {
-                                    hideKeyboard()
-                                }
-                            }
-                    )
+                    .background(backgroundContentShape)
                     .overlay(
                         HStack(spacing: 0) {
                             Spacer()
@@ -67,8 +60,8 @@ struct EditorContent: View {
                                     ScrollView(showsIndicators: nvm.showNoteSwitcher ? false : true) {
                                         BlurtView(headerBlockId: "1")
                                             .padding(.top)
-                                            .padding(.horizontal, 30)
-                                            .padding(.bottom, 30)
+                                            .padding(.horizontal, 24)
+                                            .padding(.bottom, 24)
                                     }
                                     .safeAreaPadding(.top, 120)
                                     .safeAreaPadding(.bottom, 95)
@@ -92,13 +85,13 @@ struct EditorContent: View {
                                         .contrast(colorScheme == .dark ? 1.1 : 1)
 
                                     Bar(color: Color(.secondarySystemFill))
-                                        .padding(.horizontal, 30)
+                                        .padding(.horizontal, 24)
                                         .offset(y: 40)
                                         .frame(width: Screen.width)
 
                                     ScrollView(showsIndicators: nvm.showNoteSwitcher ? false : true) {
                                         BlurtView(headerBlockId: "1")
-                                            .padding(.horizontal, 30)
+                                            .padding(.horizontal, 24)
                                             .padding(.top, 80)
                                     }
                                     .frame(width: Screen.width)
@@ -126,23 +119,25 @@ struct EditorContent: View {
         .background(
             FluidGradient(
                 blobs: [
-                    Color(.systemBackground).opacity(0.1),
-                    .primary.opacity(vm.showAI ? 0 : (colorScheme == .dark ? 0.1 : 0.25))
+                    Color(.systemBackground).opacity(0)
                 ],
                 highlights: [
-                    colorScheme == .dark ? .black.opacity(0.15) : .white.opacity(0.15),
-                    Color.yellow.opacity(vm.showAI ? (colorScheme == .dark ? 0.1 : 0.2) : 0),
-                    Color.cyan.opacity(vm.showAI ? (colorScheme == .dark ? 0.1 : 0.2) : 0)
+                    Color.yellow.opacity(colorScheme == .dark ? 0.1 : 0.2)
                 ],
                 speed: 0.3,
                 blur: 0.7
             )
-            .background(Color.white.opacity(colorScheme == .dark ? 0.2 : 0.8))
+            .background(Color.elevatedBackground)
             .ignoresSafeArea()
             .animation(.smooth(duration: 0.7), value: vm.showAI)
+            .opacity(vm.showAI ? 1 : 0)
+        )
+        .background(
+            Color.elevatedBackground
+                .ignoresSafeArea()
         )
         .overlay(
-            SafeAreaBlock(isTop: true, minimized: cm.focusState != nil || vm.shipState != nil || vm.selected != [])
+            SafeAreaBlockTop(minimized: cm.focusState != nil || vm.shipState != nil || vm.selected != [])
             , alignment: .top
         )
         .clipShape(
@@ -170,5 +165,20 @@ struct EditorContent: View {
                     .disabled(vm.showAI)
             }
         }
+    }
+
+    private var backgroundContentShape: some View {
+        Color.clear
+            .contentShape(Rectangle())
+            .onTapGesture {
+                if cm.focusState == nil {
+                    if let lastRoot = cm.contentTree["root"]?.children?.last {
+                        cm.focusBlock(targetId: lastRoot)
+                    }
+                    vm.shipState = nil
+                } else {
+                    hideKeyboard()
+                }
+            }
     }
 }

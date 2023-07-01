@@ -81,7 +81,7 @@ struct TestBlock: View {
                     Divider()
 
                     Image(systemName: "increase.indent")
-                        .padding(.horizontal, 30)
+                        .padding(.horizontal, 24)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             cm.indent(block)
@@ -90,7 +90,7 @@ struct TestBlock: View {
                     Divider()
 
                     Image(systemName: "decrease.indent")
-                        .padding(.horizontal, 30)
+                        .padding(.horizontal, 24)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             cm.unindent(block)

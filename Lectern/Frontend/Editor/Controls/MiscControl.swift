@@ -12,13 +12,12 @@ struct MiscControl: View {
     @Environment(EditorViewModel.self) var vm
 
     var body: some View {
-        HStack(spacing: 0) {
+        HStack(spacing: 5) {
             SymbolButton(symbol: "ellipsis") { }
                 .opacity(0)
-                .padding(.trailing, 25)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 9) {
+                HStack(spacing: 5) {
                     Group {
                         SymbolButton(symbol: "arrow.uturn.left")
                         SymbolButton(symbol: "arrow.uturn.right")
@@ -42,15 +41,14 @@ struct MiscControl: View {
                     }
 
                 }
-                .padding(.leading, 9)
-                .padding(.trailing, 20)
+                .padding(.horizontal, 24)
             }
             .scrollTargetLayout()
             .scrollTargetBehavior(.viewAligned)
             .mask(LinearGradient(gradient: Gradient(stops: [
                 .init(color: .clear, location: 0),
-                .init(color: .black, location: 0.05),
-                .init(color: .black, location: 0.85),
+                .init(color: .black, location: 0.1),
+                .init(color: .black, location: 0.9),
                 .init(color: .clear, location: 1)
             ]), startPoint: .leading, endPoint: .trailing))
         }

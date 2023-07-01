@@ -14,14 +14,14 @@ struct SymbolButton: View {
     @State var tapped = false
 
     var symbol: String
-    var color: Color
-    var fill: Color
+    var foreground: Color
+    var background: Color
     var action: (() -> Void)?
 
-    init(symbol: String, color: Color = .main, fill: Color = Color.clear, action: (() -> Void)?=nil) {
+    init(symbol: String, foreground: Color = .main, background: Color = Color.clear, action: (() -> Void)?=nil) {
         self.symbol = symbol
-        self.color = color
-        self.fill = fill
+        self.foreground = foreground
+        self.background = background
         self.action = action
     }
 
@@ -31,13 +31,14 @@ struct SymbolButton: View {
             tapped.toggle()
         }) {
             Image(systemName: symbol)
-                .font(.system(size: 19 + (symbol == "waveform" ? 3 : 0)).weight(.medium))
-                .foregroundStyle(color)
+                .font(.system(size: 17 + (symbol == "waveform" ? 3 : 0)).weight(.medium))
+                .foregroundStyle(foreground)
                 .symbolEffect(.bounce, value: tapped)
-                .frame(width: 19, height: 19)
-                .padding(sizeClass == .compact ? 13 : 15)
-                .background(fill)
+                .frame(width: 21, height: 21)
+                .padding(9)
+                .background(background)
                 .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+                .padding(5)
                 .contentShape(Rectangle())
                 .hoverEffect(.highlight)
         }

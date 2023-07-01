@@ -35,7 +35,7 @@ struct PlaybackControl: View {
                     ProgressView()
                 } else if cm.studyState == .transcribingPaused || cm.studyState == .practicingPaused {
                     HStack(spacing: 10) {
-                        SymbolButton(symbol: "mic.slash.fill", color: .red) {
+                        SymbolButton(symbol: "mic.slash.fill", foreground: .red) {
                             withAnimation(.snappy) {
                                 cm.sr.startTranscribing()
                                 if cm.studyState == .practicingPaused {

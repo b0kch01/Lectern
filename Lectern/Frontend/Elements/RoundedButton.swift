@@ -17,7 +17,7 @@ struct RoundedButton: View {
 
     var body: some View {
         Image(systemName: symbol)
-            .font(.system(size: UIConstants.footnote).weight(.semibold))
+            .font(.system(size: UIConstants.subhead).weight(.semibold))
             .foregroundStyle(.mainColorInvert)
             .padding(.vertical, 9)
             .padding(.horizontal, 24)
