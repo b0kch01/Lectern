@@ -15,6 +15,9 @@ struct CenterControl: View {
     @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
+    @State var bounced = true
+    let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
+
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
@@ -45,7 +48,11 @@ struct CenterControl: View {
                         Spacer()
                     }
 
-                    Button(action: {
+                    SymbolButton(
+                        symbol: "waveform",
+                        foreground: vm.showAI ? .mainColorInvert : .primary.opacity(0.9),
+                        background: vm.showAI ? .main : Color.clear
+                    ) {
                         withAnimation(.defaultSpring) {
                             vm.showAI.toggle()
                         }
@@ -55,18 +62,10 @@ struct CenterControl: View {
                         } else {
                             cm.studySelect = nil
                         }
-                    }) {
-                        Image(.lectern)
-                            .font(.system(size: 21).weight(.medium))
-                            .symbolEffect(.bounce, value: vm.showAI)
-                            .foregroundStyle(vm.showAI ? .mainColorInvert : .primary.opacity(0.9))
-                            .frame(width: 21, height: 21)
-                            .padding(9)
-                            .background(vm.showAI ? .main : Color.clear)
-                            .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-                            .padding(5)
-                            .contentShape(Rectangle())
-                            .hoverEffect(.highlight)
+                    }
+                    .symbolEffect(.bounce, value: vm.showAI ? bounced : false)
+                    .onReceive(timer) { _ in
+                        bounced.toggle()
                     }
 
                     Spacer()
