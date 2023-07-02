@@ -28,8 +28,14 @@ struct EditorContent: View {
                                     spacer
                                 }
 
-                                VStack(alignment: .leading, spacing: 0) {
-                                    RootBlockView()
+                                Group {
+                                    if vm.showAI && sizeClass == .compact {
+                                        BlurtView(headerBlockId: "1")
+                                    } else {
+                                        VStack(alignment: .leading, spacing: 0) {
+                                            RootBlockView()
+                                        }
+                                    }
                                 }
                                 .padding(.top)
                                 .padding(.horizontal, 24)
@@ -71,42 +77,42 @@ struct EditorContent: View {
                             .scaleEffect(vm.showAI ? 1 : 0.9)
                         }
                     )
-                    .overlay(
-                        VStack(spacing: 0) {
-                            if vm.showAI && sizeClass == .compact {
-                                ZStack(alignment: .top) {
-                                    VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
-                                        .frame(
-                                            width: 9999,
-                                            height: Screen.height/2 + 80
-                                        )
-                                        .padding(.horizontal, -200)
-                                        .blur(radius: 20)
-                                        .contrast(colorScheme == .dark ? 1.1 : 1)
-
-                                    Bar(color: Color(.secondarySystemFill))
-                                        .padding(.horizontal, 24)
-                                        .offset(y: 40)
-                                        .frame(width: Screen.width)
-
-                                    ScrollView(showsIndicators: nvm.showNoteSwitcher ? false : true) {
-                                        BlurtView(headerBlockId: "1")
-                                            .padding(.horizontal, 24)
-                                            .padding(.top, 80)
-                                    }
-                                    .frame(width: Screen.width)
-                                    .mask(LinearGradient(gradient: Gradient(stops: [
-                                        .init(color: .clear, location: 0.1),
-                                        .init(color: .black, location: 0.2)
-                                    ]), startPoint: .top, endPoint: .bottom))
-                                }
-                            }
-
-                            Spacer()
-                        }
-                        .frame(width: Screen.width, height: Screen.height/2 + 80)
-                        , alignment: .bottom
-                    )
+//                    .overlay(
+//                        VStack(spacing: 0) {
+//                            if vm.showAI && sizeClass == .compact {
+//                                ZStack(alignment: .top) {
+//                                    VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+//                                        .frame(
+//                                            width: 9999,
+//                                            height: Screen.height/2 + 80
+//                                        )
+//                                        .padding(.horizontal, -200)
+//                                        .blur(radius: 20)
+//                                        .contrast(colorScheme == .dark ? 1.1 : 1)
+//
+//                                    Bar(color: Color(.secondarySystemFill))
+//                                        .padding(.horizontal, 24)
+//                                        .offset(y: 40)
+//                                        .frame(width: Screen.width)
+//
+//                                    ScrollView(showsIndicators: nvm.showNoteSwitcher ? false : true) {
+//                                        BlurtView(headerBlockId: "1")
+//                                            .padding(.horizontal, 24)
+//                                            .padding(.top, 80)
+//                                    }
+//                                    .frame(width: Screen.width)
+//                                    .mask(LinearGradient(gradient: Gradient(stops: [
+//                                        .init(color: .clear, location: 0.1),
+//                                        .init(color: .black, location: 0.2)
+//                                    ]), startPoint: .top, endPoint: .bottom))
+//                                }
+//                            }
+//
+//                            Spacer()
+//                        }
+//                        .frame(width: Screen.width, height: Screen.height/2 + 80)
+//                        , alignment: .bottom
+//                    )
                     .disabled(nvm.showNoteSwitcher)
                 )
         }

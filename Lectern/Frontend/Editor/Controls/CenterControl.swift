@@ -19,6 +19,23 @@ struct CenterControl: View {
         VStack(spacing: 0) {
             Spacer()
 
+            if vm.showAI {
+                LeadingHStack {
+                    Text("Why is active recall so powerful?")
+                        .font(.system(size: UIConstants.body).weight(.semibold))
+                }
+                .padding(.vertical, 11)
+                .padding(.horizontal, 11)
+                .background(Color.yellow.opacity(0.3))
+                .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 11, style: .continuous)
+                        .stroke(.yellow, lineWidth: 2)
+                )
+                .padding(.bottom, 16)
+                .padding(.horizontal, 24)
+            }
+
             Bar(color: Color(.secondarySystemFill))
                 .padding(.horizontal, 24)
 
@@ -47,6 +64,7 @@ struct CenterControl: View {
                             .padding(9)
                             .background(vm.showAI ? .main : Color.clear)
                             .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+                            .padding(5)
                             .contentShape(Rectangle())
                             .hoverEffect(.highlight)
                     }
