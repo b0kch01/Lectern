@@ -54,7 +54,6 @@ struct TextBlock: View {
         )
         .contentShape(Rectangle())
         .padding(.vertical, 1)
-        .overlay(studySelectionOverlay)
         .overlay(selectionOverlay)
         .offset(x: offsetX)
         .simultaneousGesture(tapGesture)
@@ -69,19 +68,11 @@ struct TextBlock: View {
     }
 
     var selectionOverlay: some View {
-        Color.cyan.opacity(selected ? 0.25 : 0)
+        Color.yellow.opacity(selected || studySelected ? 0.25 : 0)
             .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
             .padding(.horizontal, -10)
             .padding(.top, (block.textType == .body || block.textType == .header) ? 5 : 0)
-            .allowsHitTesting(selected)
-    }
-
-    var studySelectionOverlay: some View {
-        Color.yellow.opacity(studySelected ? 0.25 : 0)
-            .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
-            .padding(.horizontal, -10)
-            .padding(.top, (block.textType == .body || block.textType == .header) ? 5 : 0)
-            .allowsHitTesting(studySelected)
+            .allowsHitTesting(selected || studySelected)
     }
 
     var tapGesture: some Gesture {
@@ -103,9 +94,7 @@ struct TextBlock: View {
 
     var dragGesture: some Gesture {
         DragGesture(minimumDistance: 10, coordinateSpace: .global)
-            .updating($offsetX) { value, state, transaction in
-                transaction.isContinuous = true
-
+            .updating($offsetX) { value, state, _ in
                 if value.translation.width > 0 {
                     state = sqrt(abs(value.translation.width)) * 2.5
                 } else {
@@ -151,7 +140,7 @@ struct TextBlock: View {
     var deletionIndicator: some View {
         CenterStack {
             Image(systemName: "trash.fill")
-                .foregroundStyle(swipeSnap ? .red : .primary.opacity(0.5))
+                .foregroundStyle(swipeSnap ? .red : .primary.opacity(0.3))
                 .font(.system(size: UIConstants.title3).weight(.medium))
         }
         .frame(width: max(0, -offsetX - 18), alignment: .trailing)

@@ -37,17 +37,15 @@ struct EditorContent: View {
                                         }
                                     }
                                 }
-                                .padding(.top)
-                                .padding(.horizontal, 24)
-                                .padding(.bottom, 24)
+                                .padding(24)
                                 .frame(width: sizeClass == .compact ? nil : geometry.size.width/1.6)
 
                                 spacer
                             }
+                            .padding(.top, 120)
+                            .padding(.bottom, 110)
+                            .padding(.bottom, sizeClass == .compact ? (vm.showAI ? Screen.width : 0) : 0)
                         }
-                        .safeAreaPadding(.top, 120)
-                        .safeAreaPadding(.bottom, 110)
-                        .safeAreaPadding(.bottom, sizeClass == .compact ? (vm.showAI ? Screen.width : 0) : 0)
                         .mask(LinearGradient(gradient: Gradient(stops: [
                             .init(color: .black.opacity(nvm.showNoteSwitcher ? 1 : 0.1), location: 0.07),
                             .init(color: .black, location: 0.12),
@@ -117,15 +115,9 @@ struct EditorContent: View {
                 )
         }
         .background(
-            Color(.systemBackground)
-                .ignoresSafeArea()
-                .opacity(nvm.showNoteSwitcher ? 1 : 0)
-                .brightness(colorScheme == .dark ? 0.15 : -0.15)
-        )
-        .background(
             FluidGradient(
                 blobs: [
-                    Color(.systemBackground).opacity(0)
+                    Color.elevatedBackground.opacity(0)
                 ],
                 highlights: [
                     Color.yellow.opacity(colorScheme == .dark ? 0.1 : 0.2)

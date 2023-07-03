@@ -11,10 +11,7 @@ struct PlaybackControl: View {
 
     @Environment(ContentManager.self) var cm
 
-    @State var bounced = true
     @State var pauseTranscribe = false
-
-    let timer = Timer.publish(every: 1.3, on: .main, in: .common).autoconnect()
 
     var body: some View {
         HStack(spacing: 10) {
@@ -35,7 +32,7 @@ struct PlaybackControl: View {
                     ProgressView()
                 } else if cm.studyState == .transcribingPaused || cm.studyState == .practicingPaused {
                     HStack(spacing: 10) {
-                        SymbolButton(symbol: "mic.slash.fill", foreground: .red) {
+                        SymbolButton(symbol: "play.fill") {
                             withAnimation(.snappy) {
                                 cm.sr.startTranscribing()
                                 if cm.studyState == .practicingPaused {
@@ -61,7 +58,7 @@ struct PlaybackControl: View {
                     }
                 } else if cm.study.count == 0 || cm.studyState == .practicing {
                     HStack(spacing: 10) {
-                        SymbolButton(symbol: "waveform") {
+                        SymbolButton(symbol: "pause.fill") {
                             withAnimation(.snappy) {
                                 cm.blurtVM.savedText += cm.blurtVM.mainText
                                 cm.blurtVM.mainText = []
@@ -75,8 +72,6 @@ struct PlaybackControl: View {
                                 }
                             }
                         }
-                        .symbolEffect(.pulse)
-                        .symbolEffect(.bounce, value: bounced)
 
                         if cm.blurtVM.mainText.count + cm.blurtVM.savedText.count > 5 {
                             SymbolButton(symbol: "checkmark") {
@@ -122,9 +117,6 @@ struct PlaybackControl: View {
             }
 
             Spacer()
-        }
-        .onReceive(timer) { _ in
-            bounced.toggle()
         }
     }
 }

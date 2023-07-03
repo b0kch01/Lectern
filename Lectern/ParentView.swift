@@ -57,6 +57,7 @@ struct ParentView: View {
             }
             , alignment: .bottom
         )
+        .background(Color.elevatedBackground.ignoresSafeArea().opacity(!nvm.roundCorners ? 1 : 0))
         .background(Color.black.ignoresSafeArea().opacity(nvm.roundCorners ? 1 : 0))
         .accentColor(.sub)
         .scrollDismissesKeyboard(.interactively)
