@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlaybackControl: View {
-
+    
     @Environment(ContentManager.self) var cm
 
     @State var pauseTranscribe = false

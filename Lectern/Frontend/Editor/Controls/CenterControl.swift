@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CenterControl: View {
 
+    @Environment(\.horizontalSizeClass) var sizeClass
+
     @Environment(\.colorScheme) var colorScheme
 
     @Environment(ContentManager.self) var cm
@@ -22,14 +24,14 @@ struct CenterControl: View {
         VStack(spacing: 0) {
             Spacer()
 
-            if vm.showAI {
+            if vm.showAI && sizeClass == .compact {
                 LeadingHStack {
                     Text("Why is active recall so powerful?")
                         .font(.system(size: UIConstants.body).weight(.semibold))
                 }
                 .padding(.vertical, 11)
                 .padding(.horizontal, 11)
-                .background(Color.yellow.opacity(0.3))
+                .background(Color.highlightYellow)
                 .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
                 .overlay(
                     RoundedRectangle(cornerRadius: 11, style: .continuous)

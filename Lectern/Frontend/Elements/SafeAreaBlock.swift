@@ -39,6 +39,7 @@ struct SafeAreaBlockBottom: View {
 
     @Environment(\.colorScheme) private var colorScheme
 
+    @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
     @State var height: CGFloat = 150
@@ -54,7 +55,7 @@ struct SafeAreaBlockBottom: View {
             .contrast(colorScheme == .dark ? 1.2 : 1)
             .offset(
                 y:
-                    height/2.5
+                    height/(vm.showAI ? 5 : 2.5)
             )
             .opacity(nvm.showNoteSwitcher ? 0 : 1)
     }

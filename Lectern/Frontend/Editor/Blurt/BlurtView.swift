@@ -48,32 +48,9 @@ struct BlurtView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             if !isBlurting {
-                Text("To start blurting, tap here to start typing or tap \(Image(systemName: "mic.slash.fill")) to start dictating.\n\nTap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
-                    .font(.title3.weight(.semibold))
-                    .lineSpacing(7)
-                    .foregroundStyle(Color.gray)
-                    .multilineTextAlignment(.trailing)
-                    .overlay {
-                        FluidGradient(
-                            blobs: [
-                                Color(.systemBackground).opacity(0.3),
-                                Color(.systemBackground).opacity(0.9)
-                            ],
-                            highlights: [
-                                .white.opacity(0.5),
-                                Color.yellow.opacity(0.7),
-                                Color.cyan.opacity(0.7)
-                            ],
-                            speed: 0.7,
-                            blur: 0.9
-                        )
-                        .mask(
-                            Text("To start blurting, tap here to start typing or tap \(Image(systemName: "mic.slash.fill")) to start dictating.\n\nTap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
-                                .font(.title3.weight(.semibold))
-                                .lineSpacing(7)
-                                .multilineTextAlignment(.trailing)
-                        )
-                    }
+                PresetText {
+                    Text("To start blurting, tap here to start typing or tap \(Image(systemName: "play.fill")) to start dictating.\n\nTap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
+                }
             }
 
             WrappingHStack(allText.indices, id:\.self, spacing: .constant(0), lineSpacing: 7) { i in
@@ -103,7 +80,7 @@ struct BlurtView: View {
 
                             Text(feedback)
                                 .font(.title3.weight(.semibold))
-                                .foregroundStyle(Color.gray)
+                                .foregroundStyle(Color(.tertiaryLabel))
                                 .animation(.spring, value: allText)
                                 .multilineTextAlignment(.trailing)
                                 .id(key)
@@ -115,8 +92,7 @@ struct BlurtView: View {
                                         ],
                                         highlights: [
                                             .white.opacity(0.5),
-                                            Color.yellow.opacity(0.5),
-                                            Color.cyan.opacity(0.5)
+                                            Color.yellow.opacity(0.5)
                                         ],
                                         speed: 0.7,
                                         blur: 0.9
@@ -145,46 +121,11 @@ struct BlurtView: View {
                 VStack(spacing: 20) {
                     Bar(color: Color(.secondarySystemFill))
 
-                    Text("Tap \(Image(systemName: "arrow.counterclockwise")) to try again, or tap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
-                        .font(.title3.weight(.semibold))
-                        .lineSpacing(7)
-                        .foregroundStyle(Color.gray)
-                        .multilineTextAlignment(.trailing)
-                        .overlay {
-                            FluidGradient(
-                                blobs: [
-                                    Color(.systemBackground).opacity(0.3),
-                                    Color(.systemBackground).opacity(0.9)
-                                ],
-                                highlights: [
-                                    .white.opacity(0.5),
-                                    Color.yellow.opacity(0.7),
-                                    Color.cyan.opacity(0.7)
-                                ],
-                                speed: 0.7,
-                                blur: 0.9
-                            )
-                            .mask(
-                                Text("Tap \(Image(systemName: "arrow.counterclockwise")) to try again, or tap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
-                                    .font(.title3.weight(.semibold))
-                                    .lineSpacing(7)
-                                    .multilineTextAlignment(.trailing)
-                            )
-                        }
-                        .onTapGesture {
-                            cm.practice()
-                        }
+                    PresetText {
+                        Text("Tap \(Image(systemName: "arrow.counterclockwise")) to try again, or tap \(Image(systemName: "backward.fill")) or \(Image(systemName: "forward.fill")) to skip topics.")
+                    }
                 }
-
-//                Divider()
-
-//                PracticeView()
-//                    .onAppear {
-//                        print("Initializing practice!")
-//                        cm.practice()
-//                    }
             }
-
         }
         .padding(.top)
         .padding(.trailing, sizeClass == .regular ? 30 : 0)

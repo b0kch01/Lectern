@@ -10,6 +10,8 @@ import Observation
 
 struct TextBlock: View {
 
+    @Environment(\.horizontalSizeClass) var sizeClass
+
     @Environment(ContentManager.self) var cm
     @Environment(EditorViewModel.self) var vm
 
@@ -63,13 +65,18 @@ struct TextBlock: View {
         }
         .overlay(deletionIndicator, alignment: .trailing)
         .offset(y: -5)
-        .blur(radius: cm.studyState == .transcribing && vm.showAI && !studySelected ? 5 : 0)
+        .blur(radius: vm.showAI && !studySelected ? 5 : 0)
         .disabled(vm.showAI)
     }
 
     var selectionOverlay: some View {
-        Color.yellow.opacity(selected || studySelected ? 0.25 : 0)
+        Color.yellow.opacity(selected || studySelected ? 0.3 : 0)
             .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 11, style: .continuous)
+                    .stroke(.yellow, lineWidth: 2)
+                    .opacity(sizeClass == .regular && studySelected ? 1 : 0)
+            )
             .padding(.horizontal, -10)
             .padding(.top, (block.textType == .body || block.textType == .header) ? 5 : 0)
             .allowsHitTesting(selected || studySelected)

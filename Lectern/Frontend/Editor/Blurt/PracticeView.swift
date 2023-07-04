@@ -44,8 +44,7 @@ struct PracticeView: View {
                                     ],
                                     highlights: [
                                         .white.opacity(0.5),
-                                        Color.yellow.opacity(0.7),
-                                        Color.cyan.opacity(0.7)
+                                        Color.yellow.opacity(0.7)
                                     ],
                                     speed: 0.7,
                                     blur: 0.9
