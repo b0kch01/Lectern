@@ -26,7 +26,7 @@ enum Foldable: String, Codable {
 }
 
 @Observable
-class Block: Identifiable, Equatable {
+class Block: Identifiable {
     static func == (lhs: Block, rhs: Block) -> Bool {
         lhs.children == rhs.children
     }
