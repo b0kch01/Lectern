@@ -57,22 +57,12 @@ struct NavigationBar: View {
                     .submitLabel(.done)
                 }
 
-//                Button(action: {
-//                    showFlashcard = true
-//                }) {
-                    Image(systemName: "magnifyingglass")
-                        .font(.system(size: 20))
-                        .padding(20)
-                        .contentShape(Rectangle())
-                        .padding(-20)
-                        .opacity(0) //
-//                }
-//                .sheet(isPresented: $showFlashcard) {
-//                    Flashcard(text: "Placeholder")
-//                        .presentationBackground(.clear)
-//                        .presentationDetents([.medium])
-//                        .ignoresSafeArea()
-//                }
+                Image(systemName: "magnifyingglass")
+                    .font(.system(size: 20))
+                    .padding(20)
+                    .contentShape(Rectangle())
+                    .padding(-20)
+                    .opacity(0)
             }
             .padding(.vertical)
             .padding(.horizontal, 24)

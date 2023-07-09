@@ -46,53 +46,76 @@ struct CenterControl: View {
 
             HStack(spacing: 7) {
                 if vm.shipState == nil {
-                    if !vm.showAI {
-                        Spacer()
-                    }
-
-                    SymbolButton(
-                        symbol: "waveform",
-                        foreground: vm.showAI ? .mainColorInvert : .primary.opacity(0.9),
-                        background: vm.showAI ? .main : Color.clear
-                    ) {
-                        withAnimation(.defaultSpring) {
-                            vm.showAI.toggle()
-                        }
-
-                        if vm.showAI {
-
-                        } else {
-                            cm.studySelect = nil
-                        }
-                    }
-                    .symbolEffect(.bounce, value: vm.showAI ? bounced : false)
-                    .onReceive(timer) { _ in
-                        bounced.toggle()
-                    }
-
                     Spacer()
                 }
 
-                SymbolButton(
-                    symbol: "ellipsis",
-                    foreground: vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9),
-                    background: vm.shipState == .misc ? .main : Color.clear
-                ) {
-                    withAnimation(.defaultSpring) {
-                        vm.showAI = false
-
-                        if vm.shipState == nil {
-                            vm.shipState = .misc
-                        } else {
-                            vm.shipState = nil
+                if vm.shipState != .misc && vm.shipState != .add {
+                    SymbolButton(
+                        symbol: "studentdesk",
+                        foreground: vm.shipState == .study ? .mainColorInvert : .primary.opacity(0.9),
+                        background: vm.shipState == .study ? .main : Color.clear
+                    ) {
+                        withAnimation(.defaultSpring) {
+                            if vm.shipState == nil {
+                                vm.shipState = .study
+                            } else {
+                                vm.shipState = nil
+                            }
                         }
                     }
                 }
-                .opacity(vm.showAI ? 0 : 1)
+
+                if vm.shipState == nil {
+                    Spacer()
+                }
+
+                if vm.shipState != .misc && vm.shipState != .study {
+                    SymbolButton(
+                        symbol: "plus",
+                        foreground: vm.shipState == .add ? .mainColorInvert : .primary.opacity(0.9),
+                        background: vm.shipState == .add ? .main : Color.clear
+                    ) {
+                        withAnimation(.defaultSpring) {
+                            if vm.shipState == nil {
+                                vm.shipState = .add
+                            } else {
+                                vm.shipState = nil
+                            }
+                        }
+                    }
+                }
+
+                if vm.shipState == nil {
+                    Spacer()
+                }
+
+                if vm.shipState != .study && vm.shipState != .add {
+                    SymbolButton(
+                        symbol: "ellipsis",
+                        foreground: vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9),
+                        background: vm.shipState == .misc ? .main : Color.clear
+                    ) {
+                        withAnimation(.defaultSpring) {
+                            if vm.shipState == nil {
+                                vm.shipState = .misc
+                            } else {
+                                vm.shipState = nil
+                            }
+                        }
+                    }
+                }
 
                 Spacer()
             }
             .padding(.horizontal, 24)
+            .overlay(
+                StudyControl()
+                    .opacity(vm.shipState == .study ? 1 : 0)
+            )
+            .overlay(
+                AddControl()
+                    .opacity(vm.shipState == .add ? 1 : 0)
+            )
             .overlay(
                 MiscControl()
                     .opacity(vm.shipState == .misc ? 1 : 0)

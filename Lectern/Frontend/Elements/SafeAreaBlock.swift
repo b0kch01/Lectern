@@ -25,11 +25,11 @@ struct SafeAreaBlockTop: View {
                 height: height
             )
             .padding(.horizontal, -200)
-            .blur(radius: 20)
+            .blur(radius: 13)
             .contrast(colorScheme == .dark ? 1.2 : 1)
             .offset(
                 y:
-                    -height/(minimized ? 2 : (sizeClass == .compact ? 3.9 : 3))
+                    -height/(minimized ? 1.3 : (sizeClass == .compact ? 3.5 : 3))
             )
             .opacity(nvm.showNoteSwitcher ? 0 : 1)
     }
@@ -51,7 +51,7 @@ struct SafeAreaBlockBottom: View {
                 height: height
             )
             .padding(.horizontal, -200)
-            .blur(radius: 20)
+            .blur(radius: 13)
             .contrast(colorScheme == .dark ? 1.2 : 1)
             .offset(
                 y:
@@ -72,12 +72,12 @@ struct NoteSafeAreaBlock: View {
                 height: height
             )
             .padding(.horizontal, -200)
-            .blur(radius: 15)
+            .blur(radius: 13)
             .contrast(1.3)
             .brightness(-0.9)
             .offset(
                 y:
-                    -height/1.5
+                    -height/1.4
             )
     }
 }

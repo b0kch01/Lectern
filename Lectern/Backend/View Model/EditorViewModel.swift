@@ -15,7 +15,6 @@ final class EditorViewModel {
 
     var isEditing = false
     var isTitleEditing = false
-    var showStudy = false
 
     // Editor Island states
     var shipState: ShipState? = nil
@@ -29,4 +28,5 @@ enum ShipState: String {
     case add
     case format
     case misc
+    case study
 }

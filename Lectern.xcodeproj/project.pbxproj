@@ -55,6 +55,8 @@
 		D44A79032A3E2E770031ECF7 /* AlphaBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A79022A3E2E770031ECF7 /* AlphaBlock.swift */; };
 		D44A79052A3E2E820031ECF7 /* AlphaEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A79042A3E2E820031ECF7 /* AlphaEditorView.swift */; };
 		D44A79072A3E2E8C0031ECF7 /* TestBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A79062A3E2E8C0031ECF7 /* TestBlock.swift */; };
+		D4C207FB2A5A96B100F40B05 /* StudyControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C207FA2A5A96B100F40B05 /* StudyControl.swift */; };
+		D4C207FD2A5A99E900F40B05 /* AddControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C207FC2A5A99E900F40B05 /* AddControl.swift */; };
 		D4D678E22A3E2F2D00F3B38E /* FluidGradient in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E12A3E2F2D00F3B38E /* FluidGradient */; };
 		D4D678E72A3E5C3600F3B38E /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E62A3E5C3600F3B38E /* WrappingHStack */; };
 		D4F21AAE2A538B4C006999DF /* PresetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F21AAD2A538B4C006999DF /* PresetText.swift */; };
@@ -118,6 +120,8 @@
 		D44A79022A3E2E770031ECF7 /* AlphaBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaBlock.swift; sourceTree = "<group>"; };
 		D44A79042A3E2E820031ECF7 /* AlphaEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaEditorView.swift; sourceTree = "<group>"; };
 		D44A79062A3E2E8C0031ECF7 /* TestBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBlock.swift; sourceTree = "<group>"; };
+		D4C207FA2A5A96B100F40B05 /* StudyControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyControl.swift; sourceTree = "<group>"; };
+		D4C207FC2A5A99E900F40B05 /* AddControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddControl.swift; sourceTree = "<group>"; };
 		D4F21AAD2A538B4C006999DF /* PresetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetText.swift; sourceTree = "<group>"; };
 		E99CD28C2A3E264300C2987C /* Lectern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lectern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99CD28F2A3E264300C2987C /* LecternApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecternApp.swift; sourceTree = "<group>"; };
@@ -271,8 +275,10 @@
 			isa = PBXGroup;
 			children = (
 				D44A78DD2A3E2C930031ECF7 /* CenterControl.swift */,
+				D4C207FC2A5A99E900F40B05 /* AddControl.swift */,
 				D44A78DF2A3E2D030031ECF7 /* MiscControl.swift */,
 				D44A78E32A3E2D230031ECF7 /* PlaybackControl.swift */,
+				D4C207FA2A5A96B100F40B05 /* StudyControl.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 				D44A78AA2A3E28B40031ECF7 /* TextStyleStandard.swift in Sources */,
 				D44A78DA2A3E2BE90031ECF7 /* Bar.swift in Sources */,
 				D44A79052A3E2E820031ECF7 /* AlphaEditorView.swift in Sources */,
+				D4C207FD2A5A99E900F40B05 /* AddControl.swift in Sources */,
 				D44A78F12A3E2D8F0031ECF7 /* NoteNavigationBar.swift in Sources */,
 				D44A78CC2A3E2B7C0031ECF7 /* Font.swift in Sources */,
 				D44A78FA2A3E2E120031ECF7 /* ImagePicker.swift in Sources */,
@@ -498,6 +505,7 @@
 				D44A79032A3E2E770031ECF7 /* AlphaBlock.swift in Sources */,
 				D44A78B62A3E2A870031ECF7 /* ContentManagerFolding.swift in Sources */,
 				D44A78E02A3E2D030031ECF7 /* MiscControl.swift in Sources */,
+				D4C207FB2A5A96B100F40B05 /* StudyControl.swift in Sources */,
 				D44A78E22A3E2D160031ECF7 /* SymbolButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

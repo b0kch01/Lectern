@@ -35,7 +35,7 @@ struct ParentView: View {
         .overlay(
             NavigationBar(
                 title: "Getting Started on Lectern",
-                minimized: (cm.focusState != nil) || !vm.selected.isEmpty || vm.shipState != nil || vm.showStudy
+                minimized: (cm.focusState != nil) || !vm.selected.isEmpty || vm.shipState != nil
             )
             .opacity(nvm.showNoteSwitcher ? 0 : 1)
             .scaleEffect(nvm.showNoteSwitcher ? 0.7 : 1, anchor: .center)
@@ -47,7 +47,6 @@ struct ParentView: View {
                 Color.clear.overlay(
                     SafeAreaBlockBottom()
                         .frame(width: sizeClass == .compact ? geometry.size.width : geometry.size.width/1.6)
-                        .opacity(nvm.showNoteSwitcher ? 0 : 1)
                         .overlay(
                             CenterControl()
                         )
