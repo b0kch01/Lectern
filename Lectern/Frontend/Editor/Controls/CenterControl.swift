@@ -89,6 +89,26 @@ struct CenterControl: View {
                     Spacer()
                 }
 
+                if vm.shipState != .misc && vm.shipState != .study {
+                    SymbolButton(
+                        symbol: "textformat",
+                        foreground: vm.shipState == .format ? .mainColorInvert : .primary.opacity(0.9),
+                        background: vm.shipState == .format ? .main : Color.clear
+                    ) {
+                        withAnimation(.defaultSpring) {
+                            if vm.shipState == nil {
+                                vm.shipState = .format
+                            } else {
+                                vm.shipState = nil
+                            }
+                        }
+                    }
+                }
+
+                if vm.shipState == nil {
+                    Spacer()
+                }
+
                 if vm.shipState != .study && vm.shipState != .add {
                     SymbolButton(
                         symbol: "ellipsis",
