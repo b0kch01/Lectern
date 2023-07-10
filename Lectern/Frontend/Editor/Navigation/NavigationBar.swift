@@ -40,10 +40,12 @@ struct NavigationBar: View {
                 }) {
                     Image(systemName: "square.on.square")
                         .font(.system(size: 20))
-                        .padding(20)
+                        .padding(9)
+                        .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
                         .contentShape(Rectangle())
+                        .hoverEffect(.highlight)
                 }
-                .padding(-20)
+                .padding(-9)
 
                 CenterHStack {
                     TextField(
@@ -95,6 +97,7 @@ struct NavigationBar: View {
                     RoundedButton(symbol: "checkmark")
                         .padding()
                         .contentShape(Rectangle())
+                        .hoverEffect(.lift)
                 }
                 .transition(.scale)
             }
