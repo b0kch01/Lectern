@@ -43,15 +43,9 @@ struct EditorContent: View {
                                 spacer
                             }
                             .padding(.top, vm.shipState == nil ? 120 : 90)
-                            .padding(.bottom, 110)
                             .padding(.bottom, sizeClass == .compact ? (vm.showAI ? Screen.width : 0) : 0)
                         }
-                        .mask(LinearGradient(gradient: Gradient(stops: [
-                            .init(color: .black.opacity(nvm.showNoteSwitcher ? 1 : 0.1), location: 0.07),
-                            .init(color: .black, location: 0.12),
-                            .init(color: .black, location: 0.85),
-                            .init(color: .black.opacity(nvm.showNoteSwitcher ? 1 : 0.1), location: 0.9)
-                        ]), startPoint: .top, endPoint: .bottom))
+                        .safeAreaPadding(.bottom, 74)
                     }
                     .background(backgroundContentShape)
                     .overlay(

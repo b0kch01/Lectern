@@ -40,7 +40,7 @@ struct EditorView: View {
                     }
                 }
                 .simultaneousGesture(nvm.showNoteSwitcher ? drag : nil)
-                .ignoresSafeArea()
+                .edgesIgnoringSafeArea(.top)
                 .transaction {
                     if $0.isContinuous {
                         $0.animation = .quickSpring

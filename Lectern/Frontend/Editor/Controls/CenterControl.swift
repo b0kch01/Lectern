@@ -41,116 +41,127 @@ struct CenterControl: View {
                 .padding(.horizontal, 24)
             }
 
-            Bar(color: Color(.secondarySystemFill))
-                .padding(.horizontal, 24)
-
-            HStack(spacing: 7) {
-                if vm.shipState == nil {
-                    Spacer()
-                }
-
-                if vm.shipState != .misc && vm.shipState != .add && vm.shipState != .format {
-                    SymbolButton(
-                        symbol: "studentdesk",
-                        foreground: vm.shipState == .study ? .mainColorInvert : .primary.opacity(0.9),
-                        background: vm.shipState == .study ? .main : Color.clear
-                    ) {
-                        withAnimation(.defaultSpring) {
+            GeometryReader { geometry in
+                Color.clear.overlay(
+                    VStack(spacing: 0) {
+                        
+                        Bar(color: Color(.secondarySystemFill))
+                            .padding(.horizontal, 24)
+                        
+                        HStack(spacing: 7) {
                             if vm.shipState == nil {
-                                vm.shipState = .study
-                            } else {
-                                vm.shipState = nil
+                                Spacer()
                             }
-                        }
-                    }
-                }
-
-                if vm.shipState == nil {
-                    Spacer()
-                }
-
-                if vm.shipState != .misc && vm.shipState != .study && vm.shipState != .format {
-                    SymbolButton(
-                        symbol: "plus",
-                        foreground: vm.shipState == .add ? .mainColorInvert : .primary.opacity(0.9),
-                        background: vm.shipState == .add ? .main : Color.clear
-                    ) {
-                        withAnimation(.defaultSpring) {
+                            
+                            if vm.shipState != .misc && vm.shipState != .add && vm.shipState != .format {
+                                SymbolButton(
+                                    symbol: "studentdesk",
+                                    foreground: vm.shipState == .study ? .mainColorInvert : .primary.opacity(0.9),
+                                    background: vm.shipState == .study ? .main : Color.clear
+                                ) {
+                                    withAnimation(.defaultSpring) {
+                                        if vm.shipState == nil {
+                                            vm.shipState = .study
+                                        } else {
+                                            vm.shipState = nil
+                                        }
+                                    }
+                                }
+                            }
+                            
                             if vm.shipState == nil {
-                                vm.shipState = .add
-                            } else {
-                                vm.shipState = nil
+                                Spacer()
                             }
-                        }
-                    }
-                }
-
-                if vm.shipState == nil {
-                    Spacer()
-                }
-
-                if vm.shipState != .misc && vm.shipState != .study && vm.shipState != .add {
-                    SymbolButton(
-                        symbol: "textformat",
-                        foreground: vm.shipState == .format ? .mainColorInvert : .primary.opacity(0.9),
-                        background: vm.shipState == .format ? .main : Color.clear
-                    ) {
-                        withAnimation(.defaultSpring) {
+                            
+                            if vm.shipState != .misc && vm.shipState != .study && vm.shipState != .format {
+                                SymbolButton(
+                                    symbol: "plus",
+                                    foreground: vm.shipState == .add ? .mainColorInvert : .primary.opacity(0.9),
+                                    background: vm.shipState == .add ? .main : Color.clear
+                                ) {
+                                    withAnimation(.defaultSpring) {
+                                        if vm.shipState == nil {
+                                            vm.shipState = .add
+                                        } else {
+                                            vm.shipState = nil
+                                        }
+                                    }
+                                }
+                            }
+                            
                             if vm.shipState == nil {
-                                vm.shipState = .format
-                            } else {
-                                vm.shipState = nil
+                                Spacer()
                             }
-                        }
-                    }
-                }
-
-                if vm.shipState == nil {
-                    Spacer()
-                }
-
-                if vm.shipState != .study && vm.shipState != .add && vm.shipState != .format {
-                    SymbolButton(
-                        symbol: "ellipsis",
-                        foreground: vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9),
-                        background: vm.shipState == .misc ? .main : Color.clear
-                    ) {
-                        withAnimation(.defaultSpring) {
+                            
+                            if vm.shipState != .misc && vm.shipState != .study && vm.shipState != .add {
+                                SymbolButton(
+                                    symbol: "textformat",
+                                    foreground: vm.shipState == .format ? .mainColorInvert : .primary.opacity(0.9),
+                                    background: vm.shipState == .format ? .main : Color.clear
+                                ) {
+                                    withAnimation(.defaultSpring) {
+                                        if vm.shipState == nil {
+                                            vm.shipState = .format
+                                        } else {
+                                            vm.shipState = nil
+                                        }
+                                    }
+                                }
+                            }
+                            
                             if vm.shipState == nil {
-                                vm.shipState = .misc
-                            } else {
-                                vm.shipState = nil
+                                Spacer()
                             }
+                            
+                            if vm.shipState != .study && vm.shipState != .add && vm.shipState != .format {
+                                SymbolButton(
+                                    symbol: "ellipsis",
+                                    foreground: vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9),
+                                    background: vm.shipState == .misc ? .main : Color.clear
+                                ) {
+                                    withAnimation(.defaultSpring) {
+                                        if vm.shipState == nil {
+                                            vm.shipState = .misc
+                                        } else {
+                                            vm.shipState = nil
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            Spacer()
                         }
+                        .padding(.horizontal, 24)
+                        .overlay(
+                            StudyControl()
+                                .opacity(vm.shipState == .study ? 1 : 0)
+                        )
+                        .overlay(
+                            AddControl()
+                                .opacity(vm.shipState == .add ? 1 : 0)
+                        )
+                        .overlay(
+                            FormatControl()
+                                .opacity(vm.shipState == .format ? 1 : 0)
+                        )
+                        .overlay(
+                            MiscControl()
+                                .opacity(vm.shipState == .misc ? 1 : 0)
+                        )
+                        .overlay(
+                            PlaybackControl()
+                                .opacity(vm.showAI ? 1 : 0)
+                        )
+                        .foregroundStyle(.primary.opacity(0.9))
+                        .padding(.top, 9)
+                        .padding(.bottom, 16)
                     }
-                }
-
-                Spacer()
+                    .frame(width: sizeClass == .compact ? geometry.size.width : geometry.size.width/1.6)
+                    , alignment: .bottom
+                )
             }
-            .padding(.horizontal, 24)
-            .overlay(
-                StudyControl()
-                    .opacity(vm.shipState == .study ? 1 : 0)
-            )
-            .overlay(
-                AddControl()
-                    .opacity(vm.shipState == .add ? 1 : 0)
-            )
-            .overlay(
-                FormatControl()
-                    .opacity(vm.shipState == .format ? 1 : 0)
-            )
-            .overlay(
-                MiscControl()
-                    .opacity(vm.shipState == .misc ? 1 : 0)
-            )
-            .overlay(
-                PlaybackControl()
-                    .opacity(vm.showAI ? 1 : 0)
-            )
-            .foregroundStyle(.primary.opacity(0.9))
-            .padding(.top, 9)
-            .padding(.bottom, 16)
+            .frame(height: 74)
+            .background(SafeAreaBlockBottom().ignoresSafeArea())
         }
     }
 }

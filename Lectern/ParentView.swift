@@ -43,17 +43,8 @@ struct ParentView: View {
             , alignment: .top
         )
         .overlay(
-            GeometryReader { geometry in
-                Color.clear.overlay(
-                    SafeAreaBlockBottom()
-                        .frame(width: sizeClass == .compact ? geometry.size.width : geometry.size.width/1.6)
-                        .overlay(
-                            CenterControl()
-                        )
-                        .opacity(nvm.showNoteSwitcher ? 0 : 1)
-                    , alignment: .bottom
-                )
-            }
+            CenterControl()
+                .opacity(nvm.showNoteSwitcher ? 0 : 1)
             , alignment: .bottom
         )
         .background(Color.elevatedBackground.ignoresSafeArea().opacity(!nvm.roundCorners ? 1 : 0))

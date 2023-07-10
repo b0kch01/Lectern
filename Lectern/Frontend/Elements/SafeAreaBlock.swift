@@ -43,21 +43,9 @@ struct SafeAreaBlockBottom: View {
     @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
-    @State var height: CGFloat = 150
-
     var body: some View {
-        VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
-            .frame(
-                width: 9999,
-                height: height
-            )
-            .padding(.horizontal, -200)
-            .blur(radius: 13)
-            .contrast(colorScheme == .dark ? 1.2 : 1)
-            .offset(
-                y:
-                    height/(vm.showAI ? 5 : 2.5)
-            )
+        VisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
+            .contrast(colorScheme == .dark ? 1.17 : 1)
             .opacity(nvm.showNoteSwitcher ? 0 : 1)
     }
 }
