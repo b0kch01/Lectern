@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "variableblurview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aheze/VariableBlurView.git",
+      "state" : {
+        "revision" : "5646a3e7fe418c587db7e55e5b24138a628dc72d",
+        "version" : "1.0.2"
+      }
+    },
+    {
       "identity" : "wrappinghstack",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dkk/WrappingHStack.git",

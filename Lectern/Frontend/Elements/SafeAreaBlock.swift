@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import VariableBlurView
 
 struct SafeAreaBlockTop: View {
 

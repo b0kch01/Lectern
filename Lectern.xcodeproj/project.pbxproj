@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4320AD82A5B4B63007902B2 /* VariableBlurView in Frameworks */ = {isa = PBXBuildFile; productRef = D4320AD72A5B4B63007902B2 /* VariableBlurView */; };
+		D4320ADA2A5BF170007902B2 /* FormatControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4320AD92A5BF170007902B2 /* FormatControl.swift */; };
 		D44A78912A3E275A0031ECF7 /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A78902A3E275A0031ECF7 /* ParentView.swift */; };
 		D44A789A2A3E27C40031ECF7 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A78992A3E27C40031ECF7 /* EditorViewModel.swift */; };
 		D44A789C2A3E27D50031ECF7 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A789B2A3E27D50031ECF7 /* NavigationViewModel.swift */; };
@@ -72,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4320AD92A5BF170007902B2 /* FormatControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatControl.swift; sourceTree = "<group>"; };
 		D44A78902A3E275A0031ECF7 /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
 		D44A78992A3E27C40031ECF7 /* EditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
 		D44A789B2A3E27D50031ECF7 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4320AD82A5B4B63007902B2 /* VariableBlurView in Frameworks */,
 				D4D678E72A3E5C3600F3B38E /* WrappingHStack in Frameworks */,
 				D4D678E22A3E2F2D00F3B38E /* FluidGradient in Frameworks */,
 			);
@@ -276,6 +280,7 @@
 			children = (
 				D44A78DD2A3E2C930031ECF7 /* CenterControl.swift */,
 				D4C207FC2A5A99E900F40B05 /* AddControl.swift */,
+				D4320AD92A5BF170007902B2 /* FormatControl.swift */,
 				D44A78DF2A3E2D030031ECF7 /* MiscControl.swift */,
 				D44A78E32A3E2D230031ECF7 /* PlaybackControl.swift */,
 				D4C207FA2A5A96B100F40B05 /* StudyControl.swift */,
@@ -390,6 +395,7 @@
 			packageProductDependencies = (
 				D4D678E12A3E2F2D00F3B38E /* FluidGradient */,
 				D4D678E62A3E5C3600F3B38E /* WrappingHStack */,
+				D4320AD72A5B4B63007902B2 /* VariableBlurView */,
 			);
 			productName = Lectern;
 			productReference = E99CD28C2A3E264300C2987C /* Lectern.app */;
@@ -422,6 +428,7 @@
 			packageReferences = (
 				D4D678E02A3E2F2D00F3B38E /* XCRemoteSwiftPackageReference "FluidGradient" */,
 				D4D678E52A3E5C3600F3B38E /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				D4320AD62A5B4B63007902B2 /* XCRemoteSwiftPackageReference "VariableBlurView" */,
 			);
 			productRefGroup = E99CD28D2A3E264300C2987C /* Products */;
 			projectDirPath = "";
@@ -485,6 +492,7 @@
 				E99CD2922A3E264300C2987C /* ContentView.swift in Sources */,
 				D44A789A2A3E27C40031ECF7 /* EditorViewModel.swift in Sources */,
 				D44A79072A3E2E8C0031ECF7 /* TestBlock.swift in Sources */,
+				D4320ADA2A5BF170007902B2 /* FormatControl.swift in Sources */,
 				D44A78D22A3E2B9F0031ECF7 /* String.swift in Sources */,
 				D44A78BE2A3E2AEF0031ECF7 /* Stacks.swift in Sources */,
 				D44A78FC2A3E2E380031ECF7 /* Styles.swift in Sources */,
@@ -735,6 +743,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D4320AD62A5B4B63007902B2 /* XCRemoteSwiftPackageReference "VariableBlurView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/VariableBlurView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 		D4D678E02A3E2F2D00F3B38E /* XCRemoteSwiftPackageReference "FluidGradient" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Cindori/FluidGradient.git";
@@ -754,6 +770,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D4320AD72A5B4B63007902B2 /* VariableBlurView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4320AD62A5B4B63007902B2 /* XCRemoteSwiftPackageReference "VariableBlurView" */;
+			productName = VariableBlurView;
+		};
 		D4D678E12A3E2F2D00F3B38E /* FluidGradient */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4D678E02A3E2F2D00F3B38E /* XCRemoteSwiftPackageReference "FluidGradient" */;

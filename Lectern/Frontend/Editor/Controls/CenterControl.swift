@@ -49,7 +49,7 @@ struct CenterControl: View {
                     Spacer()
                 }
 
-                if vm.shipState != .misc && vm.shipState != .add {
+                if vm.shipState != .misc && vm.shipState != .add && vm.shipState != .format {
                     SymbolButton(
                         symbol: "studentdesk",
                         foreground: vm.shipState == .study ? .mainColorInvert : .primary.opacity(0.9),
@@ -69,7 +69,7 @@ struct CenterControl: View {
                     Spacer()
                 }
 
-                if vm.shipState != .misc && vm.shipState != .study {
+                if vm.shipState != .misc && vm.shipState != .study && vm.shipState != .format {
                     SymbolButton(
                         symbol: "plus",
                         foreground: vm.shipState == .add ? .mainColorInvert : .primary.opacity(0.9),
@@ -89,7 +89,7 @@ struct CenterControl: View {
                     Spacer()
                 }
 
-                if vm.shipState != .misc && vm.shipState != .study {
+                if vm.shipState != .misc && vm.shipState != .study && vm.shipState != .add {
                     SymbolButton(
                         symbol: "textformat",
                         foreground: vm.shipState == .format ? .mainColorInvert : .primary.opacity(0.9),
@@ -109,7 +109,7 @@ struct CenterControl: View {
                     Spacer()
                 }
 
-                if vm.shipState != .study && vm.shipState != .add {
+                if vm.shipState != .study && vm.shipState != .add && vm.shipState != .format {
                     SymbolButton(
                         symbol: "ellipsis",
                         foreground: vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9),
@@ -135,6 +135,10 @@ struct CenterControl: View {
             .overlay(
                 AddControl()
                     .opacity(vm.shipState == .add ? 1 : 0)
+            )
+            .overlay(
+                FormatControl()
+                    .opacity(vm.shipState == .format ? 1 : 0)
             )
             .overlay(
                 MiscControl()

@@ -17,10 +17,6 @@ struct RootBlockView: View {
                 ForEach(rootChildren, id: \.self) { blockId in
                     BlockView(blockId)
                         .id(blockId)
-                        .scrollTransition(axis: .vertical) { content, phase in
-                            content
-                                .opacity(phase.isIdentity ? 1 : 0.7)
-                        }
                 }
             } else {
                 Text("This isn't supposed to happen; Root view not found.")
