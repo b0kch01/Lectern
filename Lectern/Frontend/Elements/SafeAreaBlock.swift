@@ -26,11 +26,11 @@ struct SafeAreaBlockTop: View {
                 height: height
             )
             .padding(.horizontal, -200)
-            .blur(radius: 13)
+            .blur(radius: 10)
             .contrast(colorScheme == .dark ? 1.2 : 1)
             .offset(
                 y:
-                    -height/(minimized ? 1.3 : (sizeClass == .compact ? 3.5 : 3))
+                    -height/(minimized ? 1.3 : (sizeClass == .compact ? 3.5 : 2.1))
             )
             .opacity(nvm.showNoteSwitcher ? 0 : 1)
     }
@@ -39,8 +39,6 @@ struct SafeAreaBlockTop: View {
 struct SafeAreaBlockBottom: View {
 
     @Environment(\.colorScheme) private var colorScheme
-
-    @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
     var body: some View {

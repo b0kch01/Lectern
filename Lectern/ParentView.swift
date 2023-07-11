@@ -45,6 +45,7 @@ struct ParentView: View {
         .overlay(
             CenterControl()
                 .opacity(nvm.showNoteSwitcher ? 0 : 1)
+                .scaleEffect(nvm.showNoteSwitcher ? 0.7 : 1, anchor: .center)
             , alignment: .bottom
         )
         .background(Color.elevatedBackground.ignoresSafeArea().opacity(!nvm.roundCorners ? 1 : 0))

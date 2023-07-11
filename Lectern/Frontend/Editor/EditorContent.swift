@@ -42,7 +42,7 @@ struct EditorContent: View {
 
                                 spacer
                             }
-                            .padding(.top, vm.shipState == nil ? 120 : 90)
+                            .padding(.top, (vm.shipState == nil && cm.focusState == nil) ? 120 : 90)
                             .padding(.bottom, sizeClass == .compact ? (vm.showAI ? Screen.width : 0) : 0)
                         }
                         .safeAreaPadding(.bottom, 74)
