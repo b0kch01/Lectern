@@ -30,7 +30,7 @@ struct SafeAreaBlockTop: View {
             .contrast(colorScheme == .dark ? 1.2 : 1)
             .offset(
                 y:
-                    -height/(minimized ? 1.3 : (sizeClass == .compact ? 3.5 : 2.1))
+                    -height/(minimized ? 1.5 : (sizeClass == .compact ? 3.5 : 2.1))
             )
             .opacity(nvm.showNoteSwitcher ? 0 : 1)
     }
