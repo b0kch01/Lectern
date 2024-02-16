@@ -1,4 +1,5 @@
 {
+  "originHash" : "6ad841bd61524312c5afe0c2c6d595cdf3d05361f6486e3125355b9032426feb",
   "pins" : [
     {
       "identity" : "fluidgradient",
@@ -19,6 +20,15 @@
       }
     },
     {
+      "identity" : "variablur",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daprice/Variablur",
+      "state" : {
+        "branch" : "main",
+        "revision" : "29fdd8c5e2721c1706b0ed8008d516f8d8d75879"
+      }
+    },
+    {
       "identity" : "wrappinghstack",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dkk/WrappingHStack.git",
@@ -28,5 +38,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

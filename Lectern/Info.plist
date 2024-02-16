@@ -6,5 +6,12 @@
 	<string></string>
 	<key>NSCameraUsageDescription</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenRunde-Bold.otf</string>
+		<string>OpenRunde-Medium.otf</string>
+		<string>OpenRunde-Regular.otf</string>
+		<string>OpenRunde-Semibold.otf</string>
+	</array>
 </dict>
 </plist>

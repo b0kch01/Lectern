@@ -44,3 +44,41 @@ struct SymbolButton: View {
         }
     }
 }
+
+struct CustomSymbolButton: View {
+
+    @Environment(\.horizontalSizeClass) var sizeClass
+
+    @State var tapped = false
+
+    var symbol: String
+    var foreground: Color
+    var background: Color
+    var action: (() -> Void)?
+
+    init(symbol: String, foreground: Color = .main, background: Color = Color.clear, action: (() -> Void)?=nil) {
+        self.symbol = symbol
+        self.foreground = foreground
+        self.background = background
+        self.action = action
+    }
+
+    var body: some View {
+        Button(action: {
+            action?()
+            tapped.toggle()
+        }) {
+            Image(symbol)
+                .font(.system(size: 17 + (symbol == "lectern" || symbol == "pause.fill" ? 3 : 0)).weight(.medium))
+                .foregroundStyle(foreground)
+                .symbolEffect(.bounce, value: tapped)
+                .frame(width: 21, height: 21)
+                .padding(9)
+                .background(background)
+                .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
+                .padding(5)
+                .contentShape(Rectangle())
+                .hoverEffect(.highlight)
+        }
+    }
+}

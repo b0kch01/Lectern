@@ -10,6 +10,7 @@ import SwiftUI
 struct CenterControl: View {
 
     @Environment(\.horizontalSizeClass) var sizeClass
+    @Environment(\.safeAreaInsets) var safeAreaInsets
 
     @Environment(\.colorScheme) var colorScheme
 
@@ -44,64 +45,21 @@ struct CenterControl: View {
             GeometryReader { geometry in
                 Color.clear.overlay(
                     VStack(spacing: 0) {
-                        
-                        Bar(color: Color(.secondarySystemFill))
-                            .padding(.horizontal, 24)
-                        
+
                         HStack(spacing: 7) {
                             if vm.shipState == nil {
                                 Spacer()
                             }
                             
                             if vm.shipState != .misc && vm.shipState != .add && vm.shipState != .format {
-                                SymbolButton(
-                                    symbol: "studentdesk",
+                                CustomSymbolButton(
+                                    symbol: "lectern",
                                     foreground: vm.shipState == .study ? .mainColorInvert : .primary.opacity(0.9),
                                     background: vm.shipState == .study ? .main : Color.clear
                                 ) {
                                     withAnimation(.defaultSpring) {
                                         if vm.shipState == nil {
                                             vm.shipState = .study
-                                        } else {
-                                            vm.shipState = nil
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            if vm.shipState == nil {
-                                Spacer()
-                            }
-                            
-                            if vm.shipState != .misc && vm.shipState != .study && vm.shipState != .format {
-                                SymbolButton(
-                                    symbol: "plus",
-                                    foreground: vm.shipState == .add ? .mainColorInvert : .primary.opacity(0.9),
-                                    background: vm.shipState == .add ? .main : Color.clear
-                                ) {
-                                    withAnimation(.defaultSpring) {
-                                        if vm.shipState == nil {
-                                            vm.shipState = .add
-                                        } else {
-                                            vm.shipState = nil
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            if vm.shipState == nil {
-                                Spacer()
-                            }
-                            
-                            if vm.shipState != .misc && vm.shipState != .study && vm.shipState != .add {
-                                SymbolButton(
-                                    symbol: "textformat",
-                                    foreground: vm.shipState == .format ? .mainColorInvert : .primary.opacity(0.9),
-                                    background: vm.shipState == .format ? .main : Color.clear
-                                ) {
-                                    withAnimation(.defaultSpring) {
-                                        if vm.shipState == nil {
-                                            vm.shipState = .format
                                         } else {
                                             vm.shipState = nil
                                         }
@@ -135,22 +93,17 @@ struct CenterControl: View {
                         .overlay(
                             StudyControl()
                                 .opacity(vm.shipState == .study ? 1 : 0)
-                        )
-                        .overlay(
-                            AddControl()
-                                .opacity(vm.shipState == .add ? 1 : 0)
-                        )
-                        .overlay(
-                            FormatControl()
-                                .opacity(vm.shipState == .format ? 1 : 0)
+                                .blur(radius: vm.shipState == .study ? 0 : 5)
                         )
                         .overlay(
                             MiscControl()
                                 .opacity(vm.shipState == .misc ? 1 : 0)
+                                .blur(radius: vm.shipState == .misc ? 0 : 5)
                         )
                         .overlay(
                             PlaybackControl()
                                 .opacity(vm.showAI ? 1 : 0)
+                                .blur(radius: vm.showAI ? 0 : 5)
                         )
                         .foregroundStyle(.primary.opacity(0.9))
                         .padding(.top, 9)
@@ -161,6 +114,7 @@ struct CenterControl: View {
                 )
             }
             .frame(height: 74)
+            .padding(.bottom, safeAreaInsets.bottom)
             .background(SafeAreaBlockBottom().ignoresSafeArea())
         }
     }

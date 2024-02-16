@@ -15,7 +15,7 @@ struct SafeAreaBlockTop: View {
 
     @Environment(NavigationViewModel.self) var nvm
 
-    @State var height: CGFloat = 150
+    @State var height: CGFloat = 160
 
     var minimized: Bool = false
 
@@ -26,8 +26,8 @@ struct SafeAreaBlockTop: View {
                 height: height
             )
             .padding(.horizontal, -200)
-            .blur(radius: 10)
-            .contrast(colorScheme == .dark ? 1.2 : 1)
+            .blur(radius: 16)
+            .contrast(colorScheme == .dark ? 1.2 : 1.05)
             .offset(
                 y:
                     -height/(minimized ? 1.5 : (sizeClass == .compact ? 3.5 : 2.1))
@@ -39,12 +39,25 @@ struct SafeAreaBlockTop: View {
 struct SafeAreaBlockBottom: View {
 
     @Environment(\.colorScheme) private var colorScheme
+
+    @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
+    @State var height: CGFloat = 160
+
     var body: some View {
-        VisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
-            .contrast(colorScheme == .dark ? 1.17 : 1)
-            .opacity(nvm.showNoteSwitcher ? 0 : 1)
+        VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+            .frame(
+                width: 9999,
+                height: height
+            )
+            .padding(.horizontal, -200)
+            .blur(radius: 13)
+            .contrast(colorScheme == .dark ? 1.2 : 1.05)
+            .offset(
+                y:
+                    height/5
+            )
     }
 }
 

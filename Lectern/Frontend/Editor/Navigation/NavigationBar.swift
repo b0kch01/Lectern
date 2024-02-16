@@ -13,7 +13,7 @@ struct NavigationBar: View {
     @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
-    @State var noteTitle: String = "Getting Started on Lectern"
+    @State var noteTitle: String = "SampleNote.pdf"
 
     @State var showFlashcard = false
 
@@ -22,14 +22,35 @@ struct NavigationBar: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            Capsule()
+                .fill(Color(.quaternaryLabel))
+                .frame(width: 35, height: 4.3)
+                .padding(.top, 7)
+
             HStack(spacing: 0) {
+                TextField(
+                    "Untitled Note",
+                    text: $noteTitle
+                )
+                .font(Font.custom("OpenRunde-Semibold", size: 16))
+                .lineLimit(1)
+                .fixedSize(horizontal: true, vertical: false)
+                .submitLabel(.done)
+
+                Image(systemName: "chevron.down")
+                    .font(.footnote.weight(.bold))
+                    .offset(y: 1)
+                    .padding(.leading, 7)
+
+                Spacer()
+
                 Button(action: {
                     if !nvm.roundCorners {
                         withAnimation(.linear(duration: 0), completionCriteria: .logicallyComplete) {
                             nvm.roundCorners = true
                         } completion: {
                             LightHaptics.shared.play(.soft)
-                            
+
                             withAnimation(.smooth(duration: 0.3)) {
                                 nvm.showNoteSwitcher = true
                                 vm.selected = []
@@ -46,28 +67,9 @@ struct NavigationBar: View {
                         .hoverEffect(.highlight)
                 }
                 .padding(-9)
-
-                CenterHStack {
-                    TextField(
-                        "Untitled Note",
-                        text: $noteTitle
-                    )
-                    .font(.system(size: UIConstants.callout).weight(.semibold))
-                    .multilineTextAlignment(.center)
-                    .lineLimit(1)
-                    .padding(.horizontal)
-                    .submitLabel(.done)
-                }
-
-                Image(systemName: "magnifyingglass")
-                    .font(.system(size: 20))
-                    .padding(20)
-                    .contentShape(Rectangle())
-                    .padding(-20)
-                    .opacity(0)
             }
             .padding(.vertical)
-            .padding(.horizontal, 24)
+            .padding(.horizontal)
             .foregroundStyle(.primary.opacity(0.9))
             .opacity(minimized ? 0 : 1)
             .overlay(

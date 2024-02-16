@@ -98,7 +98,7 @@ class UIConstants: ObservableObject {
                 return radius
             }
 
-            return 18
+            return 55 //18
         } else {
             return 18
         }

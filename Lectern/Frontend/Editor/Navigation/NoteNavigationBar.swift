@@ -11,7 +11,7 @@ struct NoteSwitcherNavigationBar: View {
 
     @Environment(NavigationViewModel.self) var nvm
 
-    @State var noteTitle: String = "Getting Started on Lectern"
+    @State var noteTitle: String = "SampleNote.pdf"
 
     var body: some View {
         Group {

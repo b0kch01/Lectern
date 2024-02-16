@@ -61,6 +61,11 @@
 		D4C207FD2A5A99E900F40B05 /* AddControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C207FC2A5A99E900F40B05 /* AddControl.swift */; };
 		D4D678E22A3E2F2D00F3B38E /* FluidGradient in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E12A3E2F2D00F3B38E /* FluidGradient */; };
 		D4D678E72A3E5C3600F3B38E /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = D4D678E62A3E5C3600F3B38E /* WrappingHStack */; };
+		D4DC13292B7ED3A900EBC0B7 /* Variablur in Frameworks */ = {isa = PBXBuildFile; productRef = D4DC13282B7ED3A900EBC0B7 /* Variablur */; };
+		D4DC132F2B7EEACF00EBC0B7 /* OpenRunde-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4DC132B2B7EEACF00EBC0B7 /* OpenRunde-Medium.otf */; };
+		D4DC13302B7EEACF00EBC0B7 /* OpenRunde-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4DC132C2B7EEACF00EBC0B7 /* OpenRunde-Semibold.otf */; };
+		D4DC13312B7EEACF00EBC0B7 /* OpenRunde-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4DC132D2B7EEACF00EBC0B7 /* OpenRunde-Regular.otf */; };
+		D4DC13322B7EEACF00EBC0B7 /* OpenRunde-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4DC132E2B7EEACF00EBC0B7 /* OpenRunde-Bold.otf */; };
 		D4F21AAE2A538B4C006999DF /* PresetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F21AAD2A538B4C006999DF /* PresetText.swift */; };
 		E99CD2902A3E264300C2987C /* LecternApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD28F2A3E264300C2987C /* LecternApp.swift */; };
 		E99CD2922A3E264300C2987C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2912A3E264300C2987C /* ContentView.swift */; };
@@ -125,6 +130,10 @@
 		D44A79062A3E2E8C0031ECF7 /* TestBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBlock.swift; sourceTree = "<group>"; };
 		D4C207FA2A5A96B100F40B05 /* StudyControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyControl.swift; sourceTree = "<group>"; };
 		D4C207FC2A5A99E900F40B05 /* AddControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddControl.swift; sourceTree = "<group>"; };
+		D4DC132B2B7EEACF00EBC0B7 /* OpenRunde-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenRunde-Medium.otf"; sourceTree = "<group>"; };
+		D4DC132C2B7EEACF00EBC0B7 /* OpenRunde-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenRunde-Semibold.otf"; sourceTree = "<group>"; };
+		D4DC132D2B7EEACF00EBC0B7 /* OpenRunde-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenRunde-Regular.otf"; sourceTree = "<group>"; };
+		D4DC132E2B7EEACF00EBC0B7 /* OpenRunde-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenRunde-Bold.otf"; sourceTree = "<group>"; };
 		D4F21AAD2A538B4C006999DF /* PresetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetText.swift; sourceTree = "<group>"; };
 		E99CD28C2A3E264300C2987C /* Lectern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lectern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99CD28F2A3E264300C2987C /* LecternApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecternApp.swift; sourceTree = "<group>"; };
@@ -146,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4320AD82A5B4B63007902B2 /* VariableBlurView in Frameworks */,
+				D4DC13292B7ED3A900EBC0B7 /* Variablur in Frameworks */,
 				D4D678E72A3E5C3600F3B38E /* WrappingHStack in Frameworks */,
 				D4D678E22A3E2F2D00F3B38E /* FluidGradient in Frameworks */,
 			);
@@ -326,6 +336,17 @@
 			path = Blurt;
 			sourceTree = "<group>";
 		};
+		D4DC132A2B7EEAC500EBC0B7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D4DC132E2B7EEACF00EBC0B7 /* OpenRunde-Bold.otf */,
+				D4DC132B2B7EEACF00EBC0B7 /* OpenRunde-Medium.otf */,
+				D4DC132D2B7EEACF00EBC0B7 /* OpenRunde-Regular.otf */,
+				D4DC132C2B7EEACF00EBC0B7 /* OpenRunde-Semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E99CD2832A3E264300C2987C = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				E99CD29E2A3E44C800C2987C /* Info.plist */,
+				D4DC132A2B7EEAC500EBC0B7 /* Fonts */,
 				D44A78FF2A3E2E600031ECF7 /* Alpha */,
 				D44A78B92A3E2AA60031ECF7 /* Helpers */,
 				D44A78962A3E278A0031ECF7 /* Backend */,
@@ -396,6 +418,7 @@
 				D4D678E12A3E2F2D00F3B38E /* FluidGradient */,
 				D4D678E62A3E5C3600F3B38E /* WrappingHStack */,
 				D4320AD72A5B4B63007902B2 /* VariableBlurView */,
+				D4DC13282B7ED3A900EBC0B7 /* Variablur */,
 			);
 			productName = Lectern;
 			productReference = E99CD28C2A3E264300C2987C /* Lectern.app */;
@@ -429,6 +452,7 @@
 				D4D678E02A3E2F2D00F3B38E /* XCRemoteSwiftPackageReference "FluidGradient" */,
 				D4D678E52A3E5C3600F3B38E /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				D4320AD62A5B4B63007902B2 /* XCRemoteSwiftPackageReference "VariableBlurView" */,
+				D4DC13272B7ED3A900EBC0B7 /* XCRemoteSwiftPackageReference "Variablur" */,
 			);
 			productRefGroup = E99CD28D2A3E264300C2987C /* Products */;
 			projectDirPath = "";
@@ -444,6 +468,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DC132F2B7EEACF00EBC0B7 /* OpenRunde-Medium.otf in Resources */,
+				D4DC13322B7EEACF00EBC0B7 /* OpenRunde-Bold.otf in Resources */,
+				D4DC13312B7EEACF00EBC0B7 /* OpenRunde-Regular.otf in Resources */,
+				D4DC13302B7EEACF00EBC0B7 /* OpenRunde-Semibold.otf in Resources */,
 				E99CD2982A3E264400C2987C /* Preview Assets.xcassets in Resources */,
 				E99CD2942A3E264400C2987C /* Assets.xcassets in Resources */,
 			);
@@ -649,7 +677,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lectern/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Afternote;
+				INFOPLIST_KEY_CFBundleDisplayName = Lectern;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe your studying. Audio recordings are discarded after transcription.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can explain your notes out loud for improved retention.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -691,7 +719,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lectern/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Afternote;
+				INFOPLIST_KEY_CFBundleDisplayName = Lectern;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe your studying. Audio recordings are discarded after transcription.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can explain your notes out loud for improved retention.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -767,6 +795,14 @@
 				minimumVersion = 2.2.10;
 			};
 		};
+		D4DC13272B7ED3A900EBC0B7 /* XCRemoteSwiftPackageReference "Variablur" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daprice/Variablur";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -784,6 +820,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4D678E52A3E5C3600F3B38E /* XCRemoteSwiftPackageReference "WrappingHStack" */;
 			productName = WrappingHStack;
+		};
+		D4DC13282B7ED3A900EBC0B7 /* Variablur */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4DC13272B7ED3A900EBC0B7 /* XCRemoteSwiftPackageReference "Variablur" */;
+			productName = Variablur;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
