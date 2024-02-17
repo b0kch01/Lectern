@@ -15,7 +15,7 @@ struct SafeAreaBlockTop: View {
 
     @Environment(NavigationViewModel.self) var nvm
 
-    @State var height: CGFloat = 160
+    var height: CGFloat = 190
 
     var minimized: Bool = false
 
@@ -27,12 +27,11 @@ struct SafeAreaBlockTop: View {
             )
             .padding(.horizontal, -200)
             .blur(radius: 16)
-            .contrast(colorScheme == .dark ? 1.2 : 1.05)
+            .contrast(1.05)
             .offset(
                 y:
                     -height/(minimized ? 1.5 : (sizeClass == .compact ? 3.5 : 2.1))
             )
-            .opacity(nvm.showNoteSwitcher ? 0 : 1)
     }
 }
 
@@ -43,7 +42,7 @@ struct SafeAreaBlockBottom: View {
     @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
-    @State var height: CGFloat = 160
+    var height: CGFloat = 180
 
     var body: some View {
         VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
@@ -53,7 +52,7 @@ struct SafeAreaBlockBottom: View {
             )
             .padding(.horizontal, -200)
             .blur(radius: 13)
-            .contrast(colorScheme == .dark ? 1.2 : 1.05)
+            .contrast(1.05)
             .offset(
                 y:
                     height/5
@@ -63,21 +62,52 @@ struct SafeAreaBlockBottom: View {
 
 struct NoteSafeAreaBlock: View {
 
-    @State var height: CGFloat = 150
+    @Environment(\.horizontalSizeClass) var sizeClass
+    @Environment(\.colorScheme) private var colorScheme
+
+    @Environment(NavigationViewModel.self) var nvm
+
+    var height: CGFloat = 160
+
+    var minimized: Bool = false
 
     var body: some View {
-        VisualEffectView(effect: UIBlurEffect(style: .systemMaterialLight))
+        VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialDark))
             .frame(
                 width: 9999,
                 height: height
             )
             .padding(.horizontal, -200)
-            .blur(radius: 13)
-            .contrast(1.3)
-            .brightness(-0.9)
+            .blur(radius: 16)
+            .brightness(-0.1)
             .offset(
                 y:
-                    -height/1.4
+                    -height/(minimized ? 1.5 : (sizeClass == .compact ? 3.5 : 2.1))
+            )
+    }
+}
+
+struct NoteSafeAreaBlockBottom: View {
+
+    @Environment(\.colorScheme) private var colorScheme
+
+    @Environment(EditorViewModel.self) var vm
+    @Environment(NavigationViewModel.self) var nvm
+
+    var height: CGFloat = 180
+
+    var body: some View {
+        VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialDark))
+            .frame(
+                width: 9999,
+                height: height
+            )
+            .padding(.horizontal, -200)
+            .blur(radius: 16)
+            .brightness(-0.1)
+            .offset(
+                y:
+                    height/5
             )
     }
 }

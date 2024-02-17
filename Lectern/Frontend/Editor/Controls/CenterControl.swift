@@ -25,68 +25,56 @@ struct CenterControl: View {
         VStack(spacing: 0) {
             Spacer()
 
-            if vm.showAI && sizeClass == .compact {
-                LeadingHStack {
-                    Text("Why is active recall so powerful?")
-                        .font(.system(size: UIConstants.body).weight(.semibold))
-                }
-                .padding(.vertical, 11)
-                .padding(.horizontal, 11)
-                .background(Color.highlightYellow)
-                .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 11, style: .continuous)
-                        .stroke(.yellow, lineWidth: 2)
-                )
-                .padding(.bottom, 16)
-                .padding(.horizontal, 24)
-            }
-
             GeometryReader { geometry in
                 Color.clear.overlay(
                     VStack(spacing: 0) {
-
                         HStack(spacing: 7) {
-                            if vm.shipState == nil {
+                            if vm.shipState == nil && vm.showAI == false {
                                 Spacer()
                             }
                             
                             if vm.shipState != .misc && vm.shipState != .add && vm.shipState != .format {
                                 CustomSymbolButton(
                                     symbol: "lectern",
-                                    foreground: vm.shipState == .study ? .mainColorInvert : .primary.opacity(0.9),
-                                    background: vm.shipState == .study ? .main : Color.clear
+                                    foreground: vm.showAI ? .mainColorInvert : .primary.opacity(0.9),
+                                    background: vm.showAI ? .main : Color.clear
                                 ) {
                                     withAnimation(.defaultSpring) {
-                                        if vm.shipState == nil {
-                                            vm.shipState = .study
-                                        } else {
-                                            vm.shipState = nil
-                                        }
+                                        vm.showAI.toggle()
+                                    }
+
+                                    if vm.showAI {
+
+                                    } else {
+                                        cm.studySelect = nil
                                     }
                                 }
                             }
                             
-                            if vm.shipState == nil {
+                            if vm.shipState == nil && vm.showAI == false {
                                 Spacer()
                             }
                             
-                            if vm.shipState != .study && vm.shipState != .add && vm.shipState != .format {
-                                SymbolButton(
-                                    symbol: "ellipsis",
-                                    foreground: vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9),
-                                    background: vm.shipState == .misc ? .main : Color.clear
-                                ) {
-                                    withAnimation(.defaultSpring) {
-                                        if vm.shipState == nil {
-                                            vm.shipState = .misc
-                                        } else {
-                                            vm.shipState = nil
+                            Group {
+                                if vm.showAI == false {
+                                    SymbolButton(
+                                        symbol: "ellipsis",
+                                        foreground: vm.shipState == .misc ? .mainColorInvert : .primary.opacity(0.9),
+                                        background: vm.shipState == .misc ? .main : Color.clear
+                                    ) {
+                                        withAnimation(.defaultSpring) {
+                                            if vm.shipState == nil {
+                                                vm.shipState = .misc
+                                            } else {
+                                                vm.shipState = nil
+                                            }
                                         }
                                     }
                                 }
                             }
-                            
+                            .opacity(vm.showAI == false ? 1 : 0)
+                            .blur(radius: vm.showAI == false ? 0 : 5)
+
                             Spacer()
                         }
                         .padding(.horizontal, 24)

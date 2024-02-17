@@ -32,7 +32,7 @@ struct PlaybackControl: View {
                     ProgressView()
                 } else if cm.studyState == .transcribingPaused || cm.studyState == .practicingPaused {
                     HStack(spacing: 10) {
-                        SymbolButton(symbol: "play.fill") {
+                        SymbolButton(symbol: "mic") {
                             withAnimation(.snappy) {
                                 cm.sr.startTranscribing()
                                 if cm.studyState == .practicingPaused {
@@ -58,7 +58,7 @@ struct PlaybackControl: View {
                     }
                 } else if cm.study.count == 0 || cm.studyState == .practicing {
                     HStack(spacing: 10) {
-                        SymbolButton(symbol: "pause.fill") {
+                        SymbolButton(symbol: "mic.fill") {
                             withAnimation(.snappy) {
                                 cm.blurtVM.savedText += cm.blurtVM.mainText
                                 cm.blurtVM.mainText = []

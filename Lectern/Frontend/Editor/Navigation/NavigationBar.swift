@@ -16,6 +16,7 @@ struct NavigationBar: View {
     @State var noteTitle: String = "SampleNote.pdf"
 
     @State var showFlashcard = false
+    @State var importPDF = false
 
     var title: String
     var minimized: Bool
@@ -25,7 +26,7 @@ struct NavigationBar: View {
             Capsule()
                 .fill(Color(.quaternaryLabel))
                 .frame(width: 35, height: 4.3)
-                .padding(.top, 7)
+                .padding(.vertical, 7)
 
             HStack(spacing: 0) {
                 TextField(
@@ -43,41 +44,24 @@ struct NavigationBar: View {
                     .padding(.leading, 7)
 
                 Spacer()
-
-                Button(action: {
-                    if !nvm.roundCorners {
-                        withAnimation(.linear(duration: 0), completionCriteria: .logicallyComplete) {
-                            nvm.roundCorners = true
-                        } completion: {
-                            LightHaptics.shared.play(.soft)
-
-                            withAnimation(.smooth(duration: 0.3)) {
-                                nvm.showNoteSwitcher = true
-                                vm.selected = []
-                                vm.shipState = nil
-                            }
-                        }
-                    }
-                }) {
-                    Image(systemName: "square.on.square")
-                        .font(.system(size: 20))
-                        .padding(9)
-                        .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-                        .contentShape(Rectangle())
-                        .hoverEffect(.highlight)
-                }
-                .padding(-9)
             }
             .padding(.vertical)
             .padding(.horizontal)
             .foregroundStyle(.primary.opacity(0.9))
-            .opacity(minimized ? 0 : 1)
+            .opacity(minimized && nvm.selectedPage != .miscView ? 0 : 1)
+            .blur(radius: minimized && nvm.selectedPage != .miscView ? 10 : 0)
             .overlay(
-                checkMarkButton
-                    .animation(.smooth) { content in
-                        content
-                            .blur(radius: minimized ? 0 : 20)
-                    }
+                ZStack {
+                    checkMarkButton
+                        .blur(radius: minimized || vm.showAI ? 0 : 20)
+                        .opacity(minimized || vm.showAI ? 1 : 0)
+                        .animation(.smooth(duration: 0.3), value: minimized || vm.showAI)
+
+                    addButton
+                        .blur(radius: !minimized && !vm.showAI ? 0 : 20)
+                        .opacity(!minimized && !vm.showAI ? 1 : 0)
+                        .animation(.smooth(duration: 0.3), value: minimized || vm.showAI)
+                }
                 , alignment: .trailing
             )
 
@@ -87,7 +71,7 @@ struct NavigationBar: View {
 
     private var checkMarkButton: some View {
         Group {
-            if minimized {
+            if minimized || vm.showAI {
                 Button(action: {
                     hideKeyboard()
                     withAnimation(.defaultSpring) {
@@ -102,6 +86,36 @@ struct NavigationBar: View {
                         .hoverEffect(.lift)
                 }
                 .transition(.scale)
+                .transformEffect(.identity)
+            }
+        }
+    }
+
+    var addButton: some View {
+        Group {
+            if !minimized && !vm.showAI {
+                Button(action: {
+                    withAnimation(.smooth(duration: 0.2)) {
+                        vm.importPDF = true
+                    }
+                }) {
+                    Image(systemName: "plus")
+                        .font(.system(size: UIConstants.subhead).weight(.semibold))
+                        .foregroundStyle(.main)
+                        .padding(.vertical, 9)
+                        .padding(.horizontal, 24)
+                        .background(.ultraThinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 39, style: .continuous))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 39, style: .continuous)
+                                .stroke(.borderBackground, lineWidth: 1)
+                        )
+                        .padding()
+                        .contentShape(Rectangle())
+                        .hoverEffect(.lift)
+                        .transition(.scale)
+                        .transformEffect(.identity)
+                }
             }
         }
     }

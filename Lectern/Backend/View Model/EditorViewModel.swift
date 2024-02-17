@@ -22,6 +22,12 @@ final class EditorViewModel {
     var selected = Set<String>()
 
     var showAI = false
+
+    // Import controls
+    var showFile = false
+    var showScan = false
+
+    var importPDF = false
 }
 
 enum ShipState: String {

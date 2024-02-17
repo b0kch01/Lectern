@@ -31,7 +31,7 @@ struct SymbolButton: View {
             tapped.toggle()
         }) {
             Image(systemName: symbol)
-                .font(.system(size: 17 + (symbol == "waveform" || symbol == "pause.fill" ? 3 : 0)).weight(.medium))
+                .font(.system(size: 17 + (symbol == "waveform" || symbol == "pause.fill" || symbol == "mic" || symbol == "mic.fill" || symbol == "doc.viewfinder" ? 3 : 0)).weight(.medium))
                 .foregroundStyle(foreground)
                 .symbolEffect(.bounce, value: tapped)
                 .frame(width: 21, height: 21)

@@ -46,7 +46,6 @@
 		D44A78EA2A3E2D590031ECF7 /* EditorContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A78E92A3E2D590031ECF7 /* EditorContent.swift */; };
 		D44A78EC2A3E2D6A0031ECF7 /* BlurtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A78EB2A3E2D6A0031ECF7 /* BlurtView.swift */; };
 		D44A78EF2A3E2D820031ECF7 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A78EE2A3E2D820031ECF7 /* NavigationBar.swift */; };
-		D44A78F12A3E2D8F0031ECF7 /* NoteNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A78F02A3E2D8F0031ECF7 /* NoteNavigationBar.swift */; };
 		D44A78F32A3E2DA00031ECF7 /* SafeAreaBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A78F22A3E2DA00031ECF7 /* SafeAreaBlock.swift */; };
 		D44A78F52A3E2DBF0031ECF7 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A78F42A3E2DBF0031ECF7 /* Keyboard.swift */; };
 		D44A78F72A3E2DF10031ECF7 /* CollapsedBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A78F62A3E2DF10031ECF7 /* CollapsedBlock.swift */; };
@@ -66,6 +65,11 @@
 		D4DC13302B7EEACF00EBC0B7 /* OpenRunde-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4DC132C2B7EEACF00EBC0B7 /* OpenRunde-Semibold.otf */; };
 		D4DC13312B7EEACF00EBC0B7 /* OpenRunde-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4DC132D2B7EEACF00EBC0B7 /* OpenRunde-Regular.otf */; };
 		D4DC13322B7EEACF00EBC0B7 /* OpenRunde-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4DC132E2B7EEACF00EBC0B7 /* OpenRunde-Bold.otf */; };
+		D4DC13342B7F4ED700EBC0B7 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DC13332B7F4ED700EBC0B7 /* ListView.swift */; };
+		D4DC13362B7FFD1000EBC0B7 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DC13352B7FFD1000EBC0B7 /* StudyView.swift */; };
+		D4DC13382B80413900EBC0B7 /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DC13372B80413900EBC0B7 /* ImportView.swift */; };
+		D4DC133A2B80764000EBC0B7 /* ImportControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DC13392B80764000EBC0B7 /* ImportControl.swift */; };
+		D4DC133C2B81358300EBC0B7 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DC133B2B81358300EBC0B7 /* PlaceholderView.swift */; };
 		D4F21AAE2A538B4C006999DF /* PresetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F21AAD2A538B4C006999DF /* PresetText.swift */; };
 		E99CD2902A3E264300C2987C /* LecternApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD28F2A3E264300C2987C /* LecternApp.swift */; };
 		E99CD2922A3E264300C2987C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99CD2912A3E264300C2987C /* ContentView.swift */; };
@@ -117,7 +121,6 @@
 		D44A78E92A3E2D590031ECF7 /* EditorContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorContent.swift; sourceTree = "<group>"; };
 		D44A78EB2A3E2D6A0031ECF7 /* BlurtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurtView.swift; sourceTree = "<group>"; };
 		D44A78EE2A3E2D820031ECF7 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
-		D44A78F02A3E2D8F0031ECF7 /* NoteNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteNavigationBar.swift; sourceTree = "<group>"; };
 		D44A78F22A3E2DA00031ECF7 /* SafeAreaBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaBlock.swift; sourceTree = "<group>"; };
 		D44A78F42A3E2DBF0031ECF7 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		D44A78F62A3E2DF10031ECF7 /* CollapsedBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsedBlock.swift; sourceTree = "<group>"; };
@@ -134,6 +137,11 @@
 		D4DC132C2B7EEACF00EBC0B7 /* OpenRunde-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenRunde-Semibold.otf"; sourceTree = "<group>"; };
 		D4DC132D2B7EEACF00EBC0B7 /* OpenRunde-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenRunde-Regular.otf"; sourceTree = "<group>"; };
 		D4DC132E2B7EEACF00EBC0B7 /* OpenRunde-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenRunde-Bold.otf"; sourceTree = "<group>"; };
+		D4DC13332B7F4ED700EBC0B7 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		D4DC13352B7FFD1000EBC0B7 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		D4DC13372B80413900EBC0B7 /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
+		D4DC13392B80764000EBC0B7 /* ImportControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportControl.swift; sourceTree = "<group>"; };
+		D4DC133B2B81358300EBC0B7 /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		D4F21AAD2A538B4C006999DF /* PresetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetText.swift; sourceTree = "<group>"; };
 		E99CD28C2A3E264300C2987C /* Lectern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lectern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E99CD28F2A3E264300C2987C /* LecternApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecternApp.swift; sourceTree = "<group>"; };
@@ -280,6 +288,10 @@
 				D44A78ED2A3E2D7A0031ECF7 /* Navigation */,
 				D44A78DC2A3E2C860031ECF7 /* Controls */,
 				D44A78E72A3E2D4C0031ECF7 /* EditorView.swift */,
+				D4DC13352B7FFD1000EBC0B7 /* StudyView.swift */,
+				D4DC13332B7F4ED700EBC0B7 /* ListView.swift */,
+				D4DC13372B80413900EBC0B7 /* ImportView.swift */,
+				D4DC133B2B81358300EBC0B7 /* PlaceholderView.swift */,
 				D44A78E92A3E2D590031ECF7 /* EditorContent.swift */,
 			);
 			path = Editor;
@@ -294,6 +306,7 @@
 				D44A78DF2A3E2D030031ECF7 /* MiscControl.swift */,
 				D44A78E32A3E2D230031ECF7 /* PlaybackControl.swift */,
 				D4C207FA2A5A96B100F40B05 /* StudyControl.swift */,
+				D4DC13392B80764000EBC0B7 /* ImportControl.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -302,7 +315,6 @@
 			isa = PBXGroup;
 			children = (
 				D44A78EE2A3E2D820031ECF7 /* NavigationBar.swift */,
-				D44A78F02A3E2D8F0031ECF7 /* NoteNavigationBar.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -492,13 +504,13 @@
 				D44A78BB2A3E2ABB0031ECF7 /* Constants.swift in Sources */,
 				D44A78B42A3E2A5F0031ECF7 /* ContentManager.swift in Sources */,
 				E99CD2A62A3E514900C2987C /* Array.swift in Sources */,
+				D4DC133A2B80764000EBC0B7 /* ImportControl.swift in Sources */,
 				D44A78FE2A3E2E540031ECF7 /* TextBlockViewModel.swift in Sources */,
 				D44A78AE2A3E28F60031ECF7 /* FoldableBlock.swift in Sources */,
 				D44A78AA2A3E28B40031ECF7 /* TextStyleStandard.swift in Sources */,
 				D44A78DA2A3E2BE90031ECF7 /* Bar.swift in Sources */,
 				D44A79052A3E2E820031ECF7 /* AlphaEditorView.swift in Sources */,
 				D4C207FD2A5A99E900F40B05 /* AddControl.swift in Sources */,
-				D44A78F12A3E2D8F0031ECF7 /* NoteNavigationBar.swift in Sources */,
 				D44A78CC2A3E2B7C0031ECF7 /* Font.swift in Sources */,
 				D44A78FA2A3E2E120031ECF7 /* ImagePicker.swift in Sources */,
 				D44A78A82A3E287D0031ECF7 /* TextBlockUIKit.swift in Sources */,
@@ -510,6 +522,7 @@
 				D44A78C02A3E2B070031ECF7 /* UIApplication.swift in Sources */,
 				D44A78EC2A3E2D6A0031ECF7 /* BlurtView.swift in Sources */,
 				D44A78DE2A3E2C930031ECF7 /* CenterControl.swift in Sources */,
+				D4DC133C2B81358300EBC0B7 /* PlaceholderView.swift in Sources */,
 				E99CD2AD2A3E62E800C2987C /* URL.swift in Sources */,
 				D44A78AC2A3E28E10031ECF7 /* BlockView.swift in Sources */,
 				D44A78EA2A3E2D590031ECF7 /* EditorContent.swift in Sources */,
@@ -519,6 +532,7 @@
 				D44A78A52A3E28650031ECF7 /* TextBlock.swift in Sources */,
 				E99CD2922A3E264300C2987C /* ContentView.swift in Sources */,
 				D44A789A2A3E27C40031ECF7 /* EditorViewModel.swift in Sources */,
+				D4DC13362B7FFD1000EBC0B7 /* StudyView.swift in Sources */,
 				D44A79072A3E2E8C0031ECF7 /* TestBlock.swift in Sources */,
 				D4320ADA2A5BF170007902B2 /* FormatControl.swift in Sources */,
 				D44A78D22A3E2B9F0031ECF7 /* String.swift in Sources */,
@@ -530,6 +544,7 @@
 				E99CD2902A3E264300C2987C /* LecternApp.swift in Sources */,
 				D44A78E42A3E2D230031ECF7 /* PlaybackControl.swift in Sources */,
 				D4F21AAE2A538B4C006999DF /* PresetText.swift in Sources */,
+				D4DC13342B7F4ED700EBC0B7 /* ListView.swift in Sources */,
 				D44A78B02A3E29050031ECF7 /* RootBlockView.swift in Sources */,
 				E99CD2AB2A3E5EAC00C2987C /* ContentManagerStudy.swift in Sources */,
 				D44A78E82A3E2D4C0031ECF7 /* EditorView.swift in Sources */,
@@ -541,6 +556,7 @@
 				D44A79032A3E2E770031ECF7 /* AlphaBlock.swift in Sources */,
 				D44A78B62A3E2A870031ECF7 /* ContentManagerFolding.swift in Sources */,
 				D44A78E02A3E2D030031ECF7 /* MiscControl.swift in Sources */,
+				D4DC13382B80413900EBC0B7 /* ImportView.swift in Sources */,
 				D4C207FB2A5A96B100F40B05 /* StudyControl.swift in Sources */,
 				D44A78E22A3E2D160031ECF7 /* SymbolButton.swift in Sources */,
 			);
