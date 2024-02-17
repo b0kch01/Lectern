@@ -78,6 +78,7 @@ struct NavigationBar: View {
                         vm.selected = []
                         vm.shipState = nil
                         cm.focusState = nil
+                        vm.showAI = false
                     }
                 }) {
                     RoundedButton(symbol: "checkmark")
@@ -96,7 +97,7 @@ struct NavigationBar: View {
             if !minimized && !vm.showAI {
                 Button(action: {
                     withAnimation(.smooth(duration: 0.2)) {
-                        vm.importPDF = true
+                        vm.scrolledID = vm.numberOfTabs
                     }
                 }) {
                     Image(systemName: "plus")

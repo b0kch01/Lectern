@@ -24,10 +24,17 @@ final class EditorViewModel {
     var showAI = false
 
     // Import controls
-    var showFile = false
     var showScan = false
 
     var importPDF = false
+
+    var scrolledID: Int?
+
+    var numberOfTabs = 4
+}
+
+class ViewModel: ObservableObject {
+    @Published var showFile: Bool = false
 }
 
 enum ShipState: String {

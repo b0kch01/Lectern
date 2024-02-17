@@ -19,12 +19,12 @@ struct PlaceholderView: View {
                         .font(Font.custom("OpenRunde-Semibold", size: 16))
                         .foregroundColor(.main)
 
-                    Text("Tap \(Image(systemName: "folder")) to import files or \(Image(systemName: "doc.viewfinder")) to scan documents.")
+                    Text("Tap \(Image(systemName: "folder")) to import files or \(Image(systemName: "doc.viewfinder"))\nto scan documents.")
                         .font(Font.custom("OpenRunde-Regular", size: 14))
                         .foregroundColor(.secondary)
                 }
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 40)
+                .padding(.horizontal)
             )
     }
 }

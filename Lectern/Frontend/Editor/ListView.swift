@@ -11,6 +11,8 @@ struct ListView: View {
 
     @Environment(\.safeAreaInsets) var safeAreaInsets
 
+    @State var searchText: String = ""
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
@@ -101,8 +103,9 @@ struct ListView: View {
                 Image(systemName: "magnifyingglass")
                     .font(.subheadline.weight(.medium))
 
-                Text("Search")
+                TextField("Search", text: $searchText)
                     .font(Font.custom("OpenRunde-Regular", size: 16))
+                    .scrollDismissesKeyboard(.immediately)
 
                 Spacer()
             }

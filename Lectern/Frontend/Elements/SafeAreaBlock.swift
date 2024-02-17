@@ -27,7 +27,8 @@ struct SafeAreaBlockTop: View {
             )
             .padding(.horizontal, -200)
             .blur(radius: 16)
-            .contrast(1.05)
+            .contrast(colorScheme == .dark ? 0.1 : 1.05)
+            .brightness(colorScheme == .dark ? -0.4 : 0)
             .offset(
                 y:
                     -height/(minimized ? 1.5 : (sizeClass == .compact ? 3.5 : 2.1))
@@ -51,8 +52,9 @@ struct SafeAreaBlockBottom: View {
                 height: height
             )
             .padding(.horizontal, -200)
-            .blur(radius: 13)
-            .contrast(1.05)
+            .blur(radius: 16)
+            .contrast(colorScheme == .dark ? 0.1 : 1.05)
+            .brightness(colorScheme == .dark ? -0.4 : 0)
             .offset(
                 y:
                     height/5

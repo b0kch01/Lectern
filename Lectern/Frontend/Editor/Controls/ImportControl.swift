@@ -18,6 +18,13 @@ struct ImportControl: View {
     @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
+    @Binding var showImport: Bool
+    @Binding var showScan: Bool
+    @State private var text = ""
+    @State private var error: Error?
+
+    @ObservedObject var viewModel: ScanViewModel
+
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
@@ -26,38 +33,49 @@ struct ImportControl: View {
                 Color.clear.overlay(
                     VStack(spacing: 0) {
                         HStack(spacing: 7) {
-                            if !vm.showFile && !vm.showScan {
-                                Spacer()
-                            }
+                            Spacer()
 
-                            if !vm.showScan {
-                                SymbolButton(
+                            Button(action: { showImport = true }) {
+                                EmptySymbolButton(
                                     symbol: "folder.badge.plus",
-                                    foreground: vm.showFile ? .mainColorInvert : .primary.opacity(0.9),
-                                    background: vm.showFile ? .main : Color.clear
-                                ) {
-                                    withAnimation(.defaultSpring) {
-                                        vm.showFile.toggle()
-                                        vm.showScan = false
+                                    foreground: .primary.opacity(0.9),
+                                    background: Color.clear
+                                )
+                            }
+                            .fileImporter(isPresented: $showImport, allowedContentTypes: [.plainText]) { result in
+                                switch result {
+                                case .success(let url):
+                                    // Ensure the URL is not accessed if the user has not granted permission.
+                                    guard url.startAccessingSecurityScopedResource() else { return }
+
+                                    // Read the file content
+                                    do {
+                                        text += try String(contentsOf: url)
+                                    } catch {
+                                        self.error = error
                                     }
+
+                                    // Make sure you release the security-scoped resource when you finish.
+                                    url.stopAccessingSecurityScopedResource()
+                                case .failure(let error):
+                                    self.error = error
                                 }
                             }
 
-                            if !vm.showFile && !vm.showScan {
-                                Spacer()
-                            }
+                            Spacer()
 
-                            if !vm.showFile {
-                                SymbolButton(
+                            Button(action: {
+                                showScan = true
+                            }) {
+                                EmptySymbolButton(
                                     symbol: "doc.viewfinder",
                                     foreground: vm.showScan ? .mainColorInvert : .primary.opacity(0.9),
                                     background: vm.showScan ? .main : Color.clear
-                                ) {
-                                    withAnimation(.defaultSpring) {
-                                        vm.showScan.toggle()
-                                        vm.showFile = false
-                                    }
-                                }
+                                )
+                            }
+                            .sheet(isPresented: $showScan) {
+                                DocumentCameraViewControllerWrapper(viewModel: viewModel)
+                                    .ignoresSafeArea()
                             }
 
                             Spacer()
@@ -75,5 +93,17 @@ struct ImportControl: View {
             .padding(.bottom, safeAreaInsets.bottom)
             .background(SafeAreaBlockBottom().ignoresSafeArea())
         }
+    }
+}
+
+struct DocumentCameraViewControllerWrapper: UIViewControllerRepresentable {
+    var viewModel: ScanViewModel
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return viewModel.getDocumentCameraViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        // Update the view controller if needed
     }
 }

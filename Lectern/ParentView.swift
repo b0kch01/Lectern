@@ -22,18 +22,19 @@ struct ParentView: View {
     @State var vm = EditorViewModel()
     @State var nvm = NavigationViewModel()
 
+    @State var showImport = false
+    @State var showScan = false
+
     @State private var currentPageIndex: Int = 0
 
     @Namespace var bottomID
-    @State var scrolledID: Int?
-
-    let numberOfTabs = 4
 
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 0) {
                 ListView()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .background(Color.darkBackground)
                     .clipShape(Rectangle())
                     .overlay(
                         Color.black
@@ -55,7 +56,7 @@ struct ParentView: View {
                     .padding(.top, nvm.selectedPage == .miscView ? -55 : 0)
                     .background(Color.elevatedBackground)
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .top)
-                    .clipShape(RoundedRectangle(cornerRadius: nvm.selectedPage == .miscView ? 20 : UIConstants.screenRadius, style: .continuous))
+                    .clipShape(RoundedRectangle(cornerRadius: showImport || showScan ? 0 : (nvm.selectedPage == .miscView ? 20 : UIConstants.screenRadius), style: .continuous))
                     .shadow(color: Color.black.opacity(0.2), radius: 30, y: 10)
                     .shadow(color: Color.black.opacity(0.05), radius: 1, y: 1)
                     .animation(.smooth(duration: 0.39), value: nvm.selectedPage)
@@ -79,9 +80,9 @@ struct ParentView: View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(0..<numberOfTabs + 1, id: \.self) { index in
+                    ForEach(0..<vm.numberOfTabs + 1, id: \.self) { index in
                         Group {
-                            if index < numberOfTabs {
+                            if index < vm.numberOfTabs {
                                 ZStack {
                                     EditorView()
                                     StudyView()
@@ -102,11 +103,11 @@ struct ParentView: View {
                 .scrollTargetLayout()
             }
             .scrollTargetBehavior(.viewAligned)
-            .scrollPosition(id: $scrolledID)
+            .scrollPosition(id: $vm.scrolledID)
             .onChange(of: vm.importPDF) {
                 withAnimation {
                     proxy.scrollTo(bottomID, anchor: .trailing)
-                    scrolledID = numberOfTabs
+                    vm.scrolledID = vm.numberOfTabs
                 }
             }
         }
@@ -128,18 +129,18 @@ struct ParentView: View {
         )
         .overlay(
             CenterControl()
-                .opacity((scrolledID ?? -1) == numberOfTabs ? 0 : 1)
-                .scaleEffect((scrolledID ?? -1) == numberOfTabs ? 0.7 : 1, anchor: .bottom)
-                .blur(radius: (scrolledID ?? -1) == numberOfTabs ? 5 : 0)
-                .animation(.smooth(duration: 0.2), value: scrolledID)
+                .opacity((vm.scrolledID ?? -1) == vm.numberOfTabs ? 0 : 1)
+                .scaleEffect((vm.scrolledID ?? -1) == vm.numberOfTabs ? 0.7 : 1, anchor: .bottom)
+                .blur(radius: (vm.scrolledID ?? -1) == vm.numberOfTabs ? 5 : 0)
+                .animation(.smooth(duration: 0.2), value: vm.scrolledID)
             , alignment: .bottom
         )
         .overlay(
-            ImportControl()
-                .opacity((scrolledID ?? -1) != numberOfTabs ? 0 : 1)
-                .scaleEffect((scrolledID ?? -1) != numberOfTabs ? 0.7 : 1, anchor: .bottom)
-                .blur(radius: (scrolledID ?? -1) != numberOfTabs ? 5 : 0)
-                .animation(.smooth(duration: 0.2), value: scrolledID)
+            ImportControl(showImport: $showImport, showScan: $showScan, viewModel: ScanViewModel())
+                .opacity((vm.scrolledID ?? -1) != vm.numberOfTabs ? 0 : 1)
+                .scaleEffect((vm.scrolledID ?? -1) != vm.numberOfTabs ? 0.7 : 1, anchor: .bottom)
+                .blur(radius: (vm.scrolledID ?? -1) != vm.numberOfTabs ? 5 : 0)
+                .animation(.smooth(duration: 0.2), value: vm.scrolledID)
             , alignment: .bottom
         )
         .accentColor(.sub)
