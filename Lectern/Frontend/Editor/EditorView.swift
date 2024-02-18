@@ -12,7 +12,6 @@ struct EditorView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
     @Environment(\.safeAreaInsets) var safeAreaInsets
 
-    @Environment(ContentManager.self) var cm
     @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 

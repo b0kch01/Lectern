@@ -14,7 +14,6 @@ struct CenterControl: View {
 
     @Environment(\.colorScheme) var colorScheme
 
-    @Environment(ContentManager.self) var cm
     @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
@@ -41,12 +40,6 @@ struct CenterControl: View {
                                 ) {
                                     withAnimation(.defaultSpring) {
                                         vm.showAI.toggle()
-                                    }
-
-                                    if vm.showAI {
-
-                                    } else {
-                                        cm.studySelect = nil
                                     }
                                 }
                             }
@@ -78,11 +71,6 @@ struct CenterControl: View {
                             Spacer()
                         }
                         .padding(.horizontal, 24)
-                        .overlay(
-                            StudyControl()
-                                .opacity(vm.shipState == .study ? 1 : 0)
-                                .blur(radius: vm.shipState == .study ? 0 : 5)
-                        )
                         .overlay(
                             MiscControl()
                                 .opacity(vm.shipState == .misc ? 1 : 0)

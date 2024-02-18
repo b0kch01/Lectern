@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NavigationBar: View {
 
-    @Environment(ContentManager.self) var cm
     @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
@@ -77,7 +76,6 @@ struct NavigationBar: View {
                     withAnimation(.defaultSpring) {
                         vm.selected = []
                         vm.shipState = nil
-                        cm.focusState = nil
                         vm.showAI = false
                     }
                 }) {

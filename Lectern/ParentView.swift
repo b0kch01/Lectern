@@ -18,7 +18,6 @@ struct ParentView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
     @Environment(\.colorScheme) var colorScheme
 
-    @State var cm = ContentManager()
     @State var vm = EditorViewModel()
     @State var nvm = NavigationViewModel()
 
@@ -121,9 +120,8 @@ struct ParentView: View {
         .overlay(
             NavigationBar(
                 title: "SampleNote.pdf",
-                minimized: nvm.selectedPage == .miscView ? false : ((cm.focusState != nil) || !vm.selected.isEmpty || vm.shipState != nil)
+                minimized: nvm.selectedPage == .miscView ? false : (!vm.selected.isEmpty || vm.shipState != nil)
             )
-            .animation(.snappy, value: cm.focusState)
             .padding(.top, safeAreaInsets.top)
             , alignment: .top
         )
@@ -146,7 +144,6 @@ struct ParentView: View {
         .accentColor(.sub)
         .scrollDismissesKeyboard(.interactively)
         .ignoresSafeArea()
-        .environment(cm)
         .environment(vm)
         .environment(nvm)
         .overlay(

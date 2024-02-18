@@ -14,7 +14,6 @@ struct ImportControl: View {
 
     @Environment(\.colorScheme) var colorScheme
 
-    @Environment(ContentManager.self) var cm
     @Environment(EditorViewModel.self) var vm
     @Environment(NavigationViewModel.self) var nvm
 
