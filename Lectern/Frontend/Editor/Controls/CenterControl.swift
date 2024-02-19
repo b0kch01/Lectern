@@ -33,8 +33,8 @@ struct CenterControl: View {
                             }
                             
                             if vm.shipState != .misc && vm.shipState != .add && vm.shipState != .format {
-                                CustomSymbolButton(
-                                    symbol: "lectern",
+                                SymbolButton(
+                                    symbol: "rainbow",
                                     foreground: vm.showAI ? .mainColorInvert : .primary.opacity(0.9),
                                     background: vm.showAI ? .main : Color.clear
                                 ) {

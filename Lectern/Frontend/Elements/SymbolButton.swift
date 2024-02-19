@@ -69,7 +69,7 @@ struct CustomSymbolButton: View {
             tapped.toggle()
         }) {
             Image(symbol)
-                .font(.system(size: 17 + (symbol == "lectern" || symbol == "pause.fill" ? 3 : 0)).weight(.medium))
+                .font(.system(size: 17 + (symbol == "rainbow" || symbol == "pause.fill" ? 3 : 0)).weight(.medium))
                 .foregroundStyle(foreground)
                 .symbolEffect(.bounce, value: tapped)
                 .frame(width: 21, height: 21)
@@ -103,7 +103,7 @@ struct EmptySymbolButton: View {
     
     var body: some View {
         Image(systemName: symbol)
-            .font(.system(size: 17 + (symbol == "waveform" || symbol == "pause.fill" || symbol == "mic" || symbol == "mic.fill" || symbol == "doc.viewfinder" ? 3 : 0)).weight(.medium))
+            .font(.system(size: 17 + (symbol == "rainbow" || symbol == "waveform" || symbol == "pause.fill" || symbol == "mic" || symbol == "mic.fill" || symbol == "doc.viewfinder" ? 3 : 0)).weight(.medium))
             .foregroundStyle(foreground)
             .symbolEffect(.bounce, value: tapped)
             .frame(width: 21, height: 21)

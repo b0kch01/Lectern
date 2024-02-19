@@ -545,7 +545,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lectern/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Lectern;
+				INFOPLIST_KEY_CFBundleDisplayName = OpenNote;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe your studying. Audio recordings are discarded after transcription.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can explain your notes out loud for improved retention.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -587,7 +587,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lectern/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Lectern;
+				INFOPLIST_KEY_CFBundleDisplayName = OpenNote;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe your studying. Audio recordings are discarded after transcription.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can explain your notes out loud for improved retention.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
